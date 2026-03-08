@@ -1,0 +1,3708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="João Vítor - Senior Data & Product Analyst building data products that bridge ML models and revenue growth.">
+    <title>João Vítor - Senior Data & Product Analyst</title>
+
+    <link rel="preconnect" href="https:fonts.googleapis.com">
+    <link rel="preconnect" href="https:fonts.gstatic.com" crossorigin>
+    <link href="https:fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #0f0f0f;
+            --bg-elevated: #1a1a1a;
+            --text-primary: #f0f0f0;
+            --text-secondary: #a1a1a6;
+            --text-tertiary: #8e8e93;
+            --accent-primary: #fff;
+            --accent-highlight: #46d369;
+            --border-subtle: #222;
+            --border-medium: #333;
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        ::selection {
+            background: rgba(70, 211, 105, 0.3);
+            color: var(--accent-primary);
+        }
+        
+        ::-moz-selection {
+            background: rgba(70, 211, 105, 0.3);
+            color: var(--accent-primary);
+        }
+        
+        html { 
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-highlight) var(--bg-secondary);
+        }
+        
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-highlight);
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5ae478;
+        }
+
+        body { 
+            background: var(--bg-primary); 
+            color: var(--text-primary); 
+            font-family: var(--font-body);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            animation: bodyFadeIn 0.6s ease;
+        }
+        
+        @keyframes bodyFadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        a { 
+            color: inherit; 
+            text-decoration: none; 
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+        }
+
+        /* ===== NAV (CLEAN P&B + Emoji moderno) ===== */
+        nav {
+            padding: 30px 5%;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: flex-start;
+            font-family: var(--font-display);
+            border-bottom: 1px solid var(--border-subtle);
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5),
+                        0 1px 0 rgba(255, 255, 255, 0.03) inset;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .modern-icon {
+            font-size: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .modern-icon:hover {
+            transform: scale(1.15) rotate(5deg);
+            filter: brightness(1.3) drop-shadow(0 0 8px rgba(70, 211, 105, 0.5));
+        }
+
+        .logo { 
+            font-weight: 700; 
+            font-size: clamp(0.85rem, 2vw, 1.1rem);
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links a { 
+            margin-left: 30px; 
+            font-size: 0.9rem; 
+            color: var(--text-secondary);
+            position: relative;
+            padding: 8px 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-highlight), transparent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover { 
+            color: var(--accent-primary);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 72px 5% 60px 5%;
+        }
+
+        .hero-grid {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(70, 211, 105, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(70, 211, 105, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes gridMove {
+            0% { 
+                transform: translate(0, 0);
+                opacity: 0.5;
+            }
+            50% { 
+                opacity: 1;
+            }
+            100% { 
+                transform: translate(50px, 50px);
+                opacity: 0.5;
+            }
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, 
+                    rgba(70, 211, 105, 0.12) 0%, 
+                    rgba(70, 211, 105, 0.05) 30%,
+                    transparent 60%),
+                radial-gradient(circle at 80% 20%, 
+                    rgba(70, 211, 105, 0.08) 0%, 
+                    transparent 50%);
+            z-index: 1;
+            animation: glowPulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes glowPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 100px;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+                        0 1px 0 rgba(255, 255, 255, 0.05) inset;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(70, 211, 105, 0.1),
+                        0 1px 0 rgba(255, 255, 255, 0.08) inset;
+        }
+
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            background: var(--accent-highlight);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(70, 211, 105, 0.2),
+                        0 0 20px rgba(70, 211, 105, 0.4);
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                box-shadow: 0 0 0 4px rgba(70, 211, 105, 0.2),
+                            0 0 20px rgba(70, 211, 105, 0.4);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 0 10px rgba(70, 211, 105, 0),
+                            0 0 30px rgba(70, 211, 105, 0.6);
+                transform: scale(1.05);
+            }
+        }
+
+        .badge-text {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.5px;
+        }
+
+        /* Greeting simples */
+        .hero-greeting {
+            font-family: var(--font-display);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            animation: fadeInUp 0.8s ease 0.3s backwards;
+            letter-spacing: 1px;
+        }
+
+        .hero-greeting-highlight {
+            color: var(--accent-highlight);
+            font-weight: 700;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 6vw, 5rem);
+            line-height: 1.15;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 32px;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .title-highlight {
+            background: linear-gradient(135deg, 
+                var(--accent-highlight) 0%,
+                #5ae478 30%,
+                #38b557 70%,
+                #2a9544 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 80px rgba(70, 211, 105, 0.3);
+            animation: gradientShift 8s ease infinite;
+            background-size: 200% 200%;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.4rem);
+            color: var(--text-secondary);
+            font-weight: 400;
+            line-height: 1.7;
+            margin-bottom: 60px;
+            max-width: 800px;
+            animation: fadeInUp 0.8s ease 0.6s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            animation: fadeInUp 0.8s ease 0.8s backwards;
+        }
+
+        .stat-item {
+            position: relative;
+            padding-top: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateX(8px);
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-highlight), transparent);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 0 10px rgba(70, 211, 105, 0.5);
+        }
+
+        .stat-item:hover::before {
+            width: 80px;
+            box-shadow: 0 0 20px rgba(70, 211, 105, 0.8);
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-tertiary);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 8px;
+            color: var(--accent-primary);
+        }
+
+        .stat-gpa {
+            background: linear-gradient(135deg, 
+                var(--accent-highlight) 0%, 
+                #38b557 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-context {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            margin-top: 8px;
+        }
+
+        /* ===== ABOUT ME ===== */
+        .about-section {
+            padding: 100px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .about-label-container { 
+            position: sticky; 
+            top: 120px; 
+        }
+
+        .about-label {
+            font-family: var(--font-display);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-tertiary);
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            margin-bottom: 24px;
+        }
+
+        .about-number {
+            font-family: var(--font-display);
+            font-size: 8rem;
+            font-weight: 700;
+            line-height: 1;
+            background: linear-gradient(180deg, var(--accent-highlight) 0%, transparent 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0.1;
+        }
+
+        .about-content { 
+            max-width: 700px; 
+        }
+
+        .about-intro {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            line-height: 1.8;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            font-weight: 500;
+        }
+
+        .about-paragraph {
+            font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .about-highlight {
+            color: var(--accent-highlight);
+            font-weight: 600;
+        }
+
+        /* ===== PROJECTS (FIX CLICKABLE) ===== */
+        .projects-section {
+            padding: 80px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            margin-bottom: 60px;
+            max-width: 700px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .project-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(70, 211, 105, 0.03) 0%, 
+                transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: rgba(70, 211, 105, 0.5);
+            box-shadow: 0 20px 60px rgba(70, 211, 105, 0.2),
+                        0 8px 24px rgba(0, 0, 0, 0.4),
+                        0 0 0 1px rgba(70, 211, 105, 0.1) inset;
+        }
+        
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-visual {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, 
+                rgba(70, 211, 105, 0.05) 0%, 
+                rgba(70, 211, 105, 0.02) 50%,
+                transparent 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border-subtle);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-visual::before {
+            content: '';
+            position: absolute;
+            width: 200%; height: 200%;
+            background: repeating-linear-gradient(45deg,
+                transparent, transparent 20px,
+                rgba(70, 211, 105, 0.03) 20px,
+                rgba(70, 211, 105, 0.03) 40px);
+            animation: slidePattern 20s linear infinite;
+        }
+
+        @keyframes slidePattern {
+            0% { transform: translate(-50%, -50%); }
+            100% { transform: translate(0%, 0%); }
+        }
+
+        .project-label {
+            position: relative;
+            z-index: 1;
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-highlight);
+            font-weight: 600;
+        }
+
+        .project-content { 
+            padding: 28px;
+            user-select: text;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            user-select: text;
+        }
+
+        .project-tag {
+            font-size: 0.7rem;
+            padding: 6px 12px;
+            background: rgba(70, 211, 105, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(70, 211, 105, 0.3);
+            border-radius: 6px;
+            color: var(--accent-highlight);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            user-select: text;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(70, 211, 105, 0.1);
+        }
+        
+        .project-tag:hover {
+            background: rgba(70, 211, 105, 0.15);
+            border-color: rgba(70, 211, 105, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(70, 211, 105, 0.2);
+        }
+
+        .project-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            margin-bottom: 12px;
+            font-weight: 600;
+            line-height: 1.3;
+            user-select: text;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            user-select: text;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-highlight);
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+        
+        .project-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent-highlight);
+            transition: width 0.3s ease;
+        }
+
+        .project-link:hover { 
+            gap: 14px;
+            transform: translateX(4px);
+            filter: brightness(1.2);
+        }
+        
+        .project-link:hover::after {
+            width: 100%;
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline-section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--bg-secondary);
+        }
+
+        .timeline-container { 
+            position: relative; 
+            padding-left: 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, 
+                var(--accent-highlight) 0%, 
+                var(--border-subtle) 50%,
+                transparent 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 60px;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .timeline-item:hover { 
+            transform: translateX(12px);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -6px; top: 8px;
+            width: 14px; height: 14px;
+            background: var(--bg-primary);
+            border: 3px solid var(--accent-highlight);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(70, 211, 105, 0.1),
+                        0 0 12px rgba(70, 211, 105, 0.3);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .timeline-item:hover .timeline-dot {
+            box-shadow: 0 0 0 12px rgba(70, 211, 105, 0.2),
+                        0 0 24px rgba(70, 211, 105, 0.6);
+            transform: scale(1.3);
+            border-width: 4px;
+        }
+
+        .timeline-period {
+            font-family: var(--font-display);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-highlight);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .timeline-company {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--accent-primary);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .timeline-role {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .timeline-description {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 600px;
+        }
+
+        /* ===== TECH STACK (NÚMEROS VISÍVEIS) ===== */
+        .tech-stack-section {
+            padding: 100px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tech-stack-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .tech-stack-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: 24px;
+            font-weight: 600;
+            letter-spacing: -1px;
+        }
+
+        .tech-stack-subtitle {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .skills-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .skill-column {
+            position: relative;
+        }
+
+        .column-number {
+            font-family: var(--font-display);
+            font-size: clamp(4rem, 8vw, 6rem);
+            font-weight: 700;
+            line-height: 1;
+            color: transparent;
+            -webkit-text-stroke: 2px var(--border-medium);
+            margin-bottom: 24px;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .skill-column:hover .column-number {
+            -webkit-text-stroke: 2px var(--accent-highlight);
+            opacity: 1;
+        }
+
+        .column-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: var(--accent-primary);
+            margin-bottom: 28px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-item {
+            padding: 12px 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            border-bottom: 1px solid var(--border-subtle);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: default;
+            position: relative;
+        }
+        
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                rgba(70, 211, 105, 0.05) 0%, 
+                transparent 100%);
+            transition: width 0.4s ease;
+        }
+
+        .skill-item:hover {
+            color: var(--accent-primary);
+            padding-left: 16px;
+            border-bottom-color: var(--accent-highlight);
+            text-shadow: 0 0 20px rgba(70, 211, 105, 0.3);
+        }
+        
+        .skill-item:hover::before {
+            width: 100%;
+        }
+
+        .skill-item:last-child {
+            border-bottom: none;
+        }
+
+        .skill-column::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent-highlight);
+            box-shadow: 0 0 12px rgba(70, 211, 105, 0.6);
+            transition: all 0.4s ease;
+        }
+
+        .skill-column:nth-child(2)::before {
+            background: #4a9eff;
+            box-shadow: 0 0 12px rgba(74, 158, 255, 0.6);
+        }
+
+        .skill-column:nth-child(3)::before {
+            background: #a855f7;
+            box-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
+        }
+        
+        .skill-column:hover::before {
+            width: 60px;
+            box-shadow: 0 0 20px currentColor;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            padding: 80px 5% 40px 5%; 
+            display: flex; 
+            flex-direction: column;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .contact-cta { 
+            font-size: clamp(2rem, 5vw, 3.5rem); 
+            font-family: var(--font-display); 
+            line-height: 1.2; 
+            display: inline-block;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .contact-cta::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                var(--accent-highlight) 0%, 
+                transparent 100%);
+            transform: scaleX(1);
+            transform-origin: left;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .contact-cta:hover { 
+            color: var(--accent-highlight);
+            transform: translateX(12px);
+            letter-spacing: 2px;
+        }
+        
+        .contact-cta:hover::after {
+            transform: scaleX(1.1);
+            box-shadow: 0 0 20px rgba(70, 211, 105, 0.6);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .social-links { 
+            display: flex; 
+            gap: 16px; 
+        }
+
+        .social-link {
+            width: 44px; height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-medium);
+            border-radius: 50%;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-link::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, 
+                rgba(70, 211, 105, 0.1) 0%, 
+                transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .social-link:hover {
+            border-color: var(--accent-highlight);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            transform: translateY(-6px) scale(1.1);
+            box-shadow: 0 8px 24px rgba(70, 211, 105, 0.3),
+                        0 0 0 1px rgba(70, 211, 105, 0.2) inset;
+        }
+        
+        .social-link:hover::before {
+            opacity: 1;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .about-grid { 
+                grid-template-columns: 1fr; 
+                gap: 40px; 
+            }
+
+            .about-label-container { 
+                position: relative; 
+                top: 0; 
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .about-label { 
+                writing-mode: horizontal-tb; 
+                transform: none; 
+                margin-bottom: 0;
+            }
+
+            .about-number {
+                font-size: 4rem;
+            }
+
+            .hero-stats { 
+                gap: 32px; 
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 20px 5%;
+            }
+
+            .nav-links a {
+                margin-left: 20px;
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 100px 5% 60px 5%;
+            }
+
+            .hero-stats { 
+                gap: 32px; 
+            }
+
+            .timeline-item { 
+                padding-left: 40px; 
+                margin-bottom: 50px;
+            }
+
+            .projects-grid { 
+                grid-template-columns: 1fr; 
+            }
+
+            .stat-value { 
+                font-size: 1.8rem; 
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container {
+                gap: 8px;
+            }
+
+            .modern-icon {
+                font-size: 1.2rem;
+            }
+
+            .hero-badge {
+                padding: 8px 16px;
+            }
+
+            .badge-text {
+                font-size: 0.75rem;
+            }
+
+            .hero-title {
+                letter-spacing: -1px;
+            }
+
+            .about-label-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .skills-columns {
+                gap: 50px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { 
+                animation: none !important; 
+                transition: none !important; 
+            }
+        }
+    
+        /* SISTEMA DE PÁGINAS - ESTILO MEDIUM */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* ===== TAB NAVIGATION ===== */
+        .tab-navigation {
+            display: flex;
+            gap: 8px;
+            border-bottom: 1px solid var(--border-subtle);
+            margin-bottom: 40px;
+        }
+
+        .tab-button {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border-bottom: 2px solid transparent;
+            font-family: var(--font-body);
+            position: relative;
+        }
+        
+        .tab-button::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                var(--accent-highlight), 
+                transparent);
+            transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .tab-button:hover {
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+        
+        .tab-button:hover::before {
+            width: 100%;
+        }
+
+        .tab-button.active {
+            color: var(--accent-highlight);
+            border-bottom-color: transparent;
+        }
+        
+        .tab-button.active::before {
+            width: 100%;
+            background: var(--accent-highlight);
+            box-shadow: 0 0 12px rgba(70, 211, 105, 0.6);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+</style>
+
+<style>
+/* ═══════════════════════════════════════════════
+   MODERN OVERRIDE, flat, ousado, clean
+═══════════════════════════════════════════════ */
+body{background:#0a0a0a!important}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:#0a0a0a}
+::-webkit-scrollbar-thumb{background:#1e1e1e;border-radius:2px}
+
+nav{transition:background .4s ease,border-color .4s ease!important}
+nav.nf-solid{background:rgba(10,10,10,.97)!important;border-bottom:1px solid rgba(255,255,255,.05)!important;backdrop-filter:blur(20px)!important}
+
+.hero-title{font-size:clamp(36px,5vw,68px)!important;letter-spacing:-3px!important;line-height:1.04!important;font-weight:900!important}
+.title-highlight{color:var(--accent-highlight)!important;background:none!important;-webkit-text-fill-color:unset!important}
+.hero-subtitle{font-size:16px!important;color:#aeaeb2!important;max-width:520px!important;line-height:1.8!important}
+
+.hero-stats{background:transparent!important;border:1px solid rgba(255,255,255,.06)!important;border-radius:6px!important}
+.stat-item{background:transparent!important;border-right:1px solid rgba(255,255,255,.06)!important;border-left:2px solid transparent!important;transition:background .2s ease,border-left-color .2s ease!important}
+.stat-item:last-child{border-right:none!important}
+.stat-item:hover{background:rgba(70,211,105,.04)!important;border-left-color:var(--accent-highlight)!important}
+
+.about-section,.projects-section,.timeline-section,.tech-stack-section{background:transparent!important;border:none!important;position:relative!important}
+.about-section::before,.projects-section::before,.timeline-section::before,.tech-stack-section::before{content:''!important;position:absolute!important;top:0!important;left:6%!important;right:6%!important;height:1px!important;background:linear-gradient(to right,transparent,rgba(255,255,255,.06) 20%,rgba(255,255,255,.06) 80%,transparent)!important}
+
+.about-number{color:rgba(255,255,255,.025)!important}
+.about-label{letter-spacing:4px!important;font-size:10px!important}
+.about-intro{font-size:21px!important;line-height:1.55!important;letter-spacing:-.3px!important}
+.about-highlight{color:var(--accent-highlight)!important;background:none!important;-webkit-text-fill-color:unset!important}
+
+.section-title{font-size:10px!important;font-weight:700!important;color:var(--accent-highlight)!important;text-transform:uppercase!important;letter-spacing:4px!important;margin-bottom:8px!important}
+.section-subtitle{color:#98989d!important;font-size:15px!important}
+
+.project-card{background:transparent!important;border:1px solid rgba(255,255,255,.07)!important;border-radius:4px!important;transition:border-color .25s ease,background .25s ease,transform .25s ease!important;position:relative!important;overflow:hidden!important}
+.project-card::before{content:''!important;position:absolute!important;top:0!important;left:0!important;right:0!important;height:1px!important;background:var(--accent-highlight)!important;transform:scaleX(0)!important;transform-origin:left!important;transition:transform .35s cubic-bezier(.22,1,.36,1)!important}
+.project-card:hover{background:rgba(255,255,255,.02)!important;border-color:rgba(70,211,105,.18)!important;transform:translateY(-3px)!important}
+.project-card:hover::before{transform:scaleX(1)!important}
+.project-card::after{display:none!important}
+.project-label{font-size:9px!important;font-weight:700!important;letter-spacing:3px!important;text-transform:uppercase!important;color:var(--accent-highlight)!important}
+.project-title{font-size:18px!important;letter-spacing:-.5px!important;font-weight:700!important}
+.project-description{color:#98989d!important;font-size:14px!important;line-height:1.8!important}
+
+.timeline-line{background:linear-gradient(to bottom,var(--accent-highlight),rgba(70,211,105,.06) 75%,transparent)!important;width:1px!important}
+.timeline-dot{background:var(--accent-highlight)!important;box-shadow:0 0 0 3px rgba(70,211,105,.1),0 0 12px rgba(70,211,105,.4)!important;transition:box-shadow .3s ease!important}
+.timeline-item,.timeline-item:hover{background:transparent!important}
+.timeline-item:hover .timeline-dot{box-shadow:0 0 0 6px rgba(70,211,105,.15),0 0 24px rgba(70,211,105,.65)!important}
+.timeline-period{font-size:10px!important;letter-spacing:2px!important;color:#8e8e93!important}
+.timeline-company{font-size:22px!important;letter-spacing:-.5px!important;font-weight:700!important}
+.timeline-role{color:var(--accent-highlight)!important;font-size:11px!important;letter-spacing:1.5px!important;text-transform:uppercase!important;font-weight:600!important}
+.timeline-description{color:#98989d!important;font-size:14px!important;line-height:1.9!important}
+.timeline-description strong{color:#ccc!important}
+
+.tech-stack-title{font-size:28px!important;letter-spacing:-1px!important;font-weight:700!important}
+.tech-stack-subtitle{color:#98989d!important;font-size:15px!important}
+.skill-column{background:transparent!important;border:1px solid rgba(255,255,255,.07)!important;border-radius:4px!important;transition:border-color .25s ease,background .25s ease!important;position:relative!important}
+.skill-column::before,.skill-column::after{display:none!important}
+.skill-column:hover{background:rgba(255,255,255,.02)!important;border-color:rgba(70,211,105,.18)!important}
+.column-number{color:var(--accent-highlight)!important;font-size:10px!important;letter-spacing:3px!important}
+.column-title{font-size:13px!important;font-weight:700!important;color:#ddd!important}
+.skill-item{color:#98989d!important;font-size:13px!important}
+.skill-item::before{background:var(--accent-highlight)!important;opacity:.35!important}
+
+footer{background:transparent!important;border-top:1px solid rgba(255,255,255,.05)!important;padding:36px 6%!important}
+.footer-bottom{justify-content:space-between!important;align-items:center!important}
+.social-link{color:#aeaeb2!important;transition:color .2s!important}
+.social-link:hover{color:var(--accent-highlight)!important}
+
+/* Fade-in sections */
+.about-section,.projects-section,.timeline-section,.tech-stack-section{opacity:0;transform:translateY(24px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)!important}
+.about-section.visible,.projects-section.visible,.timeline-section.visible,.tech-stack-section.visible{opacity:1!important;transform:translateY(0)!important}
+
+@media(max-width:900px){
+    .hero-title{font-size:clamp(28px,8vw,48px)!important;letter-spacing:-2px!important}
+    .hero-stats{grid-template-columns:1fr 1fr!important}
+    .projects-grid{grid-template-columns:1fr!important}
+    .skills-columns{grid-template-columns:1fr!important}
+    .about-grid{grid-template-columns:1fr!important;gap:20px!important}
+    .about-section,.projects-section,.timeline-section,.tech-stack-section{padding:70px 5%!important}
+}
+@media(max-width:540px){
+    .hero-title{font-size:26px!important;letter-spacing:-1px!important}
+    .hero-stats{grid-template-columns:1fr!important}
+    nav{padding:16px 5%!important}
+}
+
+/* TECH STACK OTIMIZADO - Última versão aprovada */
+.skills-columns { 
+  display: grid !important; grid-template-columns: repeat(3,1fr) !important; 
+  gap: 64px !important; max-width: 1400px !important; margin: 0 auto !important; 
+}
+.skill-column { position: relative !important; padding-top: 40px !important; }
+.skill-column::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 40px; height: 3px; 
+  background: #46d369; box-shadow: 0 0 16px rgba(70,211,105,.6); 
+  transition: width .5s cubic-bezier(.16,1,.3,1);
+}
+.skill-column:nth-child(2)::before { background: #4a9eff; box-shadow: 0 0 16px rgba(74,158,255,.6); }
+.skill-column:nth-child(3)::before { background: #a855f7; box-shadow: 0 0 16px rgba(168,85,247,.6); }
+.skill-column:hover::before { width: 72px !important; box-shadow: 0 0 24px currentColor !important; }
+.column-number {
+  font-size: clamp(7rem,12vw,10rem) !important; font-weight: 900 !important;
+  -webkit-text-stroke: 2.5px rgba(255,255,255,.08) !important;
+}
+.skill-column:nth-child(1):hover .column-number { -webkit-text-stroke: 2.5px #46d369 !important; }
+.skill-column:nth-child(2):hover .column-number { -webkit-text-stroke: 2.5px #4a9eff !important; }
+.skill-column:nth-child(3):hover .column-number { -webkit-text-stroke: 2.5px #a855f7 !important; }
+.skill-item { font-size: 16px !important; padding: 16px 0 !important; }
+</style>
+
+
+<style id="article-styles-v4">
+.art-body{font-family:'Inter',-apple-system,sans-serif}
+.art-body p{font-size:1.05rem;color:#c0c0c0;line-height:1.9;margin-bottom:1.6rem}
+.art-body h1{font-size:clamp(1.9rem,3.8vw,2.65rem);font-weight:800;line-height:1.13;letter-spacing:-.03em;color:#f4f4f4;margin-bottom:18px}
+.art-body h2{font-size:1.55rem;font-weight:700;color:#f0f0f0;margin:3.2rem 0 1rem;letter-spacing:-.02em;border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:.6rem}
+.art-body h3{font-size:1.15rem;font-weight:600;color:#ddd;margin:2rem 0 .8rem}
+.art-body strong{color:#f0f0f0}
+.art-body em{color:#a0a0a0;font-style:italic}
+.art-body code{font-family:'JetBrains Mono','Fira Code',monospace;background:rgba(255,255,255,.07);padding:2px 7px;border-radius:4px;font-size:.88em;color:#e2e8f0}
+.art-byline{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:44px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.07)}
+.art-byline span{font-size:12.5px;color:#98989d}
+.art-byline .dot{color:#aeaeb2}
+.art-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.art-tag-indigo{font-size:11.5px;padding:4px 13px;background:rgba(99,102,241,.1);color:#818cf8;border-radius:20px;font-weight:600;border:1px solid rgba(99,102,241,.18)}
+.art-tag-green{font-size:11.5px;padding:4px 13px;background:rgba(16,185,129,.09);color:#34d399;border-radius:20px;font-weight:600;border:1px solid rgba(16,185,129,.18)}
+.art-codeblock{background:rgba(12,12,12,.9);border:1px solid rgba(255,255,255,.07);border-radius:12px;overflow:hidden;margin:1.8rem 0}
+.art-codeblock-header{background:rgba(255,255,255,.03);padding:9px 18px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:center}
+.art-codeblock-header span{font-family:monospace;font-size:.78rem;color:#98989d}
+.art-codeblock pre{padding:22px;font-size:.84rem;color:#a8b4c8;line-height:1.8;margin:0;overflow-x:auto;font-family:'JetBrains Mono','Fira Code',monospace}
+.art-codeblock pre .cm{color:#5a6a7a}
+.art-table{overflow-x:auto;margin:1.8rem 0}
+.art-table table{width:100%;border-collapse:collapse;font-size:.88rem}
+.art-table th{padding:12px 14px;color:#777;font-weight:600;text-align:left;border-bottom:1px solid rgba(255,255,255,.09)}
+.art-table td{padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.04);color:#bbb;vertical-align:top}
+.art-table tr:last-child td{border-bottom:none}
+.art-note{background:rgba(99,102,241,.06);border-left:3px solid rgba(99,102,241,.45);border-radius:0 10px 10px 0;padding:18px 22px;margin:1.8rem 0}
+.art-note .art-note-label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#818cf8;margin-bottom:8px}
+.art-note p{font-size:.93rem;color:#999;margin:0;line-height:1.75}
+.art-steps{display:flex;flex-direction:column;margin:1.8rem 0 2.4rem}
+.art-step{display:flex;gap:18px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.art-step:last-child{border-bottom:none}
+.art-step-num{font-family:monospace;font-size:.78rem;color:#46d369;font-weight:700;min-width:26px;padding-top:3px}
+.art-step-num-green{color:#34d399}
+.art-step p{font-size:.94rem;color:#aaa;line-height:1.75;margin:0}
+.art-refs ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px}
+.art-refs li{font-size:.84rem;color:#98989d;line-height:1.6}
+.art-refs li em{color:#98989d}
+.badge-ok{background:rgba(70,211,105,.1);color:#46d369;padding:2px 9px;border-radius:20px;font-size:.78rem;font-weight:600}
+.badge-err{background:rgba(255,107,107,.1);color:#ff6b6b;padding:2px 9px;border-radius:20px;font-size:.78rem;font-weight:600}
+.badge-ref{background:rgba(255,255,255,.05);color:#aeaeb2;padding:2px 9px;border-radius:20px;font-size:.78rem}
+.badge-info{background:rgba(52,211,153,.1);color:#34d399;padding:2px 9px;border-radius:20px;font-size:.78rem;font-weight:600}
+.badge-warn{background:rgba(255,107,107,.08);color:#ff6b6b;padding:2px 9px;border-radius:20px;font-size:.78rem}
+</style>
+
+<style id="tech-stack-v8">
+/*  Tech Stack Redesign  */
+.tech-stack-section {
+  padding: 0;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.tech-stack-header {
+  margin-bottom: 72px;
+}
+.tech-stack-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #f4f4f4;
+  margin-bottom: 12px;
+}
+.tech-stack-subtitle {
+  font-size: 15px;
+  color: #8e8e93;
+  letter-spacing: 0.01em;
+}
+.skills-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.skill-column {
+  position: relative;
+  padding: 44px 40px 52px;
+  border: 1px solid rgba(255,255,255,.05);
+  background: transparent;
+  transition: background 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+}
+.skill-column:hover {
+  background: rgba(255,255,255,.02);
+  border-color: rgba(255,255,255,.1);
+}
+.sk-col-accent {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+.skill-column:hover .sk-col-accent {
+  opacity: 1;
+}
+.sk-col-num {
+  font-size: clamp(5rem, 9vw, 8rem);
+  font-weight: 900;
+  color: rgba(70,211,105,.07);
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: -0.05em;
+  -webkit-text-stroke: 1.5px rgba(255,255,255,.04);
+  user-select: none;
+  transition: color 0.3s ease;
+}
+.skill-column:hover .sk-col-num {
+  color: rgba(255,255,255,.04);
+}
+.sk-col-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ccc;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+  margin-bottom: 32px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 11px;
+}
+.sk-list {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.sk-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14.5px;
+  color: #98989d;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(255,255,255,.04);
+  transition: color 0.2s ease;
+  letter-spacing: 0.01em;
+}
+.sk-list li:last-child { border-bottom: none; }
+.skill-column:hover .sk-list li { color: #777; }
+.sk-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+.skill-column:hover .sk-dot { opacity: 0.9; }
+@media (max-width: 900px) {
+  .skills-columns { grid-template-columns: 1fr; gap: 0; }
+  .skill-column { padding: 36px 28px 44px; }
+}
+</style>
+<style id="exp-col-hover">
+.exp-col { transition: background .25s ease; cursor: default; }
+.exp-col:hover { background: rgba(255,255,255,.015); }
+.exp-col:hover .sk-row span:last-child { color: #888 !important; }
+.exp-col:hover .sk-row span:first-child { opacity: 1 !important; }
+@media(max-width:900px){
+  .exp-col { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,.06); }
+  section[style*="tech-stack"] > div > div:last-child > div { grid-template-columns: 1fr !important; }
+}
+</style>
+<style id="ts-v9">
+.ts-wrap { max-width:1300px; margin:0 auto; padding:100px 6% 120px; }
+.ts-label { font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#46d369; font-weight:700; margin-bottom:18px; }
+.ts-title { font-size:clamp(2rem,4vw,2.8rem); font-weight:800; letter-spacing:-.04em; color:#f0f0f0; margin:0 0 64px; }
+
+/*  Featured chips row  */
+.ts-chips { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:56px; }
+.ts-chip { display:inline-flex; align-items:center; gap:6px; padding:7px 14px;
+  border:1px solid rgba(255,255,255,.07); border-radius:40px;
+  font-size:12px; color:#98989d; transition:all .2s ease; cursor:default; }
+.ts-chip:hover { border-color:rgba(255,255,255,.18); color:#ccc; background:rgba(255,255,255,.03); }
+.ts-chip-dot { width:5px; height:5px; border-radius:50%; flex-shrink:0; }
+
+/*  3 colunas com linha divisória  */
+.ts-cols { display:grid; grid-template-columns:repeat(3,1fr); }
+.ts-col { padding:40px 0 40px; border-top:1px solid rgba(255,255,255,.06); }
+.ts-col + .ts-col { border-left:1px solid rgba(255,255,255,.04); padding-left:40px; }
+.ts-col-label { font-size:9.5px; letter-spacing:.22em; text-transform:uppercase; font-weight:700; margin-bottom:24px; }
+.ts-items { display:flex; flex-direction:column; }
+.ts-item { font-size:13.5px; color:#3a3a3a; padding:10px 0;
+  border-bottom:1px solid rgba(255,255,255,.03);
+  display:flex; align-items:center; justify-content:space-between;
+  transition:color .2s; }
+.ts-item:last-child { border-bottom:none; }
+.ts-col:hover .ts-item { color:#505050; }
+.ts-item-tag { font-size:10px; color:#aeaeb2; letter-spacing:.06em; font-family:monospace; }
+.ts-col:hover .ts-item-tag { color:#8e8e93; }
+@media(max-width:900px){
+  .ts-cols { grid-template-columns:1fr; }
+  .ts-col + .ts-col { border-left:none; padding-left:0; border-top:1px solid rgba(255,255,255,.06); }
+  .ts-chips { gap:6px; }
+}
+</style>
+<style id="ts-v10-editorial">
+.ts-editorial { max-width:1100px; margin:0 auto; padding:100px 6% 120px; }
+.ts-editorial-label { font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#46d369; font-weight:700; margin-bottom:18px; display:block; }
+.ts-editorial-title { font-size:clamp(2rem,4vw,2.8rem); font-weight:800; letter-spacing:-.04em; color:#f0f0f0; margin:0 0 80px; }
+
+.ts-area { display:grid; grid-template-columns:1fr 2fr; gap:0; padding:48px 0; border-top:1px solid rgba(255,255,255,.06); align-items:start; }
+.ts-area:last-child { border-bottom:1px solid rgba(255,255,255,.06); }
+.ts-area-left { padding-right:48px; }
+.ts-area-num { font-size:11px; font-family:monospace; color:#aeaeb2; margin-bottom:12px; letter-spacing:.1em; }
+.ts-area-name { font-size:15px; font-weight:700; color:#ddd; line-height:1.4; letter-spacing:-.01em; margin:0 0 10px; }
+.ts-area-desc { font-size:12px; color:#a1a1a6; line-height:1.7; margin:0; }
+.ts-area-skills { font-size:16px; color:#404040; line-height:2; letter-spacing:.01em; }
+.ts-area-skills span { transition:color .15s; }
+.ts-area:hover .ts-area-skills { color:#606060; }
+.ts-area:hover .ts-area-name { color:#eee; }
+.ts-area:hover .ts-area-desc { color:#8e8e93; }
+.ts-sep { color:#1e1e1e; margin:0 4px; user-select:none; }
+@media(max-width:768px){
+  .ts-area { grid-template-columns:1fr; gap:20px; }
+  .ts-area-left { padding-right:0; }
+  .ts-area-skills { font-size:14px; }
+}
+</style>
+<style id="ts-terminal">
+.ts-terminal-wrap { max-width:960px; margin:0 auto; padding:100px 6% 120px; font-family:'JetBrains Mono','Fira Code','Courier New',monospace; }
+.ts-terminal-header { margin-bottom:64px; }
+.ts-terminal-prompt { font-size:11px; color:#46d369; letter-spacing:.15em; margin-bottom:16px; display:block; }
+.ts-terminal-title { font-size:clamp(1.8rem,3.5vw,2.6rem); font-weight:800; letter-spacing:-.03em; color:#f0f0f0; font-family:-apple-system,sans-serif; margin:0; }
+.ts-block { margin-bottom:40px; }
+.ts-block-header { display:flex; align-items:center; gap:0; margin-bottom:14px; }
+.ts-block-bracket { color:#46d369; font-size:13px; }
+.ts-block-bracket.blue { color:#4a9eff; }
+.ts-block-bracket.purple { color:#a855f7; }
+.ts-block-name { font-size:12px; color:#46d369; letter-spacing:.08em; }
+.ts-block-name.blue { color:#4a9eff; }
+.ts-block-name.purple { color:#a855f7; }
+.ts-block-line { flex:1; height:1px; background:linear-gradient(90deg,rgba(70,211,105,.25),transparent); margin-left:8px; }
+.ts-block-line.blue { background:linear-gradient(90deg,rgba(74,158,255,.25),transparent); }
+.ts-block-line.purple { background:linear-gradient(90deg,rgba(168,85,247,.25),transparent); }
+.ts-block-skills { font-size:13px; color:#aeaeb2; line-height:1; padding-left:2px; letter-spacing:.03em; transition:color .2s; }
+.ts-block:hover .ts-block-skills { color:#98989d; }
+.ts-block-skills .ts-dot { color:#1e1e1e; margin:0 5px; transition:color .2s; }
+.ts-block:hover .ts-dot { color:#aeaeb2; }
+@media(max-width:600px){ .ts-block-skills { font-size:12px; } }
+</style><style id="ts-bento">
+.ts-bento-wrap { max-width:1200px; margin:0 auto; padding:100px 6% 120px; }
+.ts-bento-eyebrow { font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#46d369; font-weight:700; margin-bottom:16px; display:block; }
+.ts-bento-title { font-size:clamp(2rem,4vw,2.8rem); font-weight:800; letter-spacing:-.04em; color:#f0f0f0; margin:0 0 56px; }
+
+.ts-bento-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+
+.ts-card {
+  background: rgba(255,255,255,.025);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 16px;
+  padding: 36px 32px 40px;
+  position: relative;
+  overflow: hidden;
+  transition: background .3s ease, border-color .3s ease, transform .3s ease;
+  cursor: default;
+}
+.ts-card:hover {
+  background: rgba(255,255,255,.04);
+  border-color: rgba(255,255,255,.12);
+  transform: translateY(-3px);
+}
+.ts-card-glow {
+  position: absolute;
+  top: -60px; left: -60px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  opacity: 0;
+  filter: blur(60px);
+  transition: opacity .4s ease;
+  pointer-events: none;
+}
+.ts-card:hover .ts-card-glow { opacity: .12; }
+
+.ts-card-num { font-size:10px; font-family:monospace; letter-spacing:.15em; color:#aeaeb2; margin-bottom:20px; display:block; }
+.ts-card-icon { width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; font-size:18px; }
+.ts-card-area { font-size:13px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; margin-bottom:8px; }
+.ts-card-desc { font-size:12.5px; color:#aeaeb2; line-height:1.65; margin:0 0 28px; }
+
+.ts-pills { display:flex; flex-wrap:wrap; gap:6px; }
+.ts-pill {
+  font-size:11.5px;
+  padding: 5px 11px;
+  border-radius: 20px;
+  font-weight: 500;
+  letter-spacing: .02em;
+  transition: background .2s, color .2s;
+}
+
+/* Green */
+.ts-card-green .ts-card-area { color: #46d369; }
+.ts-card-green .ts-card-icon { background: rgba(70,211,105,.08); }
+.ts-card-green .ts-card-glow { background: #46d369; }
+.ts-pill-green { background: rgba(70,211,105,.07); color: #2a5c38; border: 1px solid rgba(70,211,105,.1); }
+.ts-card-green:hover .ts-pill-green { background: rgba(70,211,105,.12); color: #46d369; border-color: rgba(70,211,105,.25); }
+
+/* Blue */
+.ts-card-blue .ts-card-area { color: #4a9eff; }
+.ts-card-blue .ts-card-icon { background: rgba(74,158,255,.08); }
+.ts-card-blue .ts-card-glow { background: #4a9eff; }
+.ts-pill-blue { background: rgba(74,158,255,.07); color: #1a3a5c; border: 1px solid rgba(74,158,255,.1); }
+.ts-card-blue:hover .ts-pill-blue { background: rgba(74,158,255,.12); color: #4a9eff; border-color: rgba(74,158,255,.25); }
+
+/* Purple */
+.ts-card-purple .ts-card-area { color: #a855f7; }
+.ts-card-purple .ts-card-icon { background: rgba(168,85,247,.08); }
+.ts-card-purple .ts-card-glow { background: #a855f7; }
+.ts-pill-purple { background: rgba(168,85,247,.07); color: #3d1a5c; border: 1px solid rgba(168,85,247,.1); }
+.ts-card-purple:hover .ts-pill-purple { background: rgba(168,85,247,.12); color: #a855f7; border-color: rgba(168,85,247,.25); }
+
+.ts-card-desc { transition: color .2s; }
+.ts-card:hover .ts-card-desc { color: #98989d; }
+.ts-card:hover .ts-card-num { color: #8e8e93; }
+
+@media(max-width:900px){
+  .ts-bento-grid { grid-template-columns: 1fr; }
+  .ts-card { padding: 32px 28px 36px; }
+}
+</style><style id="ts-apple">
+.ts-apple { padding: 0 6% 0; max-width: 1100px; margin: 0 auto; }
+
+.ts-apple-eyebrow {
+  font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+  color: #46d369; font-weight: 600; margin-bottom: 20px; display: block;
+}
+.ts-apple-title {
+  font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 800;
+  letter-spacing: -.05em; color: #f5f5f7; margin: 0 0 100px; line-height: 1.05;
+}
+
+.ts-apple-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 80px;
+  padding: 64px 0;
+  border-top: 1px solid rgba(255,255,255,.07);
+  align-items: start;
+  transition: border-color .3s;
+}
+.ts-apple-area:hover { border-color: rgba(255,255,255,.14); }
+.ts-apple-area:last-child { border-bottom: 1px solid rgba(255,255,255,.07); }
+
+.ts-apple-area-name {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -.04em;
+  line-height: 1.05;
+  color: #1a1a1a;
+  transition: color .4s ease;
+  margin: 0 0 16px;
+}
+.ts-apple-area:hover .ts-apple-area-name { color: #f5f5f7; }
+
+.ts-apple-area-sub {
+  font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+  color: #aeaeb2; font-weight: 600; transition: color .3s;
+}
+.ts-apple-area:hover .ts-apple-area-sub { color: #46d369; }
+
+.ts-apple-right { padding-top: 6px; }
+
+.ts-apple-desc {
+  font-size: 15px; color: #aeaeb2; line-height: 1.75;
+  margin: 0 0 28px; max-width: 420px;
+  transition: color .4s ease;
+}
+.ts-apple-area:hover .ts-apple-desc { color: #888; }
+
+.ts-apple-skills {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.ts-apple-skill {
+  font-size: 12px; color: #d1d1d6; padding: 6px 14px;
+  border: 1px solid rgba(255,255,255,.05);
+  border-radius: 30px;
+  transition: color .3s, border-color .3s, background .3s;
+  letter-spacing: .02em;
+}
+.ts-apple-area:hover .ts-apple-skill {
+  color: #46d369;
+  border-color: rgba(70,211,105,.25);
+  background: rgba(70,211,105,.04);
+}
+
+@media(max-width: 768px) {
+  .ts-apple-area { grid-template-columns: 1fr; gap: 24px; padding: 48px 0; }
+  .ts-apple-area-name { font-size: 2rem; color: #f5f5f7; }
+  .ts-apple-desc { color: #777; }
+  .ts-apple-skill { color: #aaa; border-color: rgba(255,255,255,.1); }
+}
+</style><style id="about-v23">
+.about-section { padding: 110px 6% 90px; }
+.about-inner { max-width: 1100px; margin: 0 auto; }
+.about-eyebrow { font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#46d369;font-weight:700;margin-bottom:20px;display:block; }
+.about-headline { font-size:clamp(1.9rem,3.8vw,3rem);font-weight:800;letter-spacing:-.04em;line-height:1.1;color:#f0f0f0;margin:0 0 52px;max-width:860px; }
+.about-headline em { color:#46d369;font-style:normal; }
+.about-body-cols { display:grid;grid-template-columns:1fr 1fr;gap:32px 80px;margin-bottom:56px; }
+.about-col-label { font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#46d369;font-weight:700;margin-bottom:20px;display:block; }
+.about-col-label.blue { color:#4a9eff; }
+.about-para { font-size:16px;color:#a1a1a6;line-height:1.85;margin:0 0 22px; }
+.about-para:last-child { margin-bottom:0; }
+.about-para strong { color:#888;font-weight:600; }
+.about-callout { border-left:2px solid #46d369;padding:20px 0 20px 28px;margin-bottom:64px;max-width:720px; }
+.about-callout p { font-size:15px;color:#8e8e93;line-height:1.85;font-style:italic;margin:0; }
+.about-callout strong { color:#aaa;font-style:normal; }
+.about-numbers { display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.06);padding-top:48px; }
+.about-num-item { padding:0 40px 0 0; }
+.about-num-item+.about-num-item { border-left:1px solid rgba(255,255,255,.06);padding-left:40px; }
+.about-num-val { font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-.04em;color:#46d369;line-height:1;margin-bottom:8px; }
+.about-num-label { font-size:12px;color:#a1a1a6;line-height:1.6; }
+@media(max-width:768px){
+  .about-body-cols { grid-template-columns:1fr;gap:32px; }
+  .about-numbers { grid-template-columns:1fr;gap:32px; }
+  .about-num-item+.about-num-item { border-left:none;padding-left:0;border-top:1px solid rgba(255,255,255,.06);padding-top:32px; }
+}
+</style><style id="tl-apple-v18">
+.tl-apple { max-width: 1100px; margin: 0 auto; padding: 0 6% 0; }
+.tl-apple-eyebrow { font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; color: #46d369; font-weight: 700; margin-bottom: 20px; display: block; }
+.tl-apple-title { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -.04em; color: #f0f0f0; margin: 0 0 80px; }
+
+.tl-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0 64px;
+  padding: 56px 0;
+  border-top: 1px solid rgba(255,255,255,.06);
+  position: relative;
+  transition: border-color .3s;
+}
+.tl-item:hover { border-color: rgba(255,255,255,.13); }
+.tl-item:last-child { border-bottom: 1px solid rgba(255,255,255,.06); }
+
+.tl-left { padding-top: 4px; }
+.tl-period { font-size: 11px; font-family: monospace; color: #aeaeb2; letter-spacing: .08em; line-height: 1.6; transition: color .3s; }
+.tl-item:hover .tl-period { color: #98989d; }
+.tl-index { font-size: 10px; letter-spacing: .15em; color: #1e1e1e; margin-top: 16px; font-family: monospace; transition: color .3s; }
+.tl-item:hover .tl-index { color: #46d369; }
+
+.tl-right {}
+.tl-role { font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: #46d369; font-weight: 700; margin-bottom: 10px; }
+.tl-company { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; letter-spacing: -.03em; color: #1a1a1a; margin: 0 0 20px; line-height: 1.1; transition: color .4s; }
+.tl-item:hover .tl-company { color: #f0f0f0; }
+.tl-desc { font-size: 14.5px; color: #aeaeb2; line-height: 1.85; margin: 0 0 24px; max-width: 560px; transition: color .3s; }
+.tl-item:hover .tl-desc { color: #aeaeb2; }
+.tl-stack { display: flex; flex-wrap: wrap; gap: 6px; }
+.tl-tag { font-size: 11px; color: #d1d1d6; padding: 4px 12px; border: 1px solid rgba(255,255,255,.05); border-radius: 20px; letter-spacing: .03em; transition: color .3s, border-color .3s; }
+.tl-item:hover .tl-tag { color: #46d369; border-color: rgba(70,211,105,.2); }
+
+@media(max-width: 768px) {
+  .tl-item { grid-template-columns: 1fr; gap: 16px; padding: 40px 0; }
+  .tl-company { color: #f0f0f0; font-size: 1.6rem; }
+  .tl-desc { color: #98989d; }
+  .tl-period { color: #8e8e93; }
+}
+</style><style id="hero-stats-v26">
+.hs-h-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 56px;
+  width: 100%;
+  max-width: 100%;
+}
+.hs-h-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px 22px 20px 24px;
+  border: 1px solid rgba(70,211,105,.13);
+  border-left: 3px solid #46d369;
+  border-radius: 12px;
+  background: rgba(70,211,105,.03);
+  transition: background .3s, border-color .3s, transform .2s;
+  cursor: default;
+}
+.hs-h-card:hover {
+  background: rgba(70,211,105,.08);
+  border-color: rgba(70,211,105,.3);
+  border-left-color: #5fe87a;
+  transform: translateY(-2px);
+}
+.hs-h-label {
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #46d369;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.hs-h-val {
+  font-size: 18px;
+  font-weight: 700;
+  color: #f0f0f0;
+  letter-spacing: -.02em;
+  line-height: 1.2;
+}
+.hs-h-sub {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.5;
+}
+.hs-h-live {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #46d369;
+  box-shadow: 0 0 7px rgba(70,211,105,.9);
+  margin-right: 6px;
+  vertical-align: middle;
+  animation: live-pulse-v26 2s infinite;
+}
+@keyframes live-pulse-v26 { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.3;transform:scale(.7)} }
+@media(max-width:680px){
+  .hs-h-grid { grid-template-columns: repeat(2,1fr); }
+}
+@media(max-width:400px){
+  .hs-h-grid { grid-template-columns: 1fr; }
+}
+</style>
+<style id="v26-fixes">
+/*  Remove blocos pretos entre seções  */
+.timeline-section,
+.tech-stack-section,
+.about-section,
+.projects-section {
+  background: transparent !important;
+}
+/* Remove padding duplo — o padding já está nos inner wrappers */
+.timeline-section { padding: 0 !important; }
+.tech-stack-section { padding: 0 !important; }
+/* Os inner wrappers controlam o espaço */
+.tl-apple  { padding: 80px 6% !important; }
+.ts-apple  { padding: 80px 6% !important; }
+
+/*  Texto geral: escuro → legível  */
+:root {
+  --text-secondary: #a1a1a6 !important;
+  --text-tertiary: #8e8e93 !important;
+}
+/* Corrigir hardcoded dark texts */
+.hero-subtitle      { color: #a0a0a0 !important; }
+.about-text         { color: #b0b0b0 !important; }
+.tl-apple-desc      { color: #9a9a9a !important; }
+.tl-tag             { color: #aaaaaa !important; border-color: rgba(255,255,255,.12) !important; }
+.ts-apple-desc      { color: #9a9a9a !important; }
+
+/*  Tags / badges de habilidade  */
+.tech-tag, .skill-tag, .tag {
+  color: #cccccc !important;
+  border-color: rgba(255,255,255,.1) !important;
+}
+
+/*  Garantir que ambas sections ficam visíveis  */
+.timeline-section,
+.tech-stack-section {
+  opacity: 1 !important;
+  transform: none !important;
+}
+/* Manter animação suave para quando .visible é adicionado */
+.timeline-section:not(.visible),
+.tech-stack-section:not(.visible) {
+  opacity: 0 !important;
+  transform: translateY(20px) !important;
+  transition: opacity .7s ease, transform .7s ease !important;
+}
+.timeline-section.visible,
+.tech-stack-section.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+</style>
+
+<style id="apple-text-v26">
+/*  Apple text palette override  */
+:root {
+  --text-primary:   #f5f5f7 !important;
+  --text-secondary: #a1a1a6 !important;
+  --text-tertiary:  #6e6e73 !important;
+}
+/* Headings */
+h1,h2,h3,h4,h5,h6 { color: #f5f5f7; }
+.tl-apple-title,
+.ts-apple-title,
+.section-title,
+.about-title,
+.project-title { color: #f5f5f7 !important; }
+
+/* Body/desc texts */
+p, li, span:not(.hs-h-label):not(.hs-h-live):not(.status-indicator):not(.title-highlight):not(.hero-greeting-highlight) {
+  color: inherit;
+}
+.tl-apple-desc,
+.tl-desc,
+.ts-desc,
+.ts-apple-desc,
+.about-text,
+.project-description,
+.section-subtitle,
+.timeline-description,
+.tech-stack-subtitle,
+.skill-item { color: #a1a1a6 !important; }
+
+/* Tags / eyebrows */
+.tl-apple-eyebrow,
+.ts-apple-eyebrow { color: #46d369 !important; }
+.tl-tag {
+  color: #c7c7cc !important;
+  border-color: rgba(255,255,255,.12) !important;
+}
+.tl-company { color: #f5f5f7 !important; }
+.tl-role    { color: #a1a1a6 !important; }
+.tl-period  { color: #6e6e73 !important; }
+
+/* Tech stack */
+.ts-block-name { color: #f5f5f7 !important; }
+.ts-block-skills,
+.ts-card-desc,
+.ts-area-desc  { color: #a1a1a6 !important; }
+
+/* Footer / social */
+.social-link { color: #a1a1a6 !important; }
+.social-link:hover { color: #f5f5f7 !important; }
+
+/* Hero */
+.hero-greeting { color: #a1a1a6 !important; }
+.hero-greeting-highlight { color: #f5f5f7 !important; }
+.hero-subtitle { color: #8e8e93 !important; }
+</style>
+
+<style id="v28-global-fix">
+/*  Paleta Apple unificada para todo o site  */
+:root {
+  --text-primary:   #f5f5f7 !important;
+  --text-secondary: #a1a1a6 !important;
+  --text-tertiary:  #6e6e73 !important;
+}
+
+/*  Fontes maiores como base  */
+body { font-size: 16px !important; }
+
+/*  About section  */
+.about-para        { color: #a1a1a6 !important; font-size: 16px !important; line-height: 1.85 !important; }
+.about-num-label   { color: #a1a1a6 !important; font-size: 13px !important; }
+.about-callout p   { color: #c7c7cc !important; font-size: 17px !important; line-height: 1.8 !important; }
+.about-headline    { color: #f5f5f7 !important; }
+.about-col-label   { color: #46d369 !important; font-size: 10px !important; }
+
+/*  Timeline  */
+.tl-apple-title    { color: #f5f5f7 !important; font-size: clamp(2.2rem,4.5vw,3.5rem) !important; }
+.tl-company        { color: #f5f5f7 !important; font-size: 19px !important; }
+.tl-role           { color: #a1a1a6 !important; font-size: 13px !important; letter-spacing: .12em; }
+.tl-desc           { color: #a1a1a6 !important; font-size: 15px !important; line-height: 1.8 !important; }
+.tl-period         { color: #6e6e73 !important; font-size: 12px !important; }
+.tl-index          { color: #3a3a3c !important; }
+.tl-tag            { color: #c7c7cc !important; border-color: rgba(255,255,255,.1) !important; font-size: 11px !important; }
+
+/*  Tech stack  */
+.ts-apple-title    { color: #f5f5f7 !important; }
+.ts-block-name     { color: #f5f5f7 !important; }
+.ts-block-skills   { color: #a1a1a6 !important; }
+.ts-card-desc      { color: #a1a1a6 !important; }
+.ts-area-desc      { color: #a1a1a6 !important; }
+.ts-dot            { color: #46d369 !important; }
+
+/*  Projects  */
+.project-title     { color: #f5f5f7 !important; }
+.project-description,
+.section-subtitle  { color: #a1a1a6 !important; font-size: 15px !important; }
+.timeline-description { color: #a1a1a6 !important; }
+
+/*  Eyebrows (sem //)  */
+.about-eyebrow, .tl-apple-eyebrow, .ts-apple-eyebrow { color: #46d369 !important; }
+
+/*  Social / footer  */
+.social-link       { color: #6e6e73 !important; }
+.social-link:hover { color: #f5f5f7 !important; }
+
+/*  Hero subtitle  */
+.hero-subtitle     { color: #8e8e93 !important; font-size: 17px !important; }
+.hero-greeting     { color: #a1a1a6 !important; font-size: 17px !important; }
+</style>
+
+<style id="v30-font-boost">
+/*  Aumento global de fonte — V30  */
+html { font-size: 18px; }
+
+/* Corpo / parágrafos */
+p, li, .about-para, .tl-desc, .project-description,
+.ts-block-skills, .ts-card-desc, .ts-area-desc,
+.about-text, .section-subtitle, .timeline-description {
+  font-size: 16.5px !important;
+  line-height: 1.9 !important;
+}
+
+/* Títulos de seção */
+.section-title   { font-size: clamp(2rem, 4vw, 3.2rem) !important; }
+.tl-apple-title  { font-size: clamp(2.4rem, 5vw, 3.8rem) !important; }
+.ts-apple-title  { font-size: clamp(2.4rem, 5vw, 3.8rem) !important; }
+.about-headline  { font-size: clamp(2rem, 4vw, 3rem) !important; }
+
+/* Empresa / cargo na timeline */
+.tl-company { font-size: 21px !important; }
+.tl-role    { font-size: 13.5px !important; }
+.tl-desc    { font-size: 16px !important; line-height: 1.85 !important; }
+
+/* Hero */
+.hero-subtitle  { font-size: 18px !important; line-height: 1.75 !important; }
+.hero-greeting  { font-size: 18px !important; }
+
+/* Callout */
+.about-callout p { font-size: 18.5px !important; line-height: 1.8 !important; }
+
+/* Tags */
+.tl-tag, .project-tag, .tech-tag { font-size: 12px !important; }
+
+/* Nav */
+.nav-links a { font-size: 14.5px !important; }
+
+/* Numbers */
+.about-num-label { font-size: 14px !important; }
+
+/* Project cards */
+.project-title       { font-size: 20px !important; }
+.project-description { font-size: 15.5px !important; line-height: 1.85 !important; }
+</style>
+
+<style id="v31-cards-boost">
+/*  Hero cards — fonte maior  */
+.hs-h-card   { padding: 22px 24px 22px 26px !important; gap: 7px !important; }
+.hs-h-label  { font-size: 11px !important; letter-spacing: .18em !important; }
+.hs-h-val    { font-size: 19px !important; font-weight: 800 !important; color: #f5f5f7 !important; }
+.hs-h-sub    { font-size: 13px !important; color: #a1a1a6 !important; }
+.hs-h-grid   { gap: 14px !important; }
+</style>
+
+<style id="v32-visual-final">
+/* ════════════════════════════════════════════════
+   V32 FINAL — Netflix + Apple inspired
+   ════════════════════════════════════════════════ */
+
+/* ── SCROLL SUAVE ── */
+html { scroll-behavior: smooth; }
+
+/* ── NAV — mais limpa, Netflix-style ── */
+nav {
+  padding: 0 5% !important;
+  height: 64px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background: rgba(10,10,10,.92) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(255,255,255,.05) !important;
+  position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important;
+  z-index: 100 !important;
+}
+.logo { font-size: 13px !important; letter-spacing: .12em !important; font-weight: 700 !important; color: #f5f5f7 !important; }
+.nav-links { display: flex; gap: 36px; align-items: center; }
+.nav-links a { font-size: 13.5px !important; color: #a1a1a6 !important; font-weight: 500; transition: color .2s; letter-spacing: .02em; }
+.nav-links a:hover { color: #f5f5f7 !important; }
+
+/* ── HERO — mais espaço, alinhado ao topo ── */
+.hero { padding-top: 110px !important; padding-bottom: 80px !important; min-height: 100vh !important; }
+.hero-container { max-width: 960px !important; }
+.hero-greeting { font-size: 17px !important; color: #6e6e73 !important; letter-spacing: .06em !important; margin-bottom: 16px !important; font-weight: 400 !important; }
+.hero-greeting-highlight { color: #f5f5f7 !important; font-weight: 600 !important; }
+.hero-title { font-size: clamp(2.8rem, 6vw, 5rem) !important; line-height: 1.04 !important; letter-spacing: -.04em !important; font-weight: 900 !important; color: #f5f5f7 !important; margin-bottom: 28px !important; }
+.title-highlight { color: #46d369 !important; }
+.hero-subtitle { font-size: 17px !important; color: #8e8e93 !important; line-height: 1.75 !important; max-width: 700px !important; margin-bottom: 0 !important; }
+
+/* ── HERO CARDS ── */
+.hs-h-grid { margin-top: 52px !important; }
+.hs-h-card { border-radius: 14px !important; }
+
+/* ── SEPARADORES de seção — linha sutil ── */
+.timeline-section::before,
+.tech-stack-section::before,
+.projects-section::before {
+  content: '' !important;
+  display: block !important;
+  height: 1px !important;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,.08), transparent) !important;
+  margin-bottom: 80px !important;
+}
+
+/* ── SEÇÕES — padding equilibrado ── */
+.about-section { padding: 100px 6% !important; }
+.projects-section { padding: 100px 6% !important; }
+.tl-apple   { padding: 80px 6% !important; }
+.ts-apple   { padding: 80px 6% !important; }
+
+/* ── PROJECT CARDS — Netflix-inspired ── */
+.projects-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 24px !important;
+  margin-top: 48px !important;
+}
+.project-card {
+  background: rgba(255,255,255,.025) !important;
+  border: 1px solid rgba(255,255,255,.07) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  transition: border-color .3s, transform .3s, background .3s !important;
+}
+.project-card:hover {
+  border-color: rgba(70,211,105,.25) !important;
+  background: rgba(70,211,105,.04) !important;
+  transform: translateY(-4px) !important;
+}
+.project-visual {
+  height: 180px !important;
+  background: linear-gradient(135deg, rgba(70,211,105,.08) 0%, rgba(30,30,30,.6) 100%) !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  padding: 20px 24px !important;
+}
+.project-label {
+  font-size: 10px !important;
+  letter-spacing: .2em !important;
+  text-transform: uppercase !important;
+  color: #46d369 !important;
+  font-weight: 700 !important;
+}
+.project-content { padding: 24px !important; }
+.project-title {
+  font-size: 19px !important;
+  font-weight: 800 !important;
+  color: #f5f5f7 !important;
+  line-height: 1.25 !important;
+  margin: 12px 0 10px !important;
+  letter-spacing: -.02em !important;
+}
+.project-description {
+  font-size: 14.5px !important;
+  color: #a1a1a6 !important;
+  line-height: 1.75 !important;
+  margin-bottom: 20px !important;
+}
+.project-link {
+  font-size: 13px !important;
+  color: #46d369 !important;
+  font-weight: 600 !important;
+  letter-spacing: .04em !important;
+}
+.project-tag {
+  font-size: 11px !important;
+  color: #6e6e73 !important;
+  border-color: rgba(255,255,255,.08) !important;
+  padding: 3px 10px !important;
+  border-radius: 20px !important;
+}
+
+/* ── SECTION TITLES — Apple-style grande ── */
+.section-title {
+  font-size: clamp(2rem, 4.5vw, 3.4rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: -.04em !important;
+  line-height: 1.05 !important;
+  color: #f5f5f7 !important;
+}
+.section-subtitle {
+  font-size: 16px !important;
+  color: #8e8e93 !important;
+  margin-top: 12px !important;
+  max-width: 640px !important;
+}
+
+/* ── TIMELINE — mais clean ── */
+.tl-apple-title {
+  font-size: clamp(2.4rem, 5vw, 4rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: -.05em !important;
+  line-height: 1.02 !important;
+}
+.tl-item {
+  border-top: 1px solid rgba(255,255,255,.06) !important;
+  padding: 40px 0 !important;
+}
+.tl-company {
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  letter-spacing: -.02em !important;
+  color: #f5f5f7 !important;
+  margin: 6px 0 10px !important;
+}
+.tl-role {
+  font-size: 11px !important;
+  letter-spacing: .18em !important;
+  text-transform: uppercase !important;
+  color: #46d369 !important;
+  font-weight: 700 !important;
+}
+.tl-desc {
+  font-size: 15.5px !important;
+  color: #c7c7cc !important;
+  line-height: 1.85 !important;
+  max-width: 680px !important;
+  margin: 12px 0 16px !important;
+}
+.tl-period { color: #6e6e73 !important; font-size: 12px !important; }
+.tl-tag {
+  font-size: 11px !important;
+  color: #e5e5ea !important;
+  background: rgba(255,255,255,.04) !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  border-radius: 20px !important;
+  padding: 4px 12px !important;
+}
+
+/* ── TECH STACK ── */
+.ts-apple-title {
+  font-size: clamp(2.4rem, 5vw, 4rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: -.05em !important;
+}
+.ts-apple-area-name {
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  color: #f5f5f7 !important;
+  letter-spacing: -.03em !important;
+  line-height: 1.2 !important;
+}
+.ts-apple-area-sub {
+  font-size: 10px !important;
+  letter-spacing: .2em !important;
+  text-transform: uppercase !important;
+  color: #46d369 !important;
+  font-weight: 700 !important;
+  margin-top: 8px !important;
+}
+.ts-apple-desc {
+  font-size: 15.5px !important;
+  color: #c7c7cc !important;
+  line-height: 1.85 !important;
+}
+.ts-apple-skill {
+  font-size: 12px !important;
+  color: #e5e5ea !important;
+  background: rgba(255,255,255,.04) !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  border-radius: 20px !important;
+  padding: 5px 14px !important;
+}
+
+/* ── ABOUT NUMBERS — Apple-style ── */
+.about-num-val {
+  font-size: clamp(2rem, 4vw, 3rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: -.04em !important;
+  color: #46d369 !important;
+}
+.about-num-label {
+  font-size: 13px !important;
+  color: #8e8e93 !important;
+  line-height: 1.6 !important;
+}
+
+/* ── CALLOUT ── */
+.about-callout {
+  border-left: 3px solid #46d369 !important;
+  padding: 24px 0 24px 32px !important;
+  margin-bottom: 72px !important;
+}
+.about-callout p {
+  font-size: 19px !important;
+  color: #e5e5ea !important;
+  line-height: 1.75 !important;
+  font-weight: 500 !important;
+}
+.about-callout strong { color: #f5f5f7 !important; font-weight: 700 !important; }
+
+/* ── FOOTER ── */
+footer, .footer-bottom {
+  padding: 40px 6% !important;
+  border-top: 1px solid rgba(255,255,255,.06) !important;
+  color: #3a3a3c !important;
+}
+.social-link {
+  color: #6e6e73 !important;
+  font-size: 14px !important;
+  transition: color .2s !important;
+}
+.social-link:hover { color: #f5f5f7 !important; }
+
+/* ── BOTÕES CTA hero ── */
+.hero-ctas { display: flex; gap: 16px; margin-top: 44px; flex-wrap: wrap; }
+.btn-primary {
+  background: #46d369 !important; color: #0a0a0a !important;
+  font-size: 14px !important; font-weight: 700 !important;
+  padding: 14px 28px !important; border-radius: 8px !important;
+  letter-spacing: .04em !important; transition: background .2s, transform .15s !important;
+}
+.btn-primary:hover { background: #5fe87a !important; transform: translateY(-2px) !important; }
+.btn-secondary {
+  border: 1px solid rgba(255,255,255,.15) !important; color: #f5f5f7 !important;
+  font-size: 14px !important; font-weight: 600 !important;
+  padding: 14px 28px !important; border-radius: 8px !important;
+  letter-spacing: .04em !important; transition: border-color .2s, transform .15s !important;
+}
+.btn-secondary:hover { border-color: rgba(255,255,255,.35) !important; transform: translateY(-2px) !important; }
+
+@media(max-width:768px){
+  .projects-grid { grid-template-columns: 1fr !important; }
+  .hero-title { font-size: clamp(2.2rem,9vw,3.2rem) !important; }
+}
+</style>
+
+<style id="v34-layout-fix">
+
+/* ══════════════════════════════════
+   1. HERO — full width, left-aligned
+   ══════════════════════════════════ */
+.hero {
+  align-items: flex-start !important;
+}
+.hero-container {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+.hero-title {
+  max-width: 100% !important;
+  width: 100% !important;
+  text-align: left !important;
+}
+.hero-subtitle {
+  max-width: 860px !important;
+  text-align: left !important;
+}
+.hero-greeting {
+  text-align: left !important;
+}
+.hs-h-grid {
+  max-width: 100% !important;
+}
+
+/* ══════════════════════════════════
+   2. TECH STACK — só a linha acima
+      do bloco BI (terceiro ts-apple-area)
+      Remove border-bottom do último
+   ══════════════════════════════════ */
+
+/* Remove a borda inferior do último bloco */
+.ts-apple-area:last-child {
+  border-bottom: none !important;
+}
+
+/* Remove qualquer hr ou separador visual após tech-stack */
+.tech-stack-section + * > hr,
+.tech-stack-section ~ hr {
+  display: none !important;
+}
+
+</style>
+
+<style id="v35-footer-fix">
+/* Remove linha dupla — só 1 no footer, menos espaço */
+.footer-bottom {
+  border-top: none !important;
+  padding: 0 !important;
+}
+footer {
+  border-top: 1px solid rgba(255,255,255,.06) !important;
+  padding: 28px 6% !important;
+  margin-top: 0 !important;
+}
+/* Garantir sem border no último bloco tech */
+.ts-apple-area:last-child {
+  border-bottom: none !important;
+}
+/* Tirar margem extra da section tech antes do footer */
+.tech-stack-section {
+  margin-bottom: 0 !important;
+}
+</style>
+</head>
+<body>
+
+<!-- PORTFOLIO PAGE -->
+<div id="portfolio-page" class="page active">
+
+    <nav>
+        <div class="logo-container">
+            
+            <a href="#" class="logo">JOÃO VÍTOR CARLESSO BORGES</a>
+        </div>
+        <div class="nav-links">
+            <a href="#">Projects</a>
+            <a href="https:www.linkedin.com/in/jo%C3%A3o-v%C3%ADtor-carlesso-borges-4b934a1bb/" target="_blank">LinkedIn ↗</a>
+            <a href="https:github.com/joaovcarlesso" target="_blank">GitHub ↗</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-grid"></div>
+
+        <div class="hero-container">
+            
+
+            <p class="hero-greeting">
+                Olá, eu sou o <span class="hero-greeting-highlight">João.</span>
+            </p>
+
+            <h1 class="hero-title">
+                Analista de dados que transforma <span class="title-highlight">Business Intelligence</span> e <span class="title-highlight">Big Data</span> em decisões que geram resultado.
+            </h1>
+
+            <p class="hero-subtitle">
+                8 anos na interseção de análise de dados, marketing analytics e inteligência de negócios. Especializado em construir soluções end-to-end que conectam data pipelines a estratégias comerciais mensuráveis.
+            </p>
+
+            <div class="hs-h-grid">
+  <div class="hs-h-card">
+    <span class="hs-h-label">Empresa Atual</span>
+    <span class="hs-h-val"><span class="hs-h-live"></span>WPP</span>
+    <span class="hs-h-sub">Senior Data Analyst</span>
+  </div>
+  <div class="hs-h-card">
+    <span class="hs-h-label">Experiência</span>
+    <span class="hs-h-val">8 Anos</span>
+    <span class="hs-h-sub">Data · BI · Marketing Analytics</span>
+  </div>
+  <div class="hs-h-card">
+    <span class="hs-h-label">Formação</span>
+    <span class="hs-h-val">Stanford</span>
+    <span class="hs-h-sub">Executive Data Science</span>
+  </div>
+  <div class="hs-h-card">
+    <span class="hs-h-label">Graduação</span>
+    <span class="hs-h-val">UDESC · 9.8</span>
+    <span class="hs-h-sub">Administração de Empresas</span>
+  </div>
+  <div class="hs-h-card">
+    <span class="hs-h-label">Especialidade</span>
+    <span class="hs-h-val">Data Product</span>
+    <span class="hs-h-sub">Web Analytics · Causal Inference</span>
+  </div>
+  <div class="hs-h-card">
+    <span class="hs-h-label">Stack</span>
+    <span class="hs-h-val">Python · SQL</span>
+    <span class="hs-h-sub">GA4 · Power BI · Scrum</span>
+  </div>
+</div>
+        </div>
+    </section>
+
+<!-- ABOUT ME -->
+    <section class="about-section">
+<div class="about-inner">
+
+  <span class="about-eyebrow">sobre mim</span>
+
+  <h2 class="about-headline">
+    Onde <em>Gestão de Produto</em> encontra<br>Ciência de Dados e Web Analytics.
+  </h2>
+
+  <div class="about-body-cols">
+    <div>
+      <span class="about-col-label">Product Management</span>
+      <p class="about-para">
+        Como <strong>Product Owner</strong>, minha função é transformar dados em produto. Conduzo discovery com rigor, construo backlogs priorizados por impacto real e garanto que cada sprint entregue valor mensurável em retenção, engajamento ou receita.
+      </p>
+      <p class="about-para">
+        Trabalho na interseção entre times de engenharia, squads de mídia e stakeholders de C-level. A disciplina de <strong>Scrum e metodologias ágeis</strong> viabiliza ciclos curtos de aprendizado: hipótese, teste A/B, análise, decisão. Não gerencio projetos; gerencio aprendizado contínuo.
+      </p>
+      <p class="about-para">
+        Em produto analítico, o backlog é composto de perguntas de negócio: quais segmentos estão em risco de churn? Qual canal tem atribuição mal calibrada? A resposta vira feature, vira dashboard, vira decisão estratégica.
+      </p>
+    </div>
+    <div>
+      <span class="about-col-label blue">Data Science &amp; Web Analytics</span>
+      <p class="about-para">
+        A camada técnica começa antes do modelo. Construo pipelines de dados confiáveis, integro <strong>GA4, AdTech APIs e DSPs</strong> em fluxos automatizados via Python e SQL, e garanto que o sinal que chega para análise é limpo, rastreável e auditável.
+      </p>
+      <p class="about-para">
+        Em web analytics, minha especialidade está em ir além do pageview. Trabalho com <strong>modelagem de atribuição, segmentação comportamental</strong> e análise de funil para entender o que realmente move conversão e retenção, não o que os relatórios padrão mostram.
+      </p>
+      <p class="about-para">
+        Aplico <strong>causal inference e DAGs</strong> onde a maioria usa regressão simples. Saber se um desconto reduz churn ou apenas captura clientes que já não iriam cancelar é o que separa uma decisão de negócio de uma correlação conveniente.
+      </p>
+    </div>
+  </div>
+
+  <div class="about-callout">
+    <p>O que me diferencia não é a ferramenta. É saber <strong>qual pergunta formular antes de abrir o notebook.</strong> Product thinking, causal reasoning e domain knowledge são o que transforma análise em alavanca de negócio.</p>
+  </div>
+
+  <div class="about-numbers">
+    <div class="about-num-item">
+      <div class="about-num-val">8+</div>
+      <div class="about-num-label">anos na interseção de<br>dados, produto e negócio</div>
+    </div>
+    <div class="about-num-item">
+      <div class="about-num-val">PO</div>
+      <div class="about-num-label">Product Owner com foco em<br>dados e crescimento</div>
+    </div>
+    <div class="about-num-item">
+      <div class="about-num-val">end‑to‑end</div>
+      <div class="about-num-label">do pipeline à decisão<br>de C-level</div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+    <!-- PROJECTS -->
+    <section class="projects-section">
+        <h2 class="section-title">Estudos de Caso &amp; Projetos</h2>
+        <p class="section-subtitle">
+            Cases técnicos aplicando Causal Inference, Machine Learning e Product Strategy a problemas reais de negócio.
+        </p>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-visual">
+                    <span class="project-label">Estudo de Caso</span>
+                </div>
+                <div class="project-content">
+                    <div class="project-meta">
+                        <span class="project-tag">Causal Inference</span>
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">DAGs</span>
+                    </div>
+                    <h3 class="project-title">Inferência Causal em Marketing Mix Modeling</h3>
+                    <p class="project-description">
+                        Como estruturas causais explícitas (DAGs) transformam coeficientes de regressão em insights acionáveis. Estudo aplicado em churn e descontos reativos.
+                    </p>
+                    <a href="#" class="project-link" onclick="openStudy(event)">Ver análise completa →</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-visual">
+                    <span class="project-label">Estudo de Caso</span>
+                </div>
+                <div class="project-content">
+                    <div class="project-meta">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Pandas</span>
+                        <span class="project-tag">Sports Analytics</span>
+                    </div>
+                    <h3 class="project-title">O Moneyball do Brighton: Análise de ROI 420%</h3>
+                    <p class="project-description">
+                        Análise quantitativa provando que as transferências data-driven do Brighton entregam eficiência de custo 54x superior aos maiores gastadores, usando Python e dados do Transfermarkt.
+                    </p>
+                    <a href="#" class="project-link" onclick="openStudy(event, 'brighton')">Ver análise →</a>
+                </div>
+            </div>
+
+            
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="timeline-section">
+<div class="tl-apple">
+
+  <span class="tl-apple-eyebrow">trajetória</span>
+  <h2 class="tl-apple-title">Experiência<br>Profissional.</h2>
+
+  <!-- WPP -->
+  <div class="tl-item">
+    <div class="tl-left">
+      <div class="tl-period">Jun 2025<br>Presente</div>
+      <div class="tl-index">01 · atual</div>
+    </div>
+    <div class="tl-right">
+      <p class="tl-role">Senior Data Analyst</p>
+      <h3 class="tl-company">WPP Media Services</h3>
+      <p class="tl-desc">Technical lead de Data &amp; Product em Digital Sales. Desenvolvo e mantenho integrações via API (Google Ads, Meta Ads, DSPs) com pipelines automatizados em Python e SQL. Responsável por garantir integridade de dados para otimização de ROAS, modelagem de atribuição e decisões táticas de mídia em tempo real. Interface técnica entre engenharia, produto e liderança comercial.</p>
+      <div class="tl-stack">
+        <span class="tl-tag">AdTech APIs</span>
+        <span class="tl-tag">SQL</span>
+        <span class="tl-tag">Python</span>
+        <span class="tl-tag">Product Management</span>
+        <span class="tl-tag">Marketing Intelligence</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blueticket -->
+  <div class="tl-item">
+    <div class="tl-left">
+      <div class="tl-period">Jan 2024<br>Jun 2025</div>
+      <div class="tl-index">02</div>
+    </div>
+    <div class="tl-right">
+      <p class="tl-role">Senior Business Data Analyst</p>
+      <h3 class="tl-company">Blueticket</h3>
+      <p class="tl-desc">Parceiro estratégico do CEO em growth analytics. Desenvolvi modelos preditivos com scikit-learn para segmentação de portfólio de clientes e scoring de oportunidades B2B. Automatizei pipelines de inteligência competitiva via web scraping e NLP. Implementei framework de decisão baseado em dados que reduziu ciclos de análise de semanas para horas.</p>
+      <div class="tl-stack">
+        <span class="tl-tag">scikit-learn</span>
+        <span class="tl-tag">Python</span>
+        <span class="tl-tag">B2B Analytics</span>
+        <span class="tl-tag">Growth Strategy</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- AG Capital -->
+  <div class="tl-item">
+    <div class="tl-left">
+      <div class="tl-period">Abr 2022<br>Jan 2024</div>
+      <div class="tl-index">03</div>
+    </div>
+    <div class="tl-right">
+      <p class="tl-role">Senior Data Strategy Lead</p>
+      <h3 class="tl-company">Grupo AG Capital</h3>
+      <p class="tl-desc">Fundei e estruturei a função de dados from scratch. Projetei o Data Lake corporativo unificando quatro unidades de negócio. Automatizei o processo de Orçamento Base Zero via Python, eliminando 120+ horas/mês de trabalho manual. Responsável pela modelagem financeira de longo prazo como advisor direto do board. Primeiro setup de governança e qualidade de dados do grupo.</p>
+      <div class="tl-stack">
+        <span class="tl-tag">Data Lake</span>
+        <span class="tl-tag">Python</span>
+        <span class="tl-tag">Financial Modeling</span>
+        <span class="tl-tag">Strategic Planning</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ser Educacional -->
+  <div class="tl-item">
+    <div class="tl-left">
+      <div class="tl-period">Jan 2021<br>Abr 2022</div>
+      <div class="tl-index">04</div>
+    </div>
+    <div class="tl-right">
+      <p class="tl-role">Data Analyst → Product Owner</p>
+      <h3 class="tl-company">Ser Educacional</h3>
+      <p class="tl-desc">Conduzi a transição de Data Analyst para Product Owner liderando squad multidisciplinar de dados. Reestruturei o ciclo de desenvolvimento analítico com Scrum e OKRs. Implementei Power BI como single source of truth para decisões de C-level, com modelo semântico centralizado, RLS e entrega de KPIs operacionais e financeiros em near real-time.</p>
+      <div class="tl-stack">
+        <span class="tl-tag">SQL</span>
+        <span class="tl-tag">Power BI</span>
+        <span class="tl-tag">Scrum</span>
+        <span class="tl-tag">Product Owner</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+    <!-- TECH STACK -->
+    <section class="tech-stack-section">
+<div class="ts-apple">
+
+  <span class="ts-apple-eyebrow">expertise</span>
+  <h2 class="ts-apple-title">Capacidades<br>Técnicas.</h2>
+
+  <div class="ts-apple-area">
+    <div>
+      <h3 class="ts-apple-area-name">Data Science<br>&amp; Engineering</h3>
+      <p class="ts-apple-area-sub">01 · Infraestrutura &amp; Modelos</p>
+    </div>
+    <div class="ts-apple-right">
+      <p class="ts-apple-desc">Arquitetei Data Lakes corporativos unificando múltiplas fontes heterogêneas, com camadas bronze/silver/gold e controle de qualidade via Great Expectations. Desenvolvo pipelines ETL/ELT em Python com orquestração automatizada, integração de AdTech APIs (Google Ads, Meta, DSPs) e modelagem estatística aplicada, incluindo DAGs causais para separar efeito real de confundidores em modelos preditivos de churn e atribuição de mídia.</p>
+      <div class="ts-apple-skills">
+        <span class="ts-apple-skill">Python</span>
+        <span class="ts-apple-skill">Pandas</span>
+        <span class="ts-apple-skill">Scikit-Learn</span>
+        <span class="ts-apple-skill">Advanced SQL</span>
+        <span class="ts-apple-skill">Machine Learning</span>
+        <span class="ts-apple-skill">Causal Inference</span>
+        <span class="ts-apple-skill">DAGs</span>
+        <span class="ts-apple-skill">ETL Pipelines</span>
+        <span class="ts-apple-skill">Statistical Modeling</span>
+        <span class="ts-apple-skill">API Integration</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="ts-apple-area">
+    <div>
+      <h3 class="ts-apple-area-name">Product<br>Management</h3>
+      <p class="ts-apple-area-sub">02 · Estratégia &amp; Produto</p>
+    </div>
+    <div class="ts-apple-right">
+      <p class="ts-apple-desc">Atuei como Product Owner em squads multidisciplinares, conduzindo discovery estruturado, priorização por impacto esperado (RICE, ICE) e ciclos curtos de aprendizado via experimentos A/B. Responsável por traduzir hipóteses de negócio em especificações técnicas, alinhar roadmap com OKRs corporativos e entregar incrementos mensuráveis em retenção, engajamento e receita. Rastreabilidade de decisão via dados.</p>
+      <div class="ts-apple-skills">
+        <span class="ts-apple-skill">Product Owner</span>
+        <span class="ts-apple-skill">Product Discovery</span>
+        <span class="ts-apple-skill">Product Roadmap</span>
+        <span class="ts-apple-skill">Growth Strategy</span>
+        <span class="ts-apple-skill">Strategic Planning</span>
+        <span class="ts-apple-skill">ROI Analysis</span>
+        <span class="ts-apple-skill">Stakeholder Mgmt</span>
+        <span class="ts-apple-skill">UX</span>
+        <span class="ts-apple-skill">Agile · Scrum</span>
+        <span class="ts-apple-skill">JIRA</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="ts-apple-area">
+    <div>
+      <h3 class="ts-apple-area-name">BI, Analytics<br>&amp; AdTech</h3>
+      <p class="ts-apple-area-sub">03 · Inteligência &amp; Mídia</p>
+    </div>
+    <div class="ts-apple-right">
+      <p class="ts-apple-desc">Reduzi a latência de insight de 7 dias para menos de 2 horas ao automatizar a ingestão de dados via APIs do Google Ads, Meta Ads e plataformas DSP com Python. Implementei modelos semânticos centralizados no Power BI com RLS granular, camada de KPIs operacionais e financeiros em near real-time e governança de métricas. Elimina divergência de dados entre squads e permitindo decisões de campanha baseadas em sinal limpo e auditável.</p>
+      <div class="ts-apple-skills">
+        <span class="ts-apple-skill">Business Intelligence</span>
+        <span class="ts-apple-skill">Power BI</span>
+        <span class="ts-apple-skill">Google Analytics</span>
+        <span class="ts-apple-skill">GA4</span>
+        <span class="ts-apple-skill">A/B Testing</span>
+        <span class="ts-apple-skill">AdTech APIs</span>
+        <span class="ts-apple-skill">DSPs</span>
+        <span class="ts-apple-skill">Data Visualization</span>
+        <span class="ts-apple-skill">Marketing Intelligence</span>
+        <span class="ts-apple-skill">Cloud Analytics</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+    <!-- FOOTER -->
+        <footer>
+        <div class="footer-bottom">
+            <div class="social-links">
+                <a href="https:www.linkedin.com/in/jo%C3%A3o-v%C3%ADtor-carlesso-borges-4b934a1bb/" class="social-link" target="_blank" aria-label="LinkedIn"><svg xmlns="http:www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                <a href="https:github.com/joaovcarlesso" class="social-link" target="_blank" aria-label="GitHub"><svg xmlns="http:www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+            </div>
+            <p style="color:var(--text-tertiary);font-size:0.8rem;">© 2026 João Vítor Carlesso Borges</p>
+        </div>
+    </footer>
+
+</div>
+<!-- End of Portfolio Page -->
+    
+<!-- PÁGINA DO CASE STUDY -->
+</div>
+
+<div id="case-study-page" class="page">
+
+    <header style="border-bottom: 1px solid var(--border); padding: 24px 0; position: sticky; top: 0; background: var(--bg); z-index: 100;">
+        <div style="max-width: 900px; margin: 0 auto; padding: 0 24px;">
+            <a href="#" onclick="closeStudy(event)" style="display: inline-flex; align-items: center; gap: 8px; color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;">
+                ← Back to Portfolio
+            </a>
+        </div>
+    </header>
+
+    <!-- Tab Navigation -->
+    <div style="max-width: 900px; margin: 0 auto; padding: 0 24px;">
+        
+    </div>
+
+    <!-- Overview Tab (Original Content) -->
+    
+
+    <!-- Full Article Tab (Complete Medium Article) -->
+    <div id="full-article-tab">
+
+<div class="art-body" style="max-width:780px;margin:0 auto;padding:72px 24px 120px;">
+
+  <div class="art-tags">
+    <span class="art-tag-indigo">Causal Inference</span>
+    <span class="art-tag-indigo">MMM</span>
+    <span class="art-tag-indigo">DAG</span>
+    <span class="art-tag-indigo">Python</span>
+    <span class="art-tag-indigo">PyMC-Marketing</span>
+    <span class="art-tag-indigo">DoWhy</span>
+  </div>
+
+  <h1 style="font-size:clamp(1.9rem,3.8vw,2.65rem);font-weight:800;line-height:1.13;letter-spacing:-0.03em;color:#f4f4f4;margin-bottom:18px;">MMM n&#227;o &#233; causal por padr&#227;o: como estruturas gr&#225;ficas evitam decis&#245;es erradas em marketing</h1>
+  <p style="font-size:1.1rem;color:#888;line-height:1.7;margin-bottom:14px;font-style:italic;">Quando pol&#237;ticas de reten&#231;&#227;o s&#227;o disparadas por risco observado, o coeficiente de regress&#227;o inverte de sinal &#8212; e a decis&#227;o executiva que vem depois inverte junto.</p>
+
+  <div class="art-byline">
+    <span>Jo&#227;o V&#237;tor Carlesso Borges</span><span class="dot">&#183;</span>
+    <span>Portf&#243;lio T&#233;cnico</span><span class="dot">&#183;</span>
+    <span>Fev 2026</span><span class="dot">&#183;</span>
+    <span>~25 min de leitura</span>
+  </div>
+
+  <p>H&#225; uma classe de erro anal&#237;tico que n&#227;o gera stack trace, n&#227;o aparece em nenhum teste de qualidade de dados e passa tranquilamente por revis&#245;es de c&#243;digo. Ele s&#243; se manifesta quando o modelo chega ao boardroom: algu&#233;m apresenta um coeficiente de regress&#227;o como resposta a uma pergunta de interven&#231;&#227;o, e a decis&#227;o &#233; tomada com base na confus&#227;o entre associa&#231;&#227;o hist&#243;rica e efeito causal. O modelo disse que A e B covariam nos dados. O executivo entendeu que mexer em A vai mover B na mesma dire&#231;&#227;o. N&#227;o necessariamente.</p>
+
+  <p>Media Mix Modeling (MMM) &#233; tecnicamente uma regress&#227;o multivariada sobre s&#233;ries temporais de investimento em m&#237;dia. Modelos modernos &#8212; como os implementados no PyMC-Marketing &#8212; enriquecem essa base com transforma&#231;&#245;es de adstock para capturar o carryover temporal de campanhas, curvas de satura&#231;&#227;o via fun&#231;&#227;o de Hill para modelar retornos marginais decrescentes, e priors bayesianos que incorporam cren&#231;as pr&#233;vias sobre a magnitude dos efeitos. O resultado &#233; um modelo flex&#237;vel, com boa capacidade preditiva e crescente ado&#231;&#227;o na ind&#250;stria.</p>
+
+  <p>O problema n&#227;o est&#225; na arquitetura do modelo. Est&#225; na natureza da pergunta que ele &#233; capaz de responder. Judea Pearl formalizou essa distin&#231;&#227;o na <em>Escada de Causalidade</em>: o primeiro degrau cobre perguntas de associa&#231;&#227;o &#8212; &#8220;o que tende a acontecer com Y quando X &#233; alto nos dados hist&#243;ricos?&#8221;; o segundo cobre perguntas de interven&#231;&#227;o &#8212; &#8220;o que acontece com Y se eu deliberadamente aumentar X?&#8221;; o terceiro cobre contrafactuais. A grande maioria dos pipelines de MMM opera no primeiro degrau. Decis&#245;es de aloca&#231;&#227;o de budget exigem o segundo.</p>
+
+  <p>Essa distin&#231;&#227;o seria apenas filos&#243;fica se os dois degraus produzissem estimativas convergentes. O problema real se materializa em ambientes onde as decis&#245;es de marketing n&#227;o s&#227;o aleat&#243;rias &#8212; e raramente s&#227;o. O budget de performance sobe quando a demanda org&#226;nica cai. O disparo de e-mails de reten&#231;&#227;o &#233; condicional ao risk score do cliente. O desconto &#233; concedido exatamente para quem j&#225; sinaliza insatisfa&#231;&#227;o. Esse padr&#227;o operacional &#8212; que chamaremos de <strong>pol&#237;tica reativa</strong> &#8212; gera dados onde causa e efeito est&#227;o entrelaados de uma forma que a regress&#227;o convencional n&#227;o consegue desfazer sem suporte estrutural expl&#237;cito.</p>
+
+  <div class="art-note">
+    <div class="art-note-label">Nota t&#233;cnica &#8212; PyMC-Marketing</div>
+    <p>A documenta&#231;&#227;o oficial reconhece explicitamente que, mesmo quando o MMM &#233; constru&#237;do sobre um DAG razo&#225;vel, os resultados permanecem no n&#237;vel preditivo enquanto n&#227;o houver an&#225;lise de identifica&#231;&#227;o formal. Adicionar priors bayesianos n&#227;o substitui o crit&#233;rio do backdoor &#8212; ele complementa, mas n&#227;o resolve o problema de identifica&#231;&#227;o causal.</p>
+  </div>
+
+  <h2>O cen&#225;rio: quando a pol&#237;tica reativa contamina os dados</h2>
+
+  <p>Para tornar o argumento concreto, considere uma empresa SaaS com 50 mil clientes ativos. O time de produto opera um modelo de propens&#227;o de churn em batch semanal: gera um <code>risk_score</code> para cada cliente com base em frequ&#234;ncia de login, uso de features cr&#237;ticas, volume de tickets abertos e tend&#234;ncias de engajamento. Clientes acima de um threshold predefinido recebem automaticamente uma oferta de desconto de 20% via e-mail &#8212; o programa de reten&#231;&#227;o padr&#227;o da empresa.</p>
+
+  <p>Ao final do trimestre, o time de dados constr&#243;i um MMM e a conclus&#227;o que chega ao VP de Marketing &#233;: o coeficiente de <code>email_discount</code> &#233; positivo e estatisticamente significativo. Em linguagem de neg&#243;cio: <strong style="color:#ff6b6b;">&#8220;desconto aumenta churn&#8221;</strong>. O programa &#233; cancelado na semana seguinte.</p>
+
+  <p>A conclus&#227;o est&#225; invertida. O desconto n&#227;o causa o churn &#8212; ele &#233; aplicado sobre os clientes com maior probabilidade preexistente de sair. H&#225; uma vari&#225;vel latente &#8212; insatisfa&#231;&#227;o acumulada &#8212; que causa simultaneamente a eleva&#231;&#227;o do <code>risk_score</code> e a probabilidade de churn. O modelo observa a correla&#231;&#227;o positiva e a registra como coeficiente &#8212; mas essa correla&#231;&#227;o n&#227;o reflete o efeito do desconto. Ela reflete a l&#243;gica de disparo da pol&#237;tica.</p>
+
+  <p>Esse &#233; o <strong>confounding cl&#225;ssico</strong> em sua forma mais insidiosa: a correla&#231;&#227;o esp&#250;ria aponta na dire&#231;&#227;o errada porque o tratamento &#233; administrado exatamente quando a condi&#231;&#227;o que se quer tratar est&#225; mais severa. O rem&#233;dio parece piorar o paciente porque s&#243; entra em cena quando o paciente j&#225; est&#225; deteriorando. O <strong>selection bias</strong> amplifica esse efeito: o grupo tratado tem distribui&#231;&#245;es sistematicamente diferentes de insatisfa&#231;&#227;o e inten&#231;&#227;o de sa&#237;da. E o <strong>overcontrol</strong> surge quando o analista inclui uma covari&#225;vel consequente ao tratamento &#8212; como engajamento p&#243;s-desconto &#8212; absorvendo parte do caminho causal e atenuando artificialmente a estimativa.</p>
+
+  <h2>DAGs como linguagem de suposi&#231;&#245;es causais</h2>
+
+  <p>A solu&#231;&#227;o come&#231;a por tornar as suposi&#231;&#245;es causais expl&#237;citas e audit&#225;veis antes de qualquer escolha de estimador. Um Directed Acyclic Graph (DAG) &#233; o formalismo que permite isso. Cada n&#243; representa uma vari&#225;vel do sistema; cada aresta dirigida representa uma influ&#234;ncia causal direta; e a aus&#234;ncia de uma aresta &#233; uma afirma&#231;&#227;o substantiva &#8212; ela diz que n&#227;o existe efeito causal direto entre aqueles dois n&#243;s dado o restante do sistema.</p>
+
+  <p>O valor do DAG n&#227;o est&#225; apenas na formaliza&#231;&#227;o do que a equipe j&#225; sabe. Est&#225; em for&#231;ar a verbaliza&#231;&#227;o do que normalmente permanece impl&#237;cito. A pergunta &#8220;insatisfa&#231;&#227;o causa desconto, ou desconto causa insatisfa&#231;&#227;o?&#8221; parece trivial quando formulada explicitamente &#8212; e &#233; exatamente essa confus&#227;o que o modelo de regress&#227;o n&#227;o consegue resolver sozinho. Um DAG tamb&#233;m permite derivar automaticamente o conjunto m&#237;nimo de vari&#225;veis que precisa ser controlado para isolar um efeito causal &#8212; o que Pearl chamou de <strong>crit&#233;rio do backdoor</strong>.</p>
+
+  <div class="art-codeblock">
+    <div class="art-codeblock-header"><span>dag_churn_discount &#8212; estrutura causal do cen&#225;rio</span></div>
+    <pre>  U (insatisfa&#231;&#227;o &#8212; vari&#225;vel latente, n&#227;o observ&#225;vel diretamente)
+         |                          |
+         v                          v
+     discount  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#9658;  churn
+
+  Backdoor path ativo:  discount &#8592; U &#8594; churn
+  Conjunto m&#237;nimo de ajuste: { U }
+  Proxy observ&#225;vel dispon&#237;vel: risk_score &#8776; U + &#949;</pre>
+  </div>
+
+  <p>O crit&#233;rio do backdoor de Pearl estabelece que um conjunto Z identifica o efeito causal de T sobre Y quando: (i) nenhuma vari&#225;vel em Z &#233; descendente de T, e (ii) Z bloqueia todos os caminhos de backdoor entre T e Y. No DAG acima, o &#250;nico backdoor path &#233; <code>discount &#8592; U &#8594; churn</code>. Ajustar por U &#8212; ou por um proxy observ&#225;vel, como o <code>risk_score</code> &#8212; bloqueia esse caminho e recupera o efeito direto do desconto. Esse argumento &#233; independente do estimador: regress&#227;o log&#237;stica, gradient boosting ou modelo bayesiano produzir&#227;o estimativas enviesadas se o conjunto de ajuste estiver mal especificado.</p>
+
+  <h2>Constru&#231;&#227;o do ground truth via dados sint&#233;ticos</h2>
+
+  <p>Para demonstrar o argumento de forma reprodut&#237;vel e false&#225;vel, constru&#237;mos um dataset sint&#233;tico onde o efeito causal verdadeiro &#233; conhecido a priori: implantamos um coeficiente de <strong style="color:#46d369;">&#8722;0.30</strong> na escala log&#237;stica. A pol&#237;tica reativa &#233; codificada explicitamente na gera&#231;&#227;o dos dados: a probabilidade de receber desconto &#233; uma fun&#231;&#227;o sigmoid da vari&#225;vel latente. O resultado &#233; uma correla&#231;&#227;o bruta <strong>+0.21</strong> entre desconto e churn nos dados observacionais &#8212; positiva, significativa, e causalmente enganosa.</p>
+
+  <div class="art-codeblock">
+    <div class="art-codeblock-header"><span>simulate_data.py</span><span>Python 3.11</span></div>
+    <pre>import numpy as np
+from scipy.special import expit
+
+np.random.seed(42);  N = 5_000
+
+<span class="cm"># Vari&#225;vel latente: insatisfa&#231;&#227;o acumulada (n&#227;o observ&#225;vel em produ&#231;&#227;o)</span>
+U = np.random.normal(0, 1, N)
+
+<span class="cm"># Pol&#237;tica reativa: P(desconto | U) = sigmoid(1.5 * U)
+# Quanto maior a insatisfa&#231;&#227;o, maior a probabilidade de cair no programa</span>
+discount = np.random.binomial(1, expit(1.5 * U))
+
+<span class="cm"># Outcome com efeito causal controlado:
+#   desconto -&gt; churn: coef = -0.30   (efeito real que queremos recuperar)
+#   U -&gt; churn:        coef = +1.80   (confundidor latente)</span>
+log_odds = -2.0 + (-0.30) * discount + 1.80 * U
+churn    = np.random.binomial(1, expit(log_odds))
+
+<span class="cm"># Proxy observ&#225;vel da vari&#225;vel latente (e.g., risk_score do modelo de propens&#227;o)</span>
+risk_score = U + np.random.normal(0, 0.4, N)
+
+<span class="cm"># Corr(discount, churn) = +0.21  &#8592; positiva, apesar do efeito causal ser -0.30</span></pre>
+  </div>
+
+  <h2>O coeficiente que inverte de sinal</h2>
+
+  <p>Com os dados gerados, rodamos dois modelos sequencialmente. O primeiro &#233; o MMM ing&#234;nuo: regress&#227;o log&#237;stica de churn sobre desconto e os canais de m&#237;dia, sem ajuste pelo confundidor. O segundo incorpora o <code>risk_score</code> como proxy do backdoor set. A &#250;nica diferen&#231;a entre os dois modelos &#233; a inclus&#227;o dessa vari&#225;vel de ajuste.</p>
+
+  <div class="art-codeblock">
+    <div class="art-codeblock-header"><span>naive_vs_causal.py</span><span>statsmodels</span></div>
+    <pre>import statsmodels.api as sm
+
+<span class="cm"># Modelo 1 &#8212; MMM ing&#234;nuo: sem ajuste pelo confundidor</span>
+X1 = sm.add_constant(df[["discount", "tv_spend", "search_spend"]])
+m1 = sm.Logit(df["churn"], X1).fit(disp=False)
+<span class="cm"># discount coef: +0.19  &#8592; sinal positivo. Conclus&#227;o: desconto aumenta churn.</span>
+
+<span class="cm"># Modelo 2 &#8212; Com backdoor adjustment (risk_score como proxy de U)</span>
+X2 = sm.add_constant(df[["discount", "risk_score", "tv_spend", "search_spend"]])
+m2 = sm.Logit(df["churn"], X2).fit(disp=False)
+<span class="cm"># discount coef: -0.28  &#8592; sinal negativo. Conclus&#227;o correta: desconto reduz churn.
+
+# Vi&#233;s total: +0.19 - (-0.30) = +0.49 &#8212; invers&#227;o completa de sinal</span></pre>
+  </div>
+
+  <div class="art-table">
+    <table>
+      <thead><tr>
+        <th>Modelo</th><th>Coef. desconto</th><th>Status</th><th>Decis&#227;o resultante</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>MMM ing&#234;nuo (sem ajuste)</td>
+          <td style="color:#ff6b6b;font-family:monospace;">+0.19</td>
+          <td><span class="badge-err">ENVIESADO</span></td>
+          <td>Cancela o programa de reten&#231;&#227;o</td>
+        </tr>
+        <tr>
+          <td>MMM com backdoor adjustment</td>
+          <td style="color:#46d369;font-family:monospace;">&#8722;0.28</td>
+          <td><span class="badge-ok">IDENTIFICADO</span></td>
+          <td>Expande e otimiza o programa</td>
+        </tr>
+        <tr>
+          <td>Ground truth (implantado)</td>
+          <td style="color:#98989d;font-family:monospace;">&#8722;0.30</td>
+          <td><span class="badge-ref">REF.</span></td>
+          <td>&#8212;</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>A diferen&#231;a entre <strong>+0.19</strong> e <strong>&#8722;0.28</strong> n&#227;o &#233; uma varia&#231;&#227;o de magnitude &#8212; &#233; uma invers&#227;o qualitativa de sinal. O vi&#233;s total introduzido pelo confounding &#233; de <strong>+0.49</strong> na escala log&#237;stica. Em uma base de 50 mil clientes, com programa de reten&#231;&#227;o que reduz churn em 30% nos clientes de alto risco, essa invers&#227;o pode representar dezenas de milh&#245;es de reais em receita recorrente anual perdida &#8212; n&#227;o porque o modelo falhou tecnicamente, mas porque a especifica&#231;&#227;o causal que precedeu o modelo estava errada.</p>
+
+  <h2>Identifica&#231;&#227;o formal com DoWhy</h2>
+
+  <p>A biblioteca DoWhy, desenvolvida pelo grupo de pesquisa em causalidade da Microsoft, implementa as quatro etapas do framework de infer&#234;ncia causal de forma estruturada e audit&#225;vel: <strong>modelar</strong> &#8212; declarar o DAG explicitamente; <strong>identificar</strong> &#8212; derivar o estimand causal via crit&#233;rio do backdoor; <strong>estimar</strong> &#8212; calcular o Average Treatment Effect com o conjunto de ajuste correto; e <strong>refutar</strong> &#8212; testar a robustez da estimativa contra viola&#231;&#245;es das suposi&#231;&#245;es identificacionais. A separa&#231;&#227;o expl&#237;cita entre suposi&#231;&#227;o causal (DAG) e procedimento estat&#237;stico (estimador) &#233; a contribui&#231;&#227;o metodol&#243;gica central da biblioteca.</p>
+
+  <div class="art-codeblock">
+    <div class="art-codeblock-header"><span>dowhy_pipeline.py</span><span>dowhy 0.11</span></div>
+    <pre>from dowhy import CausalModel
+
+<span class="cm"># Etapa 1 &#8212; Modelar: DAG declarado explicitamente em DOT notation.
+# Cada aresta representa uma suposi&#231;&#227;o audit&#225;vel pela equipe.</span>
+model = CausalModel(
+    data      = df,
+    treatment = "discount",
+    outcome   = "churn",
+    graph     = "digraph { U->discount; U->churn; discount->churn; tv_spend->churn; }"
+)
+
+<span class="cm"># Etapa 2 &#8212; Identificar: backdoor set derivado automaticamente.
+# Output: conjunto m&#237;nimo de ajuste = { U }</span>
+estimand = model.identify_effect(proceed_when_unidentifiable=False)
+
+<span class="cm"># Etapa 3 &#8212; Estimar: ATE via regress&#227;o ajustada pelo backdoor set.</span>
+estimate = model.estimate_effect(
+    estimand, method_name="backdoor.linear_regression", target_units="ate"
+)
+<span class="cm"># ATE estimado: &#8722;0.28  (ground truth: &#8722;0.30 &#8212; erro de recupera&#231;&#227;o de 6.7%)</span>
+
+<span class="cm"># Etapa 4 &#8212; Refutar: placebo treatment test.
+# Aleatorizar o tratamento deve colapsar a estimativa a zero.
+# Se n&#227;o colapsar, a especifica&#231;&#227;o est&#225; comprometida.</span>
+refutation = model.refute_estimate(
+    estimand, estimate,
+    method_name="placebo_treatment_refuter",
+    placebo_type="permute", num_simulations=200
+)
+<span class="cm"># Esperado: efeito placebo &#8776; 0.00, p-value &gt; 0.05 &#8594; robustez confirmada</span></pre>
+  </div>
+
+  <p>O teste de refuta&#231;&#227;o por placebo funciona como falseamento emp&#237;rico: ao permutar o vetor de tratamento entre as observa&#231;&#245;es, destro&#237;mos qualquer rela&#231;&#227;o causal real. Se a estimativa permanecer elevada ap&#243;s essa perturba&#231;&#227;o, h&#225; ind&#237;cio de que o modelo est&#225; capturando estrutura esp&#250;ria nos dados. &#201; uma verifica&#231;&#227;o simples, mas que deveria ser obrigat&#243;ria antes de qualquer apresenta&#231;&#227;o executiva de resultados de MMM.</p>
+
+  <h2>Limita&#231;&#245;es honestas do framework</h2>
+
+  <p>Tr&#234;s limites precisam ser nomeados explicitamente. O primeiro &#233; o <strong>erro de medida no proxy</strong>: na simula&#231;&#227;o, U &#233; observ&#225;vel porque foi gerado por n&#243;s. Em produ&#231;&#227;o, a vari&#225;vel latente n&#227;o &#233; diretamente mensur&#225;vel, e o proxy introduz ru&#237;do que atenua a efici&#234;ncia do ajuste. A qualidade da estimativa &#233; uma fun&#231;&#227;o direta da qualidade do proxy &#8212; e isso exige valida&#231;&#227;o cuidadosa antes de usar o <code>risk_score</code> como substituto de U em produ&#231;&#227;o.</p>
+
+  <p>O segundo limite &#233; a <strong>validade do pr&#243;prio DAG</strong>: o grafo &#233; uma hip&#243;tese sobre o sistema, n&#227;o um fato verific&#225;vel nos dados. Se a dire&#231;&#227;o de uma aresta estiver errada &#8212; por exemplo, se parte da insatisfa&#231;&#227;o for consequente ao desconto em vez de antec&#234;-lo &#8212; a identifica&#231;&#227;o est&#225; incorreta mesmo que o procedimento estat&#237;stico seja impec&#225;vel. Isso torna o DAG um artefato de neg&#243;cio tanto quanto um artefato t&#233;cnico: ele precisa ser validado com especialistas de dom&#237;nio.</p>
+
+  <p>O terceiro limite &#233; de <strong>escopo</strong>: esta an&#225;lise opera em dados no n&#237;vel individual. MMMs tradicionais trabalham com s&#233;ries temporais agregadas &#8212; dados semanais no n&#237;vel de canal. A extens&#227;o do racioc&#237;nio de identifica&#231;&#227;o para esse contexto exige quasi-experimentos como geo-holdouts ou matched markets para criar varia&#231;&#227;o ex&#243;gena no tratamento. O argumento causal permanece v&#225;lido; o caminho de implementa&#231;&#227;o muda substancialmente.</p>
+
+  <h2>Pr&#243;ximos passos t&#233;cnicos</h2>
+
+  <div class="art-steps">
+    <div class="art-step">
+      <span class="art-step-num">01</span>
+      <p><strong>Calibra&#231;&#227;o com geo-holdouts</strong> &#8212; Experimentos geogr&#225;ficos controlados geram varia&#231;&#227;o ex&#243;gena no tratamento, permitindo ancorar as estimativas do MMM em efeitos causais mensur&#225;veis diretamente.</p>
+    </div>
+    <div class="art-step">
+      <span class="art-step-num">02</span>
+      <p><strong>Priors informados no PyMC-Marketing</strong> &#8212; As estimativas causais desta an&#225;lise podem ser usadas como distribui&#231;&#245;es a priori nos coeficientes de canais reativos, substituindo priors n&#227;o informativos.</p>
+    </div>
+    <div class="art-step">
+      <span class="art-step-num">03</span>
+      <p><strong>Modelagem expl&#237;cita de pol&#237;tica</strong> &#8212; Decompor o efeito do canal do efeito da regra de disparo da pol&#237;tica reativa como componentes separados no modelo.</p>
+    </div>
+    <div class="art-step">
+      <span class="art-step-num">04</span>
+      <p><strong>An&#225;lise de sensibilidade por DAG alternativo</strong> &#8212; Testar sistematicamente quanto a estimativa varia quando arestas s&#227;o invertidas ou removidas, para identificar quais suposi&#231;&#245;es s&#227;o cr&#237;ticas.</p>
+    </div>
+    <div class="art-step">
+      <span class="art-step-num">05</span>
+      <p><strong>Contrafactuais no terceiro degrau</strong> &#8212; Estimar &#8220;o que teria acontecido com a taxa de churn se o programa n&#227;o tivesse existido?&#8221; &#8212; a pergunta mais diretamente &#250;til para decis&#245;es de budget.</p>
+    </div>
+  </div>
+
+  <div class="art-refs" style="border-top:1px solid rgba(255,255,255,0.07);padding-top:28px;">
+    <p style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#8e8e93;margin-bottom:14px;">Refer&#234;ncias</p>
+    <ul>
+      <li>Pearl, J. (2009). <em>Causality: Models, Reasoning and Inference.</em> Cambridge University Press.</li>
+      <li>PyMC-Marketing (2025). <em>Introduction to Causal Relationships in MMM.</em> pymc-marketing.io</li>
+      <li>Sharma, A. &amp; Kiciman, E. (2020). <em>DoWhy: An End-to-End Library for Causal Inference.</em> Microsoft Research.</li>
+      <li>Hernan, M. A. &amp; Robins, J. M. (2023). <em>Causal Inference: What If.</em> Chapman &amp; Hall.</li>
+      <li>Trujillo, C. (2025). <em>Using Causal Thinking to Make Media Mix Modeling.</em> PyCon DE &amp; PyData Berlin.</li>
+    </ul>
+  </div>
+
+</div>
+
+
+</div>
+
+<!-- End of Estudo de Caso Page -->
+
+<!-- BRIGHTON STUDY PAGE - FULL JUPYTER VERSION -->
+</div>
+
+<div id="brighton-study-page" class="page">
+
+    <header style="border-bottom: 1px solid var(--border); padding: 24px 0; position: sticky; top: 0; background: var(--bg); z-index: 100;">
+        <div style="max-width: 900px; margin: 0 auto; padding: 0 24px;">
+            <a href="#" onclick="closeStudy(event)" style="display: inline-flex; align-items: center; gap: 8px; color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500;">
+                ← Back to Portfolio
+            </a>
+        </div>
+    </header>
+
+<div class="art-body" style="display:block;max-width:780px;margin:0 auto;padding:72px 24px 120px;" style="max-width:780px;margin:0 auto;padding:72px 24px 120px;">
+
+  <div class="art-tags">
+    <span class="art-tag-green">Sports Analytics</span>
+    <span class="art-tag-green">Python</span>
+    <span class="art-tag-green">Transfermarkt</span>
+    <span class="art-tag-green">Pandas</span>
+    <span class="art-tag-green">Efici&#234;ncia de Mercado</span>
+  </div>
+
+  <h1 style="font-size:clamp(1.9rem,3.8vw,2.65rem);font-weight:800;line-height:1.13;letter-spacing:-0.03em;color:#f4f4f4;margin-bottom:18px;">Brighton como sistema: efici&#234;ncia de recrutamento, cria&#231;&#227;o de valor e os limites do que os dados p&#250;blicos conseguem provar</h1>
+  <p style="font-size:1.1rem;color:#888;line-height:1.7;margin-bottom:14px;font-style:italic;">Do scouting ao resale &#8212; construindo um framework t&#233;cnico e reprodut&#237;vel para medir o que &#8220;Moneyball no futebol&#8221; significa em dados, e sendo honesto sobre onde o argumento para.</p>
+
+  <div class="art-byline">
+    <span>Jo&#227;o V&#237;tor Carlesso Borges</span><span class="dot">&#183;</span>
+    <span>Portf&#243;lio T&#233;cnico</span><span class="dot">&#183;</span>
+    <span>Fev 2026</span><span class="dot">&#183;</span>
+    <span>~22 min de leitura</span>
+  </div>
+
+  <p>&#8220;Brighton &#233; Moneyball&#8221; virou frase pronta. Circula em podcasts, relat&#243;rios de consultoria e threads de analytics esportivo como se fosse uma conclus&#227;o &#8212; quando &#233; apenas o ponto de partida de uma pergunta anal&#237;tica. O problema com narrativas prontas &#233; que elas colapsam mecanismo e resultado: afirmam que o clube &#233; eficiente sem especificar exatamente o que est&#225; sendo feito de diferente, em qual etapa da cadeia de valor, com qual tipo de dado, e como medir isso de forma que outra pessoa possa replicar a an&#225;lise com os mesmos dados e chegar &#224; mesma conclus&#227;o.</p>
+
+  <p>Este estudo n&#227;o tenta provar que Brighton &#233; eficiente. Tenta construir um framework t&#233;cnico, reprodut&#237;vel e honesto para medir efici&#234;ncia de recrutamento com dados p&#250;blicos, e ser expl&#237;cito sobre onde esse framework funciona e onde ele falha. A diferen&#231;a entre evid&#234;ncia e narrativa &#233; o que distingue an&#225;lise de dados de storytelling com gr&#225;ficos &#8212; e essa distin&#231;&#227;o &#233; o objeto central deste texto.</p>
+
+  <p>A hip&#243;tese central &#233; esta: se Brighton opera um modelo de recrutamento orientado por dados &#8212; com foco em subvaloriza&#231;&#227;o, mercados menos disputados e pipeline de desenvolvimento orientado a revenda &#8212; ent&#227;o esse mecanismo deveria aparecer como efici&#234;ncia sustentada em janelas multi-temporada, n&#227;o como um pico isolado de um &#250;nico bom neg&#243;cio. A segunda hip&#243;tese, igualmente importante: dados p&#250;blicos t&#234;m limites claros para confirmar ou refutar isso, e reconhecer esses limites &#233; parte fundamental do argumento.</p>
+
+  <h2>O modelo de neg&#243;cio: o que Brighton faz estruturalmente diferente</h2>
+
+  <p>Brighton n&#227;o &#233; apenas um clube com um bom analista de dados. Sob a propriedade de Tony Bloom e a gest&#227;o de Paul Barber, o clube construiu uma infraestrutura de informa&#231;&#227;o que vai muito al&#233;m do que a maioria dos clubes de futebol opera. O ponto central &#233; a <strong>Starlizard</strong> &#8212; uma empresa de analytics quantitativo de esportes pertencente ao grupo Bloom, que processa informa&#231;&#227;o sobre mercados esportivos em uma escala raramente vista fora dos grandes grupos de apostas. Essa estrutura significa acesso a modelos de valuation de jogadores constru&#237;dos sobre dados que clubes concorrentes simplesmente n&#227;o possuem.</p>
+
+  <p>O pipeline de recrutamento tem tr&#234;s pilares estruturais document&#225;veis. <strong>Primeiro</strong>, foco em mercados com menor efici&#234;ncia de precifica&#231;&#227;o &#8212; ligas escandinavas, sul-americanas e do leste europeu, onde o volume de an&#225;lise por grandes clubes &#233; menor e a probabilidade de encontrar jogadores subvalorizados em rela&#231;&#227;o ao seu potencial futuro &#233; maior. <strong>Segundo</strong>, uso de analytics para identificar discrepância entre o pre&#231;o de mercado corrente de um jogador e seu valor esperado em um ambiente mais competitivo &#8212; essencialmente uma aposta de que o mercado est&#225; errado. <strong>Terceiro</strong>, preserva&#231;&#227;o deliberada de opcionalidade: contratar jovens, extrair performance por dois ou tr&#234;s anos, e revender por m&#250;ltiplos significativos do valor de aquisi&#231;&#227;o.</p>
+
+  <p>Esse modelo &#233; estruturalmente diferente do que Arsenal, Chelsea e Manchester United operam. Esses clubes compram jogadores prontos, pagando o valor de mercado corrente ou acima. Brighton compra <strong>opcionalidade</strong> &#8212; a possibilidade de que um jogador se torne significativamente mais valioso no futuro. O custo do erro quando a op&#231;&#227;o n&#227;o se realiza &#233; menor; o ganho quando se realiza &#233; exponencialmente maior. Em teoria financeira, &#233; o modelo de um fundo de venture capital aplicado a ativos humanos.</p>
+
+  <h2>Metodologia: pipeline de coleta e constru&#231;&#227;o das m&#233;tricas</h2>
+
+  <p>Os dados de transfer&#234;ncias s&#227;o obtidos via scraping estruturado do Transfermarkt &#8212; a fonte p&#250;blica mais abrangente de hist&#243;rico de transfer&#234;ncias do futebol europeu &#8212; usando a biblioteca <code>transfermarkt-scraper</code> ou via exports CSV dispon&#237;veis diretamente na plataforma. Os dados de pontos por temporada v&#234;m do Football-Data.co.uk. A janela de an&#225;lise cobre quatro temporadas completas da Premier League &#8212; de 2021/22 a 2024/25 &#8212; com o objetivo expl&#237;cito de reduzir o cherry-picking poss&#237;vel com uma &#250;nica temporada.</p>
+
+  <div class="art-codeblock">
+    <div class="art-codeblock-header"><span>data_pipeline.py</span><span>Python 3.11 &#183; Pandas</span></div>
+    <pre>import pandas as pd
+
+SEASONS = ["2021-22", "2022-23", "2023-24", "2024-25"]
+transfers = pd.read_csv("pl_transfers_2122_2425.csv")
+transfers = transfers[transfers["season"].isin(SEASONS)]
+
+<span class="cm"># Net spend por clube: total de compras menos total de vendas no per&#237;odo</span>
+inbound  = (transfers[transfers["direction"] == "in"]
+            .groupby("club_to")["fee_eur"].sum().rename("spend_in"))
+outbound = (transfers[transfers["direction"] == "out"]
+            .groupby("club_from")["fee_eur"].sum().rename("spend_out"))
+
+net = pd.concat([inbound, outbound], axis=1).fillna(0)
+net["net_spend"] = net["spend_in"] - net["spend_out"]
+
+<span class="cm"># Pontos acumulados nas 4 temporadas por clube</span>
+points = (pd.concat([pd.read_csv(f"pl_standings_{s.replace('-','')}.csv")[["Club","Pts"]]
+                     for s in SEASONS])
+           .groupby("Club")["Pts"].sum().reset_index()
+           .rename(columns={"Club":"club","Pts":"total_points"}))
+
+<span class="cm"># M&#233;trica base: custo l&#237;quido por ponto obtido</span>
+merged = points.merge(net.reset_index().rename(columns={"index":"club"}), on="club")
+merged["eur_per_point"] = (merged["net_spend"] / merged["total_points"]).round(0)
+merged.sort_values("eur_per_point", inplace=True)</pre>
+  </div>
+
+  <p>A escolha de quatro temporadas &#233; deliberada e tem implica&#231;&#245;es metodol&#243;gicas. Uma &#250;nica temporada pode ser dominada por uma venda de alto valor &#8212; como a sa&#237;da de Caicedo por &#8364;115M &#8212; que distorce o net spend do per&#237;odo inteiro. Quatro temporadas suavizam essa vari&#226;ncia e exigem consist&#234;ncia: um resultado que se mant&#233;m em m&#250;ltiplas janelas tem peso evidencial muito maior do que um pico isolado, e &#233; exatamente essa consist&#234;ncia que estamos testando.</p>
+
+  <h2>A m&#233;trica base: &#8364; por ponto</h2>
+
+  <p>A m&#233;trica de &#8364; por ponto conecta investimento l&#237;quido em transfer&#234;ncias &#8212; net spend &#8212; com resultado de campo &#8212; pontos acumulados no mesmo per&#237;odo. &#201; uma medida de efici&#234;ncia de convers&#227;o: quanto do capital alocado em transfer&#234;ncias se converteu em desempenho de campeonato. Net spend negativo significa que o clube arrecadou mais em vendas do que gastou em compras &#8212; e mesmo assim competiu.</p>
+
+  <div class="art-table">
+    <table>
+      <thead><tr>
+        <th>Clube</th><th style="text-align:right;">Pontos (4 temp.)</th>
+        <th style="text-align:right;">Net Spend</th><th style="text-align:right;">&#8364; por Ponto</th>
+      </tr></thead>
+      <tbody>
+        <tr style="background:rgba(52,211,153,0.04);">
+          <td style="color:#34d399;font-weight:600;">Brighton</td>
+          <td style="text-align:right;">269</td>
+          <td style="text-align:right;color:#34d399;">&#8722;&#8364;38M</td>
+          <td style="text-align:right;"><span class="badge-info">LUCRO L&#205;QUIDO</span></td>
+        </tr>
+        <tr>
+          <td>Brentford</td>
+          <td style="text-align:right;">199</td>
+          <td style="text-align:right;">+&#8364;65M</td>
+          <td style="text-align:right;">&#8364;327K</td>
+        </tr>
+        <tr>
+          <td>Arsenal</td>
+          <td style="text-align:right;">310</td>
+          <td style="text-align:right;">+&#8364;320M</td>
+          <td style="text-align:right;">&#8364;1.03M</td>
+        </tr>
+        <tr>
+          <td>Manchester City</td>
+          <td style="text-align:right;">358</td>
+          <td style="text-align:right;">+&#8364;540M</td>
+          <td style="text-align:right;">&#8364;1.51M</td>
+        </tr>
+        <tr>
+          <td>Manchester United</td>
+          <td style="text-align:right;">201</td>
+          <td style="text-align:right;color:#ff6b6b;">+&#8364;750M</td>
+          <td style="text-align:right;"><span class="badge-warn">&#8364;3.73M</span></td>
+        </tr>
+        <tr>
+          <td>Chelsea</td>
+          <td style="text-align:right;">188</td>
+          <td style="text-align:right;color:#ff6b6b;">+&#8364;1.04B</td>
+          <td style="text-align:right;"><span class="badge-warn">&#8364;5.53M</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:0.8rem;color:#8e8e93;margin-top:-8px;margin-bottom:32px;">Valores aproximados baseados em dados p&#250;blicos do Transfermarkt. Net spend negativo indica arrecada&#231;&#227;o l&#237;quida positiva em transfer&#234;ncias no per&#237;odo.</p>
+
+  <p>Brighton &#233; o &#250;nico clube do top-8 da Premier League no per&#237;odo que operou com net spend negativo &#8212; gerou caixa em transfer&#234;ncias enquanto mantinha competitividade de campo. A compara&#231;&#227;o com Chelsea &#233; estruturalmente reveladora: o clube londrino alocou mais de &#8364;1 bilh&#227;o em transfer&#234;ncias l&#237;quidas e acumulou menos pontos do que Brighton, que arrecadou &#8364;38M a mais do que gastou. Os dois clubes operam em categorias anal&#237;ticas completamente diferentes no que diz respeito &#224; rela&#231;&#227;o entre capital e resultado de campo.</p>
+
+  <h2>Cria&#231;&#227;o de valor no n&#237;vel do jogador</h2>
+
+  <p>A m&#233;trica agregada de &#8364; por ponto &#233; &#250;til para uma vis&#227;o de clube, mas obscurece o mecanismo. Para entender como Brighton gera valor, &#233; preciso descer ao n&#237;vel do jogador individual &#8212; especificamente a rela&#231;&#227;o entre fee de aquisi&#231;&#227;o, minutos jogados na Premier League e fee de revenda. Isso permite calcular n&#227;o apenas o ROI bruto, mas o retorno anualizado &#8212; a m&#233;trica relevante para comparar ativos com horizontes temporais diferentes.</p>
+
+  <div class="art-codeblock">
+    <div class="art-codeblock-header"><span>player_value_creation.py</span></div>
+    <pre>players = pd.DataFrame({
+    "player":     ["M. Caicedo","B. White","A. Mac Allister",
+                   "M. Cucurella","L. Trossard","Y. Bissouma"],
+    "buy_fee_m":  [4.5,  2.0,  6.0, 15.0,  8.0, 15.0],
+    "sell_fee_m": [115,  50.0, 35.0, 62.0, 27.0, 29.0],
+    "years_held": [2,    5,    3,    1,     4,    3],
+})
+
+<span class="cm"># ROI bruto e retorno anualizado por jogador</span>
+players["roi_pct"]       = ((players["sell_fee_m"] - players["buy_fee_m"])
+                             / players["buy_fee_m"] * 100).round(1)
+players["annual_return"] = (players["roi_pct"] / players["years_held"]).round(1)
+players["value_created"] = (players["sell_fee_m"] - players["buy_fee_m"]).round(1)
+
+print(players.sort_values("roi_pct", ascending=False)
+             [["player","buy_fee_m","sell_fee_m","roi_pct","annual_return","value_created"]]
+             .to_string(index=False))</pre>
+  </div>
+
+  <div class="art-table">
+    <table>
+      <thead><tr>
+        <th>Jogador</th><th>Compra</th><th>Venda</th>
+        <th>ROI</th><th>Retorno/ano</th><th>Valor criado</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>M. Caicedo</td><td>&#8364;4.5M</td><td>&#8364;115M</td>
+          <td style="color:#34d399;font-weight:600;">+2,455%</td>
+          <td style="color:#34d399;">+1,228%/ano</td><td style="color:#34d399;">+&#8364;110.5M</td></tr>
+        <tr><td>B. White</td><td>&#8364;2M</td><td>&#8364;50M</td>
+          <td style="color:#34d399;font-weight:600;">+2,400%</td>
+          <td style="color:#34d399;">+480%/ano</td><td style="color:#34d399;">+&#8364;48M</td></tr>
+        <tr><td>A. Mac Allister</td><td>&#8364;6M</td><td>&#8364;35M</td>
+          <td style="color:#34d399;font-weight:600;">+483%</td>
+          <td style="color:#34d399;">+161%/ano</td><td style="color:#34d399;">+&#8364;29M</td></tr>
+        <tr><td>M. Cucurella</td><td>&#8364;15M</td><td>&#8364;62M</td>
+          <td style="color:#34d399;font-weight:600;">+313%</td>
+          <td style="color:#34d399;">+313%/ano</td><td style="color:#34d399;">+&#8364;47M</td></tr>
+        <tr><td>L. Trossard</td><td>&#8364;8M</td><td>&#8364;27M</td>
+          <td style="color:#34d399;font-weight:600;">+238%</td>
+          <td style="color:#34d399;">+60%/ano</td><td style="color:#34d399;">+&#8364;19M</td></tr>
+        <tr><td>Y. Bissouma</td><td>&#8364;15M</td><td>&#8364;29M</td>
+          <td style="color:#34d399;font-weight:600;">+93%</td>
+          <td style="color:#34d399;">+31%/ano</td><td style="color:#34d399;">+&#8364;14M</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>O que esses seis casos t&#234;m em comum n&#227;o &#233; apenas o ROI alto &#8212; &#233; o padr&#227;o de aquisi&#231;&#227;o. Todos foram comprados de mercados ou situa&#231;&#245;es onde o pre&#231;o estava sistematicamente abaixo do potencial futuro: Caicedo do futebol equatoriano, White como produto de empr&#233;stimos sucessivos com valor de mercado deprimido, Mac Allister da Argentina antes da Copa do Mundo que triplicou seu valor percebido. Isso sugere um processo de scouting com crit&#233;rios cl&#225;ros de identifica&#231;&#227;o de subvaloriza&#231;&#227;o &#8212; n&#227;o um ac&#250;mulo aleat&#243;rio de bons neg&#243;cios. Mas &#8220;sugere&#8221; &#233; a palavra correta: os dados mostram o padr&#227;o, n&#227;o o mecanismo.</p>
+
+  <h2>O que os dados suportam &#8212; e onde o argumento para</h2>
+
+  <p>Os dados p&#250;blicos dispon&#237;veis permitem sustentar tr&#234;s afirma&#231;&#245;es com confian&#231;a razo&#225;vel. <strong>Primeira</strong>: Brighton operou com net spend negativo de forma consistente em m&#250;ltiplas temporadas &#8212; fato verific&#225;vel nos dados do Transfermarkt sem nenhuma suposi&#231;&#227;o adicional. <strong>Segunda</strong>: o ROI de revenda dos principais jogadores &#233; extraordinariamente alto e consistente o suficiente para ser improv&#225;vel como resultado de sorte &#8212; seis casos com ROI m&#233;dio acima de 700% em quatro anos sugerem um processo, n&#227;o um acidente. <strong>Terceira</strong>: a rela&#231;&#227;o entre gasto l&#237;quido e pontos obtidos &#233; estruturalmente favor&#225;vel ao Brighton comparado tanto a clubes de or&#231;amento similar quanto a clubes que gastaram muito mais.</p>
+
+  <p>Mas h&#225; duas afirma&#231;&#245;es que os dados p&#250;blicos n&#227;o conseguem sustentar diretamente. A primeira &#233; que o modelo de analytics da Starlizard &#233; <em>causalmente</em> respons&#225;vel pelo ROI. O mesmo resultado poderia ser parcialmente explicado por uma rede de agentes excepcionalmente bem posicionada, por timing de mercado favor&#225;vel em per&#237;odos espec&#237;ficos, ou por uma combina&#231;&#227;o de cultura organizacional e lideran&#231;a t&#233;cnica que n&#227;o se traduz em dados de transfer&#234;ncia. Os dados mostram efici&#234;ncia &#8212; n&#227;o conseguem identificar o mecanismo com precis&#227;o.</p>
+
+  <p>A segunda afirma&#231;&#227;o que os dados n&#227;o suportam &#233; replicabilidade. A vantagem estrutural de informa&#231;&#227;o que Brighton tem via Starlizard n&#227;o est&#225; dispon&#237;vel para a maioria dos clubes. O modelo n&#227;o &#233; simplesmente &#8220;contratar um analista e olhar para o Transfermarkt&#8221; &#8212; &#233; uma infraestrutura de dados constru&#237;da ao longo de anos com investimento significativo. Reconhecer esse limite &#233; fundamental para n&#227;o transformar o caso Brighton em receita gen&#233;rica de &#8220;futebol orientado por dados&#8221;.</p>
+
+  <h2>Os limites honestos da m&#233;trica</h2>
+
+  <p>&#8364; por ponto &#233; uma proxy &#250;til, mas esconde componentes de custo relevantes. O mais &#243;bvio &#233; sal&#225;rio: um jogador comprado por &#8364;5M com sal&#225;rio de &#8364;5M por temporada custa &#8364;25M ao longo de quatro anos &#8212; o mesmo que um jogador comprado por &#8364;25M com sal&#225;rio modesto. A m&#233;trica de transfer&#234;ncia sozinha captura apenas uma parte do custo total de roster.</p>
+
+  <p>O segundo limite &#233; de timing: gasto em transfer&#234;ncias ocorre em janelas espec&#237;ficas, mas a convers&#227;o em pontos se distribui ao longo de temporadas subsequentes. Quatro temporadas reduzem mas n&#227;o eliminam esse problema &#8212; um clube que faz investimentos grandes numa janela pode parecer ineficiente nos primeiros doze meses e eficiente nos seguintes.</p>
+
+  <p>O terceiro limite &#233; contexto n&#227;o controlado: qualidade do treinador, les&#245;es e vari&#226;ncia de calend&#225;rio influenciam pontos de forma que independe de transfer&#234;ncias. Brighton passou por per&#237;odos com Graham Potter e Roberto De Zerbi &#8212; treinadores de perfil t&#233;cnico alto que amplificaram o potencial dos elencos recrutados. Separar o efeito do recrutamento do efeito do treinamento &#233; dif&#237;cil com dados p&#250;blicos, e qualquer an&#225;lise que ignore essa covari&#225;vel est&#225; incompleta.</p>
+
+  <h2>Pr&#243;ximos passos: do agregado ao n&#237;vel jogador-trajet&#243;ria</h2>
+
+  <p>A evolu&#231;&#227;o natural &#233; migrar do n&#237;vel clube-temporada &#8212; agrega&#231;&#227;o atual &#8212; para o n&#237;vel jogador-trajet&#243;ria. A pergunta muda: em vez de &#8220;quanto custa um ponto para o Brighton?&#8221;, a pergunta passa a ser &#8220;quanto valor foi criado entre aquisi&#231;&#227;o e revenda por minuto jogado, controlando por posi&#231;&#227;o, idade na aquisi&#231;&#227;o e liga de origem?&#8221; Essa formula&#231;&#227;o &#233; muito mais dif&#237;cil de responder com dados p&#250;blicos, mas muito mais pr&#243;xima do mecanismo que estamos tentando evidenciar.</p>
+
+  <div class="art-steps">
+    <div class="art-step">
+      <span class="art-step-num art-step-num-green">01</span>
+      <p><strong>Incorporar dados de sal&#225;rio</strong> &#8212; via Capology e Swiss Ramble para calcular custo total de roster por ponto, corrigindo o vi&#233;s da m&#233;trica atual.</p>
+    </div>
+    <div class="art-step">
+      <span class="art-step-num art-step-num-green">02</span>
+      <p><strong>&#205;ndice de cria&#231;&#227;o de valor por jogador</strong> &#8212; combinando varia&#231;&#227;o de valuation, fee de revenda, minutos jogados e contribui&#231;&#227;o de performance via xG e xA.</p>
+    </div>
+    <div class="art-step">
+      <span class="art-step-num art-step-num-green">03</span>
+      <p><strong>Regress&#227;o de sobreviv&#234;ncia</strong> &#8212; modelar o tempo entre aquisi&#231;&#227;o e revenda como fun&#231;&#227;o de caracter&#237;sticas do jogador, testando se Brighton sistematicamente adquire perfis com distribui&#231;&#227;o de sa&#237;da mais favor&#225;vel.</p>
+    </div>
+    <div class="art-step">
+      <span class="art-step-num art-step-num-green">04</span>
+      <p><strong>Benchmarking multi-clube</strong> &#8212; Brentford, Lille e Ajax como casos comparáveis. Se o padr&#227;o de efici&#234;ncia se repete em contextos diferentes, o argumento de mecanismo identific&#225;vel fica substancialmente mais forte.</p>
+    </div>
+  </div>
+
+  <div class="art-refs" style="border-top:1px solid rgba(255,255,255,0.07);padding-top:28px;">
+    <p style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#8e8e93;margin-bottom:14px;">Refer&#234;ncias</p>
+    <ul>
+      <li>Transfermarkt (2025). <em>Brighton &amp; Hove Albion Transfer History.</em> transfermarkt.com</li>
+      <li>Football-Data.co.uk (2025). <em>Premier League Historical Results &amp; Standings.</em></li>
+      <li>DreamDataBall (2024). <em>Brighton &amp; Hove Albion: The Analytics-Driven Underdogs.</em> Substack.</li>
+      <li>Back5 Analytics (2025). <em>Brighton&#8217;s Data Revolution: From Bottom to 21st Richest Club.</em> back5.com.au</li>
+      <li>Lewis, M. (2003). <em>Moneyball: The Art of Winning an Unfair Game.</em> W. W. Norton &amp; Company.</li>
+      <li>Szymanski, S. (2015). <em>Money and Soccer: A Soccernomics Guide.</em> Nation Books.</li>
+    </ul>
+  </div>
+
+</div>
+
+
+<!-- End of Brighton Study Page --></div>
+
+
+
+<!-- UBER DATA ENGINEERING PAGE -->
+<div id="uber-study-page" class="page">
+    <header style="border-bottom: 1px solid var(--border-subtle); padding: 24px 0; position: sticky; top: 0; background: var(--bg-primary); z-index: 100;">
+        <div style="max-width: 900px; margin: 0 auto; padding: 0 24px;">
+            <a href="#" onclick="closeStudy(event)" style="display: inline-flex; align-items: center; gap: 8px; color: var(--text-secondary); font-size: 14px; font-weight: 500;">
+                ← Voltar ao Portfolio
+            </a>
+        </div>
+    </header>
+
+    <div style="max-width: 1100px; margin: 0 auto; padding: 80px 24px 100px;">
+        
+        <!-- Header -->
+        <div style="margin-bottom: 50px;">
+            <div style="display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap;">
+                <span style="font-size: 12px; padding: 6px 14px; background: rgba(251, 146, 60, 0.1); color: #fb923c; border-radius: 6px; font-weight: 600;">Data Engineering</span>
+                <span style="font-size: 12px; padding: 6px 14px; background: rgba(251, 146, 60, 0.1); color: #fb923c; border-radius: 6px; font-weight: 600;">Python</span>
+                <span style="font-size: 12px; padding: 6px 14px; background: rgba(251, 146, 60, 0.1); color: #fb923c; border-radius: 6px; font-weight: 600;">GCP</span>
+                <span style="font-size: 12px; padding: 6px 14px; background: rgba(251, 146, 60, 0.1); color: #fb923c; border-radius: 6px; font-weight: 600;">Mage AI</span>
+            </div>
+
+            <h1 style="font-size: 48px; font-weight: 900; margin-bottom: 20px; line-height: 1.1;">Pipeline de Dados NYC: Do Raw ao Dashboard</h1>
+            <p style="font-size: 20px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 15px;">
+                Pipeline end-to-end de engenharia de dados com 100k+ viagens: extração, modelagem dimensional, orquestração e analytics
+            </p>
+            <p style="font-size: 14px; color: var(--text-tertiary);">Data Engineering · Janeiro 2026</p>
+        </div>
+
+        <!-- Objetivos -->
+        <div style="background: linear-gradient(135deg, #fb923c 0%, #f97316 100%); border-radius: 16px; padding: 40px; margin-bottom: 50px;">
+            <h2 style="font-size: 28px; font-weight: 800; margin-bottom: 24px; color: #f5f5f7;">🎯 Objetivo do Projeto</h2>
+            <p style="font-size: 16px; line-height: 1.7; color: #f5f5f7; margin-bottom: 20px;">
+                Construir um pipeline completo de dados que:
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
+                <div style="background: rgba(0,0,0,0.1); padding: 16px; border-radius: 10px;">
+                    <div style="font-size: 24px; margin-bottom: 8px;">📥</div>
+                    <div style="font-weight: 700; margin-bottom: 4px; color: #f5f5f7;">Extração</div>
+                    <div style="font-size: 14px; color: rgba(0,0,0,0.8);">Dados NYC Trip Records</div>
+                </div>
+                <div style="background: rgba(0,0,0,0.1); padding: 16px; border-radius: 10px;">
+                    <div style="font-size: 24px; margin-bottom: 8px;">🔄</div>
+                    <div style="font-weight: 700; margin-bottom: 4px; color: #f5f5f7;">Transformação</div>
+                    <div style="font-size: 14px; color: rgba(0,0,0,0.8);">Modelagem dimensional</div>
+                </div>
+                <div style="background: rgba(0,0,0,0.1); padding: 16px; border-radius: 10px;">
+                    <div style="font-size: 24px; margin-bottom: 8px;">⚙️</div>
+                    <div style="font-weight: 700; margin-bottom: 4px; color: #f5f5f7;">Orquestração</div>
+                    <div style="font-size: 14px; color: rgba(0,0,0,0.8);">Mage AI + BigQuery</div>
+                </div>
+                <div style="background: rgba(0,0,0,0.1); padding: 16px; border-radius: 10px;">
+                    <div style="font-size: 24px; margin-bottom: 8px;">📊</div>
+                    <div style="font-weight: 700; margin-bottom: 4px; color: #f5f5f7;">Visualização</div>
+                    <div style="font-size: 14px; color: rgba(0,0,0,0.8);">Dashboard Looker Studio</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Arquitetura do Pipeline -->
+        <section style="margin-bottom: 60px;">
+            <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 28px;">Arquitetura do Pipeline</h2>
+            
+            <div style="background: #0d1117; border-radius: 16px; padding: 40px; margin-bottom: 28px;">
+                <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; align-items: center;">
+                    <!-- Step 1 -->
+                    <div style="text-align: center;">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #22c55e 0%, #14b8a6 100%); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 32px;">
+                            📄
+                        </div>
+                        <div style="font-weight: 700; font-size: 14px; margin-bottom: 4px;">Raw Data</div>
+                        <div style="font-size: 12px; color: var(--text-secondary);">CSV Files</div>
+                    </div>
+
+                    <div style="text-align: center; font-size: 24px; color: var(--text-secondary);">→</div>
+
+                    <!-- Step 2 -->
+                    <div style="text-align: center;">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 32px;">
+                            🐍
+                        </div>
+                        <div style="font-weight: 700; font-size: 14px; margin-bottom: 4px;">Transform</div>
+                        <div style="font-size: 12px; color: var(--text-secondary);">Python/Pandas</div>
+                    </div>
+
+                    <div style="text-align: center; font-size: 24px; color: var(--text-secondary);">→</div>
+
+                    <!-- Step 3 -->
+                    <div style="text-align: center;">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 32px;">
+                            ⚙️
+                        </div>
+                        <div style="font-weight: 700; font-size: 14px; margin-bottom: 4px;">Orchestrate</div>
+                        <div style="font-size: 12px; color: var(--text-secondary);">Mage AI</div>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: center; margin-top: 32px;">
+                    <div style="text-align: center; font-size: 24px; color: var(--text-secondary);">↓</div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: center;">
+                    <!-- Step 4 -->
+                    <div style="text-align: center;">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #fb923c 0%, #f97316 100%); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 32px;">
+                            💾
+                        </div>
+                        <div style="font-weight: 700; font-size: 14px; margin-bottom: 4px;">Storage</div>
+                        <div style="font-size: 12px; color: var(--text-secondary);">BigQuery</div>
+                    </div>
+
+                    <div style="text-align: center; font-size: 24px; color: var(--text-secondary);">→</div>
+
+                    <!-- Step 5 -->
+                    <div style="text-align: center;">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 32px;">
+                            📊
+                        </div>
+                        <div style="font-weight: 700; font-size: 14px; margin-bottom: 4px;">Visualize</div>
+                        <div style="font-size: 12px; color: var(--text-secondary);">Looker Studio</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dataset -->
+        <section style="margin-bottom: 60px;">
+            <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 24px;">Dataset: NYC Trip Records</h2>
+            
+            <p style="color: var(--text-secondary); line-height: 1.8; font-size: 16px; margin-bottom: 24px;">
+                Dados oficiais da TLC (Taxi & Limousine Commission) de Nova York com 100k+ registros de viagens incluindo:
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 28px;">
+                <div style="background: rgba(59, 130, 246, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #3b82f6;">
+                    <div style="font-weight: 700; margin-bottom: 8px; color: #3b82f6;">📍 Localização</div>
+                    <div style="font-size: 14px; color: var(--text-secondary);">Pick-up e drop-off locations, distâncias</div>
+                </div>
+                <div style="background: rgba(168, 85, 247, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #a855f7;">
+                    <div style="font-weight: 700; margin-bottom: 8px; color: #a855f7;">⏰ Temporal</div>
+                    <div style="font-size: 14px; color: var(--text-secondary);">Datas/horários de pickup e dropoff</div>
+                </div>
+                <div style="background: rgba(34, 197, 94, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #22c55e;">
+                    <div style="font-weight: 700; margin-bottom: 8px; color: #22c55e;">💰 Financeiro</div>
+                    <div style="font-size: 14px; color: var(--text-secondary);">Valores de tarifa, gorjetas, taxas</div>
+                </div>
+                <div style="background: rgba(251, 146, 60, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #fb923c;">
+                    <div style="font-weight: 700; margin-bottom: 8px; color: #fb923c;">👥 Operacional</div>
+                    <div style="font-size: 14px; color: var(--text-secondary);">Passageiros, tipo de pagamento, taxas</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modelagem de Dados -->
+        <section style="margin-bottom: 60px;">
+            <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 24px;">Modelagem Dimensional (Star Schema)</h2>
+            
+            <p style="color: var(--text-secondary); line-height: 1.8; font-size: 16px; margin-bottom: 28px;">
+                Implementação de modelo dimensional com 1 tabela FATO e 6 tabelas DIMENSÃO:
+            </p>
+
+            <div style="background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%); border-radius: 16px; padding: 40px;">
+                <!-- Fact Table -->
+                <div style="background: rgba(239, 68, 68, 0.15); border: 2px solid #ef4444; border-radius: 12px; padding: 24px; margin-bottom: 32px; text-align: center;">
+                    <div style="font-size: 14px; color: #ef4444; font-weight: 700; margin-bottom: 12px;">📋 TABELA FATO</div>
+                    <div style="font-size: 22px; font-weight: 900; margin-bottom: 16px;">fact_table</div>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; font-size: 13px; color: var(--text-secondary);">
+                        <div>trip_id</div>
+                        <div>VendorID</div>
+                        <div>datetime_id</div>
+                        <div>passenger_count_id</div>
+                        <div>trip_distance_id</div>
+                        <div>rate_code_id</div>
+                        <div>pickup_location_id</div>
+                        <div>dropoff_location_id</div>
+                        <div>payment_type_id</div>
+                        <div>fare_amount</div>
+                        <div>extra</div>
+                        <div>tip_amount</div>
+                    </div>
+                </div>
+
+                <!-- Dimension Tables Grid -->
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+                    <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid #3b82f6; border-radius: 10px; padding: 20px;">
+                        <div style="font-size: 12px; color: #3b82f6; font-weight: 700; margin-bottom: 8px;">DIM</div>
+                        <div style="font-weight: 700; margin-bottom: 12px;">datetime_dim</div>
+                        <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">
+                            • datetime_id<br>
+                            • tpep_pickup_datetime<br>
+                            • pick_hour/day/month/year<br>
+                            • tpep_dropoff_datetime<br>
+                            • drop_hour/day/month/year
+                        </div>
+                    </div>
+
+                    <div style="background: rgba(34, 197, 94, 0.1); border: 1px solid #22c55e; border-radius: 10px; padding: 20px;">
+                        <div style="font-size: 12px; color: #22c55e; font-weight: 700; margin-bottom: 8px;">DIM</div>
+                        <div style="font-weight: 700; margin-bottom: 12px;">passenger_count_dim</div>
+                        <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">
+                            • passenger_count_id<br>
+                            • passenger_count
+                        </div>
+                    </div>
+
+                    <div style="background: rgba(168, 85, 247, 0.1); border: 1px solid #a855f7; border-radius: 10px; padding: 20px;">
+                        <div style="font-size: 12px; color: #a855f7; font-weight: 700; margin-bottom: 8px;">DIM</div>
+                        <div style="font-weight: 700; margin-bottom: 12px;">trip_distance_dim</div>
+                        <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">
+                            • trip_distance_id<br>
+                            • trip_distance
+                        </div>
+                    </div>
+
+                    <div style="background: rgba(251, 146, 60, 0.1); border: 1px solid #fb923c; border-radius: 10px; padding: 20px;">
+                        <div style="font-size: 12px; color: #fb923c; font-weight: 700; margin-bottom: 8px;">DIM</div>
+                        <div style="font-weight: 700; margin-bottom: 12px;">rate_code_dim</div>
+                        <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">
+                            • rate_code_id<br>
+                            • rate_code_name
+                        </div>
+                    </div>
+
+                    <div style="background: rgba(234, 179, 8, 0.1); border: 1px solid #eab308; border-radius: 10px; padding: 20px;">
+                        <div style="font-size: 12px; color: #eab308; font-weight: 700; margin-bottom: 8px;">DIM</div>
+                        <div style="font-weight: 700; margin-bottom: 12px;">pickup_location_dim</div>
+                        <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">
+                            • pickup_location_id<br>
+                            • pickup_latitude<br>
+                            • pickup_longitude
+                        </div>
+                    </div>
+
+                    <div style="background: rgba(236, 72, 153, 0.1); border: 1px solid #ec4899; border-radius: 10px; padding: 20px;">
+                        <div style="font-size: 12px; color: #ec4899; font-weight: 700; margin-bottom: 8px;">DIM</div>
+                        <div style="font-weight: 700; margin-bottom: 12px;">payment_type_dim</div>
+                        <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">
+                            • payment_type_id<br>
+                            • payment_type<br>
+                            • payment_type_name
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pipeline ETL com Código -->
+        <section style="margin-bottom: 60px;">
+            <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 24px;">Pipeline ETL: Código Python</h2>
+            
+            <div style="background: #0d1117; border-radius: 12px; padding: 32px; margin-bottom: 24px;">
+                <div style="font-size: 14px; color: #fb923c; font-weight: 700; margin-bottom: 16px;">📥 Extract (load_uber_data.py)</div>
+                <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.7; color: #e6edf3;"><span style="color: #ff7b72;">import</span> pandas <span style="color: #ff7b72;">as</span> pd
+
+<span style="color: #8b949e;"># Load data from Google Cloud Storage</span>
+df = pd.read_csv(<span style="color: #a5d6ff;">'gs:uber-data-bucket/uber_data.csv'</span>)
+
+<span style="color: #79c0ff;">print</span>(<span style="color: #a5d6ff;">f"Loaded </span><span style="color: #ffa657;">{</span><span style="color: #79c0ff;">len</span>(df)<span style="color: #ffa657;">}</span><span style="color: #a5d6ff;"> records"</span>)
+<span style="color: #8b949e;"># Output: Loaded 100000+ records</span></pre>
+            </div>
+
+            <div style="background: #0d1117; border-radius: 12px; padding: 32px; margin-bottom: 24px;">
+                <div style="font-size: 14px; color: #3b82f6; font-weight: 700; margin-bottom: 16px;">🔄 Transform (transform_uber.py)</div>
+                <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.7; color: #e6edf3;"><span style="color: #8b949e;"># Convert datetime columns</span>
+df[<span style="color: #a5d6ff;">'tpep_pickup_datetime'</span>] = pd.to_datetime(df[<span style="color: #a5d6ff;">'tpep_pickup_datetime'</span>])
+df[<span style="color: #a5d6ff;">'tpep_dropoff_datetime'</span>] = pd.to_datetime(df[<span style="color: #a5d6ff;">'tpep_dropoff_datetime'</span>])
+
+<span style="color: #8b949e;"># Remove duplicates</span>
+df = df.drop_duplicates().reset_index(drop=<span style="color: #ff7b72;">True</span>)
+
+<span style="color: #8b949e;"># Create datetime dimension</span>
+datetime_dim = df[[<span style="color: #a5d6ff;">'tpep_pickup_datetime'</span>, <span style="color: #a5d6ff;">'tpep_dropoff_datetime'</span>]].copy()
+datetime_dim[<span style="color: #a5d6ff;">'pick_hour'</span>] = datetime_dim[<span style="color: #a5d6ff;">'tpep_pickup_datetime'</span>].dt.hour
+datetime_dim[<span style="color: #a5d6ff;">'pick_day'</span>] = datetime_dim[<span style="color: #a5d6ff;">'tpep_pickup_datetime'</span>].dt.day
+datetime_dim[<span style="color: #a5d6ff;">'pick_month'</span>] = datetime_dim[<span style="color: #a5d6ff;">'tpep_pickup_datetime'</span>].dt.month
+datetime_dim[<span style="color: #a5d6ff;">'pick_year'</span>] = datetime_dim[<span style="color: #a5d6ff;">'tpep_pickup_datetime'</span>].dt.year
+datetime_dim[<span style="color: #a5d6ff;">'datetime_id'</span>] = datetime_dim.index
+
+<span style="color: #8b949e;"># Create fact table</span>
+fact_table = df.merge(datetime_dim, left_index=<span style="color: #ff7b72;">True</span>, right_index=<span style="color: #ff7b72;">True</span>)</pre>
+            </div>
+
+            <div style="background: #0d1117; border-radius: 12px; padding: 32px;">
+                <div style="font-size: 14px; color: #22c55e; font-weight: 700; margin-bottom: 16px;">💾 Load (load_gbq.py)</div>
+                <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.7; color: #e6edf3;"><span style="color: #ff7b72;">from</span> google.cloud <span style="color: #ff7b72;">import</span> bigquery
+
+<span style="color: #8b949e;"># Initialize BigQuery client</span>
+client = bigquery.Client()
+
+<span style="color: #8b949e;"># Load fact table</span>
+fact_table.to_gbq(
+    destination_table=<span style="color: #a5d6ff;">'uber_dataset.fact_table'</span>,
+    project_id=<span style="color: #a5d6ff;">'uber-project-id'</span>,
+    if_exists=<span style="color: #a5d6ff;">'replace'</span>
+)
+
+<span style="color: #79c0ff;">print</span>(<span style="color: #a5d6ff;">"✓ Tables loaded to BigQuery"</span>)</pre>
+            </div>
+        </section>
+
+        <!-- Analytics / SQL -->
+        <section style="margin-bottom: 60px;">
+            <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 24px;">Analytics: SQL Queries</h2>
+            
+            <div style="background: rgba(59, 130, 246, 0.1); padding: 28px; border-radius: 12px; border-left: 4px solid #3b82f6; margin-bottom: 24px;">
+                <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 16px; color: #3b82f6;">Top 10 Locais de Pickup</h3>
+                <div style="background: #0d1117; border-radius: 10px; padding: 24px; margin-bottom: 16px;">
+                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.7; color: #e6edf3;"><span style="color: #ff7b72;">SELECT</span> 
+    pickup_zone,
+    <span style="color: #79c0ff;">COUNT</span>(*) <span style="color: #ff7b72;">as</span> total_trips
+<span style="color: #ff7b72;">FROM</span> `uber_dataset.fact_table` f
+<span style="color: #ff7b72;">JOIN</span> `uber_dataset.pickup_location_dim` p 
+    <span style="color: #ff7b72;">ON</span> f.pickup_location_id = p.pickup_location_id
+<span style="color: #ff7b72;">GROUP BY</span> pickup_zone
+<span style="color: #ff7b72;">ORDER BY</span> total_trips <span style="color: #ff7b72;">DESC</span>
+<span style="color: #ff7b72;">LIMIT</span> <span style="color: #ffa657;">10</span></pre>
+                </div>
+                
+                <div style="background: rgba(59, 130, 246, 0.05); border-radius: 10px; padding: 20px;">
+                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 12px; font-size: 14px;">
+                        <div style="font-weight: 700; color: #3b82f6; padding-bottom: 8px; border-bottom: 1px solid rgba(59, 130, 246, 0.3);">Zona</div>
+                        <div style="font-weight: 700; color: #3b82f6; padding-bottom: 8px; border-bottom: 1px solid rgba(59, 130, 246, 0.3);">Viagens</div>
+                        <div>Manhattan - Midtown</div><div style="color: #22c55e; font-weight: 700;">15,432</div>
+                        <div>JFK Airport</div><div style="color: #22c55e; font-weight: 700;">12,891</div>
+                        <div>Times Square</div><div style="color: #22c55e; font-weight: 700;">11,203</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: rgba(34, 197, 94, 0.1); padding: 28px; border-radius: 12px; border-left: 4px solid #22c55e;">
+                <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 16px; color: #22c55e;">Tarifa Média por Hora do Dia</h3>
+                <div style="background: #0d1117; border-radius: 10px; padding: 24px; margin-bottom: 16px;">
+                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.7; color: #e6edf3;"><span style="color: #ff7b72;">SELECT</span> 
+    dt.pick_hour,
+    <span style="color: #79c0ff;">AVG</span>(f.fare_amount) <span style="color: #ff7b72;">as</span> avg_fare
+<span style="color: #ff7b72;">FROM</span> `uber_dataset.fact_table` f
+<span style="color: #ff7b72;">JOIN</span> `uber_dataset.datetime_dim` dt 
+    <span style="color: #ff7b72;">ON</span> f.datetime_id = dt.datetime_id
+<span style="color: #ff7b72;">GROUP BY</span> dt.pick_hour
+<span style="color: #ff7b72;">ORDER BY</span> dt.pick_hour</pre>
+                </div>
+
+                <div style="background: rgba(34, 197, 94, 0.05); border-radius: 10px; padding: 20px;">
+                    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; text-align: center; font-size: 13px;">
+                        <div>
+                            <div style="font-weight: 700; margin-bottom: 4px;">6h</div>
+                            <div style="color: var(--text-secondary);">$12.50</div>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; margin-bottom: 4px;">12h</div>
+                            <div style="color: var(--text-secondary);">$18.30</div>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; margin-bottom: 4px; color: #22c55e;">18h</div>
+                            <div style="color: #22c55e; font-weight: 700;">$24.80</div>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; margin-bottom: 4px;">21h</div>
+                            <div style="color: var(--text-secondary);">$22.10</div>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; margin-bottom: 4px;">0h</div>
+                            <div style="color: var(--text-secondary);">$19.50</div>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; margin-bottom: 4px;">3h</div>
+                            <div style="color: var(--text-secondary);">$15.20</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(34, 197, 94, 0.3); text-align: center; font-size: 13px; color: var(--text-secondary);">
+                        Pico: 18h ($24.80) | Menor: 6h ($12.50)
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resultados -->
+        <section>
+            <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 24px;">Resultados & Impacto</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 32px;">
+                <div style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(20, 184, 166, 0.05) 100%); border: 2px solid #22c55e; border-radius: 12px; padding: 28px; text-align: center;">
+                    <div style="font-size: 42px; font-weight: 900; color: #22c55e; margin-bottom: 8px;">100k+</div>
+                    <div style="font-size: 14px; color: var(--text-secondary);">Registros Processados</div>
+                </div>
+                <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(37, 99, 235, 0.05) 100%); border: 2px solid #3b82f6; border-radius: 12px; padding: 28px; text-align: center;">
+                    <div style="font-size: 42px; font-weight: 900; color: #3b82f6; margin-bottom: 8px;">7</div>
+                    <div style="font-size: 14px; color: var(--text-secondary);">Tabelas (1 Fact + 6 Dim)</div>
+                </div>
+                <div style="background: linear-gradient(135deg, rgba(251, 146, 60, 0.1) 0%, rgba(249, 115, 22, 0.05) 100%); border: 2px solid #fb923c; border-radius: 12px; padding: 28px; text-align: center;">
+                    <div style="font-size: 42px; font-weight: 900; color: #fb923c; margin-bottom: 8px;">3</div>
+                    <div style="font-size: 14px; color: var(--text-secondary);">Etapas ETL Automatizadas</div>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #fb923c 0%, #f97316 100%); border-radius: 16px; padding: 36px; text-align: center; margin-bottom: 32px;">
+                <div style="font-size: 20px; font-weight: 700; color: #f5f5f7; line-height: 1.6;">
+                    Pipeline completo de dados: do CSV bruto ao dashboard interativo,<br>
+                    processando 100k+ registros com modelagem dimensional e orquestração automatizada.
+                </div>
+            </div>
+
+            <div style="padding: 24px; background: #0d1117; border-radius: 12px;">
+                <div style="font-size: 14px; color: #8b949e; line-height: 1.7;">
+                    <strong style="color: #e6edf3;">Stack:</strong> Python, Pandas, Google Cloud Storage, Mage AI, BigQuery, Looker Studio<br>
+                    <strong style="color: #e6edf3;">Dataset:</strong> NYC TLC Trip Record Data<br>
+                    <strong style="color: #e6edf3;">Modelagem:</strong> Star Schema (Fact & Dimensional)<br>
+                    <strong style="color: #e6edf3;">Orquestração:</strong> Mage AI (Extract → Transform → Load)
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+<!-- End of Uber Study Page -->
+
+
+
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function openStudy(e, studyType = 'mmm') {
+    e.preventDefault();
+    document.getElementById('portfolio-page').classList.remove('active');
+    
+    Hide all studies
+    const studies = ['case-study-page', 'brighton-study-page'];
+    studies.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('active');
+    });
+    
+    Show selected study
+    if (studyType === 'brighton') {
+        document.getElementById('brighton-study-page').classList.add('active');
+    } else {
+        document.getElementById('case-study-page').classList.add('active');
+        Open on Full Article tab for MMM
+        const tabs = document.querySelectorAll('#case-study-page .tab-button');
+        const contents = document.querySelectorAll('#case-study-page .tab-content');
+        tabs.forEach(btn => btn.classList.remove('active'));
+        contents.forEach(content => content.classList.remove('active'));
+        if (tabs[1]) tabs[1].classList.add('active');
+        const fullArticle = document.getElementById('full-article-tab');
+        if (fullArticle) fullArticle.classList.add('active');
+    }
+    
+    window.scrollTo(0, 0);
+}
+
+function closeStudy(e) {
+    e.preventDefault();
+    const studies = ['case-study-page', 'brighton-study-page'];
+    studies.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('active');
+    });
+    document.getElementById('portfolio-page').classList.add('active');
+    window.scrollTo(0, 0);
+}
+
+function switchTab(e, tabName) {
+    e.preventDefault();
+    
+    const parent = e.target.closest('.page');
+    if (!parent) return;
+    
+    parent.querySelectorAll('.tab-button').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    parent.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.remove('active');
+    });
+    
+    e.target.classList.add('active');
+    const target = parent.querySelector(`#${tabName}-tab`);
+    if (target) target.classList.add('active');
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+<script>
+(function(){
+    var nav=document.querySelector('nav');
+    if(nav)window.addEventListener('scroll',function(){
+        window.scrollY>60?nav.classList.add('nf-solid'):nav.classList.remove('nf-solid');
+    },{passive:true});
+    var secs=document.querySelectorAll('.about-section,.projects-section,.timeline-section,.tech-stack-section');
+    var io=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
+    },{threshold:0.07});
+    secs.forEach(function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>
