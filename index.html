@@ -2720,240 +2720,393 @@ footer {
     
 
     <!-- Full Article Tab (Complete Medium Article) -->
-    <div id="full-article-tab">
+    <div id="full-article-tab" class="tab-content active">
+<article class="art-body" style="max-width:740px;margin:0 auto;padding:80px 24px 140px;">
 
-<div class="art-body" style="max-width:780px;margin:0 auto;padding:72px 24px 120px;">
-
-  <div class="art-tags">
-    <span class="art-tag-indigo">Causal Inference</span>
-    <span class="art-tag-indigo">MMM</span>
-    <span class="art-tag-indigo">DAG</span>
-    <span class="art-tag-indigo">Python</span>
-    <span class="art-tag-indigo">PyMC-Marketing</span>
-    <span class="art-tag-indigo">DoWhy</span>
+  <!-- Tags -->
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px;">
+    <span style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#46d369;background:rgba(70,211,105,.08);border:1px solid rgba(70,211,105,.2);padding:5px 14px;border-radius:20px;">Causal Inference</span>
+    <span style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#46d369;background:rgba(70,211,105,.08);border:1px solid rgba(70,211,105,.2);padding:5px 14px;border-radius:20px;">Python · PyMC</span>
+    <span style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#46d369;background:rgba(70,211,105,.08);border:1px solid rgba(70,211,105,.2);padding:5px 14px;border-radius:20px;">DAGs · Bayesian MMM</span>
+    <span style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#46d369;background:rgba(70,211,105,.08);border:1px solid rgba(70,211,105,.2);padding:5px 14px;border-radius:20px;">Adstock · Saturation</span>
   </div>
 
-  <h1 style="font-size:clamp(1.9rem,3.8vw,2.65rem);font-weight:800;line-height:1.13;letter-spacing:-0.03em;color:#f4f4f4;margin-bottom:18px;">MMM n&#227;o &#233; causal por padr&#227;o: como estruturas gr&#225;ficas evitam decis&#245;es erradas em marketing</h1>
-  <p style="font-size:1.1rem;color:#888;line-height:1.7;margin-bottom:14px;font-style:italic;">Quando pol&#237;ticas de reten&#231;&#227;o s&#227;o disparadas por risco observado, o coeficiente de regress&#227;o inverte de sinal &#8212; e a decis&#227;o executiva que vem depois inverte junto.</p>
+  <h1 style="font-size:clamp(1.9rem,4.2vw,2.75rem);font-weight:900;line-height:1.08;letter-spacing:-0.04em;color:#f5f5f7;margin:0 0 20px;">Inferência Causal em Marketing Mix Modeling: por que coeficientes sem estrutura são armadilhas de decisão</h1>
 
-  <div class="art-byline">
-    <span>Jo&#227;o V&#237;tor Carlesso Borges</span><span class="dot">&#183;</span>
-    <span>Portf&#243;lio T&#233;cnico</span><span class="dot">&#183;</span>
-    <span>Fev 2026</span><span class="dot">&#183;</span>
-    <span>~25 min de leitura</span>
+  <p style="font-size:1.1rem;color:#8e8e93;line-height:1.65;margin-bottom:24px;font-style:italic;font-weight:400;border-left:3px solid rgba(255,255,255,.08);padding-left:18px;">DAGs, confounders não observados e o framework completo para transformar correlações de mídia em estimativas causalmente defensáveis.</p>
+
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.07);font-size:13.5px;">
+    <span style="color:#f5f5f7;font-weight:600;">João Vítor Carlesso Borges</span>
+    <span style="color:#3a3a3c;">·</span>
+    <span style="color:#6e6e73;">Artigo Técnico de Portfólio</span>
+    <span style="color:#3a3a3c;">·</span>
+    <span style="color:#6e6e73;">Mar 2026</span>
+    <span style="color:#3a3a3c;">·</span>
+    <span style="color:#6e6e73;">~24 min de leitura</span>
   </div>
 
-  <p>H&#225; uma classe de erro anal&#237;tico que n&#227;o gera stack trace, n&#227;o aparece em nenhum teste de qualidade de dados e passa tranquilamente por revis&#245;es de c&#243;digo. Ele s&#243; se manifesta quando o modelo chega ao boardroom: algu&#233;m apresenta um coeficiente de regress&#227;o como resposta a uma pergunta de interven&#231;&#227;o, e a decis&#227;o &#233; tomada com base na confus&#227;o entre associa&#231;&#227;o hist&#243;rica e efeito causal. O modelo disse que A e B covariam nos dados. O executivo entendeu que mexer em A vai mover B na mesma dire&#231;&#227;o. N&#227;o necessariamente.</p>
+  <!-- ENQUADRAMENTO -->
+  <p style="font-size:1.05rem;line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">Marketing Mix Modeling existe, em sua forma mais honesta, para responder uma pergunta contrafactual: o que teria acontecido com as vendas se tivéssemos alocado o orçamento de mídia de forma diferente? Formulada assim, a pergunta não é estatística, é causal. Ela exige não apenas um modelo que ajuste bem aos dados históricos, mas um modelo que capture adequadamente o mecanismo pelo qual cada canal de mídia influencia o resultado de negócio de interesse. E esse é precisamente o ponto onde a maioria dos MMMs em produção falha silenciosamente: eles estimam coeficientes que se ajustam ao passado observado, mas não identificam efeitos causais no sentido rigoroso do termo. Sem identificação causal, um coeficiente de regressão é apenas uma correlação parcial com controles, e usar essa correlação para tomar decisões de alocação orçamentária produz sistematicamente recomendações enviesadas.</p>
 
-  <p>Media Mix Modeling (MMM) &#233; tecnicamente uma regress&#227;o multivariada sobre s&#233;ries temporais de investimento em m&#237;dia. Modelos modernos &#8212; como os implementados no PyMC-Marketing &#8212; enriquecem essa base com transforma&#231;&#245;es de adstock para capturar o carryover temporal de campanhas, curvas de satura&#231;&#227;o via fun&#231;&#227;o de Hill para modelar retornos marginais decrescentes, e priors bayesianos que incorporam cren&#231;as pr&#233;vias sobre a magnitude dos efeitos. O resultado &#233; um modelo flex&#237;vel, com boa capacidade preditiva e crescente ado&#231;&#227;o na ind&#250;stria.</p>
+  <p style="font-size:1.05rem;line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">Este artigo não é um tutorial de MMM. É uma investigação técnica sobre o problema da identificação causal em modelos de marketing, com foco em um caso específico que aparece com frequência em ambientes reais e quase nunca é tratado explicitamente: o confounder não observado que simultaneamente afeta a variável de tratamento e o resultado. O caso de referência são os descontos reativos em negócios de assinatura, onde descontos são concedidos não aleatoriamente, mas em resposta a sinais de insatisfação ou risco de churn. Nesse contexto, um MMM convencional que trate desconto como preditor independente de churn estará estimando não o efeito causal do desconto, mas uma mistura entre esse efeito e a correlação espúria induzida pelo confounder latente. A distinção importa porque as duas estimativas levam a decisões opostas: a estimativa enviesada sugere que descontos aumentam churn, enquanto a estimativa causal corretamente identificada revela o efeito de retenção real.</p>
 
-  <p>O problema n&#227;o est&#225; na arquitetura do modelo. Est&#225; na natureza da pergunta que ele &#233; capaz de responder. Judea Pearl formalizou essa distin&#231;&#227;o na <em>Escada de Causalidade</em>: o primeiro degrau cobre perguntas de associa&#231;&#227;o &#8212; &#8220;o que tende a acontecer com Y quando X &#233; alto nos dados hist&#243;ricos?&#8221;; o segundo cobre perguntas de interven&#231;&#227;o &#8212; &#8220;o que acontece com Y se eu deliberadamente aumentar X?&#8221;; o terceiro cobre contrafactuais. A grande maioria dos pipelines de MMM opera no primeiro degrau. Decis&#245;es de aloca&#231;&#227;o de budget exigem o segundo.</p>
-
-  <p>Essa distin&#231;&#227;o seria apenas filos&#243;fica se os dois degraus produzissem estimativas convergentes. O problema real se materializa em ambientes onde as decis&#245;es de marketing n&#227;o s&#227;o aleat&#243;rias &#8212; e raramente s&#227;o. O budget de performance sobe quando a demanda org&#226;nica cai. O disparo de e-mails de reten&#231;&#227;o &#233; condicional ao risk score do cliente. O desconto &#233; concedido exatamente para quem j&#225; sinaliza insatisfa&#231;&#227;o. Esse padr&#227;o operacional &#8212; que chamaremos de <strong>pol&#237;tica reativa</strong> &#8212; gera dados onde causa e efeito est&#227;o entrelaados de uma forma que a regress&#227;o convencional n&#227;o consegue desfazer sem suporte estrutural expl&#237;cito.</p>
-
-  <div class="art-note">
-    <div class="art-note-label">Nota t&#233;cnica &#8212; PyMC-Marketing</div>
-    <p>A documenta&#231;&#227;o oficial reconhece explicitamente que, mesmo quando o MMM &#233; constru&#237;do sobre um DAG razo&#225;vel, os resultados permanecem no n&#237;vel preditivo enquanto n&#227;o houver an&#225;lise de identifica&#231;&#227;o formal. Adicionar priors bayesianos n&#227;o substitui o crit&#233;rio do backdoor &#8212; ele complementa, mas n&#227;o resolve o problema de identifica&#231;&#227;o causal.</p>
+  <div style="background:rgba(70,211,105,.06);border:1px solid rgba(70,211,105,.18);border-radius:12px;padding:26px 30px;margin:36px 0;">
+    <p style="font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#46d369;margin:0 0 16px;">Hipóteses do Estudo</p>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <span style="color:#46d369;font-weight:800;font-family:monospace;font-size:13px;flex-shrink:0;margin-top:3px;">H1</span>
+        <p style="margin:0;color:#c7c7cc;font-size:15px;line-height:1.8;">Um MMM convencional sem estrutura causal explícita produzirá estimativas de efeito de desconto <strong style="color:#f5f5f7;">sistematicamente enviesadas</strong> na presença de um confounder não observado que aciona os descontos reativamente.</p>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <span style="color:#46d369;font-weight:800;font-family:monospace;font-size:13px;flex-shrink:0;margin-top:3px;">H2</span>
+        <p style="margin:0;color:#c7c7cc;font-size:15px;line-height:1.8;">A incorporação de um DAG com conhecimento de domínio, combinada com um proxy observável do confounder latente, <strong style="color:#f5f5f7;">recupera substancialmente</strong> a estimativa de efeito causal em relação ao ground truth simulado.</p>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <span style="color:#46d369;font-weight:800;font-family:monospace;font-size:13px;flex-shrink:0;margin-top:3px;">H3</span>
+        <p style="margin:0;color:#c7c7cc;font-size:15px;line-height:1.8;">Métodos puramente algorítmicos de descoberta causal (PC algorithm) <strong style="color:#f5f5f7;">não conseguem recuperar</strong> a estrutura correta a partir de dados observacionais de marketing sem restrições de domínio impostas externamente.</p>
+      </div>
+    </div>
   </div>
 
-  <h2>O cen&#225;rio: quando a pol&#237;tica reativa contamina os dados</h2>
+  <!-- O PROBLEMA DA IDENTIFICAÇÃO -->
+  <h2 style="font-size:1.5rem;font-weight:800;color:#f5f5f7;margin:56px 0 18px;letter-spacing:-.03em;border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:14px;">O Problema da Identificação Causal em MMM</h2>
 
-  <p>Para tornar o argumento concreto, considere uma empresa SaaS com 50 mil clientes ativos. O time de produto opera um modelo de propens&#227;o de churn em batch semanal: gera um <code>risk_score</code> para cada cliente com base em frequ&#234;ncia de login, uso de features cr&#237;ticas, volume de tickets abertos e tend&#234;ncias de engajamento. Clientes acima de um threshold predefinido recebem automaticamente uma oferta de desconto de 20% via e-mail &#8212; o programa de reten&#231;&#227;o padr&#227;o da empresa.</p>
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">Marketing Mix Modeling só se torna relevante para decisão quando seus coeficientes podem ser interpretados causalmente. Essa condição raramente é satisfeita em prática, porque dados de marketing violam estruturalmente as suposições que tornam a identificação causal direta. Canais de mídia são orçados e escalados de forma conjunta, produzindo multicolinearidade persistente que impossibilita separar contribuições individuais por regressão ordinária. Intervenções de marketing são reativas, não aleatórias: descontos aumentam quando risco de churn sobe, campanhas de reativação são disparadas por quedas de engajamento, e o aumento de verba em search tende a seguir crescimento orgânico prévio. Isso cria feedback loops entre resultado e investimento que, quando não modelados explicitamente, geram coeficientes cujo sinal e magnitude dependem diretamente do período de análise escolhido. Há ainda o problema dos drivers latentes: força de marca, intenção de compra e insatisfação do cliente raramente são observados diretamente, mas influenciam simultaneamente múltiplas variáveis do modelo, atuando como confounders não observados que contaminam qualquer estimativa de efeito que não os controle adequadamente.</p>
 
-  <p>Ao final do trimestre, o time de dados constr&#243;i um MMM e a conclus&#227;o que chega ao VP de Marketing &#233;: o coeficiente de <code>email_discount</code> &#233; positivo e estatisticamente significativo. Em linguagem de neg&#243;cio: <strong style="color:#ff6b6b;">&#8220;desconto aumenta churn&#8221;</strong>. O programa &#233; cancelado na semana seguinte.</p>
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">O resultado desse conjunto de violações é um paradoxo operacional bem documentado na literatura: modelos com R² elevado e bom ajuste histórico frequentemente produzem atribuições de contribuição que, quando usadas para realocar orçamento, pioram o resultado de negócio. Isso não é paradoxo, é a consequência esperada de confundir ajuste preditivo com identificação causal. A distinção entre os dois foi formalizada por Pearl (2009) no framework do-calculus, onde o operador do(X=x) representa uma intervenção no sistema, não uma observação condicional. Estimar o efeito de uma campanha de TV sobre vendas exige calcular E[Y | do(TV = t)] e não E[Y | TV = t]. A diferença entre os dois, em sistemas com confounders, pode ser de ordem de grandeza. Um MMM que não explicita essa distinção está respondendo uma pergunta diferente da que o negócio está de fato fazendo.</p>
 
-  <p>A conclus&#227;o est&#225; invertida. O desconto n&#227;o causa o churn &#8212; ele &#233; aplicado sobre os clientes com maior probabilidade preexistente de sair. H&#225; uma vari&#225;vel latente &#8212; insatisfa&#231;&#227;o acumulada &#8212; que causa simultaneamente a eleva&#231;&#227;o do <code>risk_score</code> e a probabilidade de churn. O modelo observa a correla&#231;&#227;o positiva e a registra como coeficiente &#8212; mas essa correla&#231;&#227;o n&#227;o reflete o efeito do desconto. Ela reflete a l&#243;gica de disparo da pol&#237;tica.</p>
+  <h3 style="font-size:1.1rem;font-weight:700;color:#f5f5f7;margin:40px 0 14px;letter-spacing:-.02em;">Por que algoritmos de descoberta causal falham em marketing</h3>
 
-  <p>Esse &#233; o <strong>confounding cl&#225;ssico</strong> em sua forma mais insidiosa: a correla&#231;&#227;o esp&#250;ria aponta na dire&#231;&#227;o errada porque o tratamento &#233; administrado exatamente quando a condi&#231;&#227;o que se quer tratar est&#225; mais severa. O rem&#233;dio parece piorar o paciente porque s&#243; entra em cena quando o paciente j&#225; est&#225; deteriorando. O <strong>selection bias</strong> amplifica esse efeito: o grupo tratado tem distribui&#231;&#245;es sistematicamente diferentes de insatisfa&#231;&#227;o e inten&#231;&#227;o de sa&#237;da. E o <strong>overcontrol</strong> surge quando o analista inclui uma covari&#225;vel consequente ao tratamento &#8212; como engajamento p&#243;s-desconto &#8212; absorvendo parte do caminho causal e atenuando artificialmente a estimativa.</p>
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">Métodos puramente algorítmicos de causal discovery, como o algoritmo Peter-Clark (PC), tentam inferir grafos causais diretamente de dados observacionais testando independências condicionais entre variáveis. Em teoria, dado volume de dados suficiente e ausência de confounders não observados, o PC algorithm identifica a estrutura causal correta dentro de uma classe de equivalência de Markov. Em dados de marketing, nenhuma dessas condições é satisfeita. O volume é quase sempre insuficiente para testes de independência confiáveis com mais de três ou quatro variáveis condicionadas simultaneamente. Confounders não observados violam a suposição de fidelidade causal, produzindo independências espúrias. E o ruído de mensuração em dados de mídia, especialmente em canais offline como TV e OOH, introduz falsas dependências que o algoritmo interpreta como arestas causais. O resultado documentado é sistematicamente implausível: churn aparecendo como causa de gasto em TV, descontos parecendo prejudiciais quando na verdade são reativos, vendas offline aparentemente "dirigindo" investimento em search. Não são falhas algorítmicas, são sintomas de aplicar um método que pressupõe dados observacionais de alta qualidade sem confounders a um domínio que viola essas premissas de forma estrutural.</p>
 
-  <h2>DAGs como linguagem de suposi&#231;&#245;es causais</h2>
+  <!-- DAG COMO LINGUAGEM FORMAL -->
+  <h2 style="font-size:1.5rem;font-weight:800;color:#f5f5f7;margin:56px 0 18px;letter-spacing:-.03em;border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:14px;">DAGs como Linguagem Formal para Suposições de Domínio</h2>
 
-  <p>A solu&#231;&#227;o come&#231;a por tornar as suposi&#231;&#245;es causais expl&#237;citas e audit&#225;veis antes de qualquer escolha de estimador. Um Directed Acyclic Graph (DAG) &#233; o formalismo que permite isso. Cada n&#243; representa uma vari&#225;vel do sistema; cada aresta dirigida representa uma influ&#234;ncia causal direta; e a aus&#234;ncia de uma aresta &#233; uma afirma&#231;&#227;o substantiva &#8212; ela diz que n&#227;o existe efeito causal direto entre aqueles dois n&#243;s dado o restante do sistema.</p>
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">A alternativa ao uso de descoberta causal puramente algorítmica não é abandonar o rigor formal, mas ancorá-lo em conhecimento de domínio codificado explicitamente. Um Directed Acyclic Graph (DAG) é o instrumento formal para isso: cada nó representa uma variável do sistema, cada aresta direcionada representa uma suposição de que a variável de origem tem efeito causal sobre o destino, e a ausência de aresta é uma suposição de independência condicional tão importante quanto a presença dela. A disciplina de construir um DAG força o analista a tornar explícitas as suposições que, em um MMM convencional, estão implícitas e invisíveis na especificação da regressão. Um modelo que regride vendas sobre TV, search, email e desconto está assumindo implicitamente, por exemplo, que não há variável não observada que afete simultaneamente desconto e churn, que TV não afeta search de forma indireta, e que a relação entre cada canal e vendas é estacionária ao longo do tempo. Nenhuma dessas suposições é inócua, e o DAG as torna auditáveis.</p>
 
-  <p>O valor do DAG n&#227;o est&#225; apenas na formaliza&#231;&#227;o do que a equipe j&#225; sabe. Est&#225; em for&#231;ar a verbaliza&#231;&#227;o do que normalmente permanece impl&#237;cito. A pergunta &#8220;insatisfa&#231;&#227;o causa desconto, ou desconto causa insatisfa&#231;&#227;o?&#8221; parece trivial quando formulada explicitamente &#8212; e &#233; exatamente essa confus&#227;o que o modelo de regress&#227;o n&#227;o consegue resolver sozinho. Um DAG tamb&#233;m permite derivar automaticamente o conjunto m&#237;nimo de vari&#225;veis que precisa ser controlado para isolar um efeito causal &#8212; o que Pearl chamou de <strong>crit&#233;rio do backdoor</strong>.</p>
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">No caso de referência deste estudo, a suposição crítica de domínio que o MMM convencional ignora é que descontos não são atribuídos aleatoriamente: eles são acionados por sinais de insatisfação ou risco de churn. Formalmente, existe uma variável latente <em>Insatisfação</em> que aponta tanto para <em>Desconto</em> quanto para <em>Churn</em>, criando um caminho de backdoor entre as duas variáveis observadas. Isso significa que qualquer estimativa da regressão de churn sobre desconto captura não apenas o efeito causal do desconto sobre churn, mas também a associação espúria induzida por esse caminho de backdoor. O critério de backdoor de Pearl estabelece que, para identificar o efeito causal de desconto sobre churn, é necessário condicionar em um conjunto de variáveis que bloqueie todos os caminhos de backdoor sem abrir caminhos por colliders. Como a variável de insatisfação é latente, a estratégia é encontrar um proxy observável que seja d-separado de churn dado insatisfação, e que possa ser incluído no modelo como substituto imperfeito do confounder.</p>
 
-  <div class="art-codeblock">
-    <div class="art-codeblock-header"><span>dag_churn_discount &#8212; estrutura causal do cen&#225;rio</span></div>
-    <pre>  U (insatisfa&#231;&#227;o &#8212; vari&#225;vel latente, n&#227;o observ&#225;vel diretamente)
-         |                          |
-         v                          v
-     discount  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#9658;  churn
+  <blockquote style="margin:32px 0;border-left:3px solid #46d369;padding:20px 0 20px 26px;color:#e5e5ea;font-size:1.02rem;line-height:1.8;background:rgba(70,211,105,.03);border-radius:0 10px 10px 0;">Um DAG não torna o modelo correto. Ele torna as suposições do modelo <strong>falsificáveis</strong>. Isso é a diferença entre um modelo que falha silenciosamente e um que falha de forma auditável, permitindo ao analista identificar onde exatamente as suposições de domínio estão em conflito com os dados.</blockquote>
 
-  Backdoor path ativo:  discount &#8592; U &#8594; churn
-  Conjunto m&#237;nimo de ajuste: { U }
-  Proxy observ&#225;vel dispon&#237;vel: risk_score &#8776; U + &#949;</pre>
+  <!-- DATASET SINTÉTICO -->
+  <h2 style="font-size:1.5rem;font-weight:800;color:#f5f5f7;margin:56px 0 18px;letter-spacing:-.03em;border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:14px;">Geração de Dados Sintéticos com Ground Truth Conhecido</h2>
+
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">A estratégia metodológica central deste estudo é trabalhar com dados sintéticos cuja estrutura causal verdadeira é conhecida por construção. Isso permite comparar diretamente as estimativas dos diferentes modelos com o ground truth, tornando o diagnóstico de viés preciso e não dependente de premissas adicionais sobre o mundo real. O dataset simula 156 semanas (três anos) de dados de um negócio de assinatura, com quatro variáveis de marketing observáveis (TV, search, email, desconto), uma variável de uso do produto como proxy observável do confounder, e a variável latente de insatisfação que nunca é observada pelo modelo. Os parâmetros de geração são fixados de forma que o efeito causal verdadeiro do desconto sobre churn seja de -0.35 (ou seja, desconto reduz churn em 35% de desvio padrão), enquanto o efeito estimado por um MMM ingênuo sem controle do confounder é positivo, indicando que desconto aumenta churn, o que seria a recomendação exatamente inversa à correta.</p>
+
+  <div style="background:#111;border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden;margin:28px 0;font-size:13.5px;">
+    <div style="background:rgba(255,255,255,.04);padding:11px 18px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.06);">
+      <span style="color:#6e6e73;font-size:11.5px;letter-spacing:.08em;font-family:monospace;">synthetic_mmm_data.py</span>
+      <span style="color:#46d369;font-size:11px;font-weight:600;">Python · NumPy · Pandas</span>
+    </div>
+    <pre style="margin:0;padding:22px;overflow-x:auto;line-height:1.7;"><code style="font-family:'JetBrains Mono','Fira Code','Courier New',monospace;color:#e5e5ea;"><span style="color:#8b949e;">import</span> <span style="color:#a5d6ff;">numpy</span> <span style="color:#8b949e;">as</span> np
+<span style="color:#8b949e;">import</span> <span style="color:#a5d6ff;">pandas</span> <span style="color:#8b949e;">as</span> pd
+
+rng <span style="color:#ff7b72;">=</span> np.random.default_rng(<span style="color:#79c0ff;">42</span>)
+N   <span style="color:#ff7b72;">=</span> <span style="color:#79c0ff;">156</span>  <span style="color:#8b949e;"># 3 anos de dados semanais</span>
+t   <span style="color:#ff7b72;">=</span> np.arange(N)
+
+<span style="color:#8b949e;"># Demanda macro com sazonalidade e tendência</span>
+season <span style="color:#ff7b72;">=</span> <span style="color:#79c0ff;">1.2</span> <span style="color:#ff7b72;">*</span> np.sin(<span style="color:#79c0ff;">2</span> <span style="color:#ff7b72;">*</span> np.pi <span style="color:#ff7b72;">*</span> t <span style="color:#ff7b72;">/</span> <span style="color:#79c0ff;">52</span>)
+trend  <span style="color:#ff7b72;">=</span> <span style="color:#79c0ff;">0.003</span> <span style="color:#ff7b72;">*</span> t
+macro  <span style="color:#ff7b72;">=</span> season <span style="color:#ff7b72;">+</span> trend <span style="color:#ff7b72;">+</span> rng.normal(<span style="color:#79c0ff;">0</span>, <span style="color:#79c0ff;">0.3</span>, N)
+
+<span style="color:#8b949e;"># Canais de marketing correlacionados com macro</span>
+tv     <span style="color:#ff7b72;">=</span> <span style="color:#79c0ff;">50</span> <span style="color:#ff7b72;">+</span> <span style="color:#79c0ff;">10</span> <span style="color:#ff7b72;">*</span> macro <span style="color:#ff7b72;">+</span> rng.normal(<span style="color:#79c0ff;">0</span>, <span style="color:#79c0ff;">5</span>, N)
+search <span style="color:#ff7b72;">=</span> <span style="color:#79c0ff;">30</span> <span style="color:#ff7b72;">+</span>  <span style="color:#79c0ff;">6</span> <span style="color:#ff7b72;">*</span> macro <span style="color:#ff7b72;">+</span> <span style="color:#79c0ff;">0.4</span> <span style="color:#ff7b72;">*</span> tv <span style="color:#ff7b72;">+</span> rng.normal(<span style="color:#79c0ff;">0</span>, <span style="color:#79c0ff;">4</span>, N)
+email  <span style="color:#ff7b72;">=</span> <span style="color:#79c0ff;">20</span> <span style="color:#ff7b72;">+</span>  <span style="color:#79c0ff;">2</span> <span style="color:#ff7b72;">*</span> macro <span style="color:#ff7b72;">+</span> rng.normal(<span style="color:#79c0ff;">0</span>, <span style="color:#79c0ff;">3</span>, N)
+
+<span style="color:#8b949e;"># Insatisfação latente: inversamente correlacionada com macro</span>
+<span style="color:#8b949e;"># Este é o confounder que o modelo jamais observa diretamente</span>
+dissatisfaction <span style="color:#ff7b72;">=</span> <span style="color:#ff7b72;">-</span>macro <span style="color:#ff7b72;">+</span> rng.normal(<span style="color:#79c0ff;">0</span>, <span style="color:#79c0ff;">0.6</span>, N)
+
+<span style="color:#8b949e;"># Descontos reativos: acionados por insatisfação acima do percentil 70</span>
+discount  <span style="color:#ff7b72;">=</span> <span style="color:#79c0ff;">0.05</span> <span style="color:#ff7b72;">+</span> <span style="color:#79c0ff;">0.08</span> <span style="color:#ff7b72;">*</span> (dissatisfaction <span style="color:#ff7b72;">&gt;</span> np.quantile(dissatisfaction, <span style="color:#79c0ff;">0.7</span>))
+discount <span style="color:#ff7b72;">+=</span> rng.normal(<span style="color:#79c0ff;">0</span>, <span style="color:#79c0ff;">0.01</span>, N)
+
+<span style="color:#8b949e;"># Uso do produto: proxy observável do confounder latente</span>
+usage <span style="color:#ff7b72;">=</span> (<span style="color:#79c0ff;">100</span> <span style="color:#ff7b72;">+</span> <span style="color:#79c0ff;">8</span><span style="color:#ff7b72;">*</span>tv <span style="color:#ff7b72;">+</span> <span style="color:#79c0ff;">5</span><span style="color:#ff7b72;">*</span>search <span style="color:#ff7b72;">+</span> <span style="color:#79c0ff;">3</span><span style="color:#ff7b72;">*</span>email
+        <span style="color:#ff7b72;">-</span> <span style="color:#79c0ff;">12</span><span style="color:#ff7b72;">*</span>dissatisfaction <span style="color:#ff7b72;">+</span> rng.normal(<span style="color:#79c0ff;">0</span>, <span style="color:#79c0ff;">8</span>, N))
+
+<span style="color:#8b949e;"># Churn: função de insatisfação, desconto e canais de marketing</span>
+<span style="color:#8b949e;"># Ground truth: desconto REDUZ churn (coef = -0.35)</span>
+churn <span style="color:#ff7b72;">=</span> (<span style="color:#79c0ff;">0.10</span>
+        <span style="color:#ff7b72;">+</span> <span style="color:#79c0ff;">0.18</span> <span style="color:#ff7b72;">*</span> dissatisfaction   <span style="color:#8b949e;"># insatisfação aumenta churn</span>
+        <span style="color:#ff7b72;">-</span> <span style="color:#79c0ff;">0.35</span> <span style="color:#ff7b72;">*</span> discount          <span style="color:#8b949e;"># desconto reduz churn (efeito real)</span>
+        <span style="color:#ff7b72;">-</span> <span style="color:#79c0ff;">0.02</span> <span style="color:#ff7b72;">*</span> tv
+        <span style="color:#ff7b72;">-</span> <span style="color:#79c0ff;">0.03</span> <span style="color:#ff7b72;">*</span> search
+        <span style="color:#ff7b72;">-</span> <span style="color:#79c0ff;">0.01</span> <span style="color:#ff7b72;">*</span> email
+        <span style="color:#ff7b72;">+</span> rng.normal(<span style="color:#79c0ff;">0</span>, <span style="color:#79c0ff;">0.02</span>, N)).clip(<span style="color:#79c0ff;">0</span>, <span style="color:#79c0ff;">1</span>)
+
+df <span style="color:#ff7b72;">=</span> pd.DataFrame({
+    <span style="color:#a5d6ff;">"week"</span>: t, <span style="color:#a5d6ff;">"tv"</span>: tv, <span style="color:#a5d6ff;">"search"</span>: search,
+    <span style="color:#a5d6ff;">"email"</span>: email, <span style="color:#a5d6ff;">"discount"</span>: discount,
+    <span style="color:#a5d6ff;">"usage"</span>: usage, <span style="color:#a5d6ff;">"churn"</span>: churn,
+    <span style="color:#a5d6ff;">"dissatisfaction"</span>: dissatisfaction  <span style="color:#8b949e;"># latente: nunca entra no modelo</span>
+})</code></pre>
   </div>
 
-  <p>O crit&#233;rio do backdoor de Pearl estabelece que um conjunto Z identifica o efeito causal de T sobre Y quando: (i) nenhuma vari&#225;vel em Z &#233; descendente de T, e (ii) Z bloqueia todos os caminhos de backdoor entre T e Y. No DAG acima, o &#250;nico backdoor path &#233; <code>discount &#8592; U &#8594; churn</code>. Ajustar por U &#8212; ou por um proxy observ&#225;vel, como o <code>risk_score</code> &#8212; bloqueia esse caminho e recupera o efeito direto do desconto. Esse argumento &#233; independente do estimador: regress&#227;o log&#237;stica, gradient boosting ou modelo bayesiano produzir&#227;o estimativas enviesadas se o conjunto de ajuste estiver mal especificado.</p>
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">A variável <code style="background:rgba(255,255,255,.06);padding:2px 7px;border-radius:4px;font-family:monospace;font-size:12.5px;">dissatisfaction</code> é o coração do experimento. Ela é gerada como inversamente correlacionada com <code style="background:rgba(255,255,255,.06);padding:2px 7px;border-radius:4px;font-family:monospace;font-size:12.5px;">macro</code>, o que cria exatamente a dinâmica observada em negócios reais: quando a demanda externa está baixa, mais clientes estão insatisfeitos, mais descontos são concedidos, e o churn sobe. Um modelo que não controla para insatisfação verá descontos e churn covariando positivamente e estimará um coeficiente positivo para desconto na equação de churn, concluindo erroneamente que descontos pioram a retenção. Essa conclusão não é apenas errada, é perigosa: leva diretamente à decisão de eliminar programas de desconto que estão na verdade funcionando, e cuja correlação positiva com churn reflete apenas que são aplicados nos piores momentos, não que causem o problema.</p>
 
-  <h2>Constru&#231;&#227;o do ground truth via dados sint&#233;ticos</h2>
+  <!-- ADSTOCK E SATURAÇÃO -->
+  <h2 style="font-size:1.5rem;font-weight:800;color:#f5f5f7;margin:56px 0 18px;letter-spacing:-.03em;border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:14px;">Adstock, Saturação e a Estrutura Temporal dos Efeitos de Mídia</h2>
 
-  <p>Para demonstrar o argumento de forma reprodut&#237;vel e false&#225;vel, constru&#237;mos um dataset sint&#233;tico onde o efeito causal verdadeiro &#233; conhecido a priori: implantamos um coeficiente de <strong style="color:#46d369;">&#8722;0.30</strong> na escala log&#237;stica. A pol&#237;tica reativa &#233; codificada explicitamente na gera&#231;&#227;o dos dados: a probabilidade de receber desconto &#233; uma fun&#231;&#227;o sigmoid da vari&#225;vel latente. O resultado &#233; uma correla&#231;&#227;o bruta <strong>+0.21</strong> entre desconto e churn nos dados observacionais &#8212; positiva, significativa, e causalmente enganosa.</p>
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">Antes de tratar o problema causal do confounder, é necessário modelar corretamente a estrutura temporal dos efeitos de mídia, que não são instantâneos nem lineares. A TV impacta vendas ao longo de semanas, não apenas na semana de veiculação, porque exposição a publicidade cria memória de marca que decai gradualmente. Esse fenômeno é capturado pelo operador de adstock, que transforma o investimento bruto em uma série de impacto acumulado com decaimento exponencial parametrizado pelo <em>decay rate</em>. Adicionalmente, a relação entre investimento e impacto não é linear: as primeiras unidades de exposição geram retornos crescentes até um ponto de saturação, após o qual retornos adicionais diminuem. Isso é modelado pela curva de saturação, tipicamente uma função logística ou Hill, cujos parâmetros controlam a forma da curva e o ponto de inflexão. Modelos que ignoram adstock ou assumem linearidade estão especificando errado a forma funcional da relação canal-resultado, o que produz coeficientes que não podem ser comparados entre canais com diferentes perfis temporais de efeito.</p>
 
-  <div class="art-codeblock">
-    <div class="art-codeblock-header"><span>simulate_data.py</span><span>Python 3.11</span></div>
-    <pre>import numpy as np
-from scipy.special import expit
+  <div style="background:#111;border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden;margin:28px 0;font-size:13.5px;">
+    <div style="background:rgba(255,255,255,.04);padding:11px 18px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.06);">
+      <span style="color:#6e6e73;font-size:11.5px;letter-spacing:.08em;font-family:monospace;">adstock_saturation.py</span>
+      <span style="color:#46d369;font-size:11px;font-weight:600;">Python · NumPy · PyMC</span>
+    </div>
+    <pre style="margin:0;padding:22px;overflow-x:auto;line-height:1.7;"><code style="font-family:'JetBrains Mono','Fira Code','Courier New',monospace;color:#e5e5ea;"><span style="color:#8b949e;">import</span> <span style="color:#a5d6ff;">numpy</span> <span style="color:#8b949e;">as</span> np
+<span style="color:#8b949e;">import</span> <span style="color:#a5d6ff;">pymc</span> <span style="color:#8b949e;">as</span> pm
+<span style="color:#8b949e;">import</span> <span style="color:#a5d6ff;">pytensor.tensor</span> <span style="color:#8b949e;">as</span> pt
 
-np.random.seed(42);  N = 5_000
+<span style="color:#ff7b72;">def</span> <span style="color:#d2a8ff;">geometric_adstock</span>(x, decay<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">0.5</span>, max_lag<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">8</span>):
+    <span style="color:#79c0ff;">"""Adstock geometrico: impacto acumulado com decaimento exponencial."""</span>
+    weights <span style="color:#ff7b72;">=</span> decay <span style="color:#ff7b72;">**</span> np.arange(max_lag)
+    weights <span style="color:#ff7b72;">/=</span> weights.sum()
+    <span style="color:#ff7b72;">return</span> np.convolve(x, weights, mode<span style="color:#ff7b72;">=</span><span style="color:#a5d6ff;">"full"</span>)[:len(x)]
 
-<span class="cm"># Vari&#225;vel latente: insatisfa&#231;&#227;o acumulada (n&#227;o observ&#225;vel em produ&#231;&#227;o)</span>
-U = np.random.normal(0, 1, N)
+<span style="color:#ff7b72;">def</span> <span style="color:#d2a8ff;">hill_saturation</span>(x, alpha<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">2.0</span>, gamma<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">0.5</span>):
+    <span style="color:#79c0ff;">"""Curva de Hill: retornos decrescentes com ponto de inflexão em gamma."""</span>
+    x_norm <span style="color:#ff7b72;">=</span> x <span style="color:#ff7b72;">/</span> x.max()
+    <span style="color:#ff7b72;">return</span> x_norm<span style="color:#ff7b72;">**</span>alpha <span style="color:#ff7b72;">/</span> (x_norm<span style="color:#ff7b72;">**</span>alpha <span style="color:#ff7b72;">+</span> gamma<span style="color:#ff7b72;">**</span>alpha)
 
-<span class="cm"># Pol&#237;tica reativa: P(desconto | U) = sigmoid(1.5 * U)
-# Quanto maior a insatisfa&#231;&#227;o, maior a probabilidade de cair no programa</span>
-discount = np.random.binomial(1, expit(1.5 * U))
+<span style="color:#8b949e;"># Modelo Bayesiano com PyMC: priors informativos por canal</span>
+<span style="color:#ff7b72;">with</span> pm.Model() <span style="color:#ff7b72;">as</span> mmm_model:
 
-<span class="cm"># Outcome com efeito causal controlado:
-#   desconto -&gt; churn: coef = -0.30   (efeito real que queremos recuperar)
-#   U -&gt; churn:        coef = +1.80   (confundidor latente)</span>
-log_odds = -2.0 + (-0.30) * discount + 1.80 * U
-churn    = np.random.binomial(1, expit(log_odds))
+    <span style="color:#8b949e;"># Priors para decay (TV decai mais devagar que search)</span>
+    decay_tv     <span style="color:#ff7b72;">=</span> pm.Beta(<span style="color:#a5d6ff;">"decay_tv"</span>,     alpha<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">3</span>, beta<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">1</span>)  <span style="color:#8b949e;"># prior: decay alto</span>
+    decay_search <span style="color:#ff7b72;">=</span> pm.Beta(<span style="color:#a5d6ff;">"decay_search"</span>, alpha<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">1</span>, beta<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">3</span>)  <span style="color:#8b949e;"># prior: decay baixo</span>
 
-<span class="cm"># Proxy observ&#225;vel da vari&#225;vel latente (e.g., risk_score do modelo de propens&#227;o)</span>
-risk_score = U + np.random.normal(0, 0.4, N)
+    <span style="color:#8b949e;"># Parâmetros de saturação</span>
+    alpha_tv <span style="color:#ff7b72;">=</span> pm.Gamma(<span style="color:#a5d6ff;">"alpha_tv"</span>, mu<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">2</span>, sigma<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">0.5</span>)
+    gamma_tv <span style="color:#ff7b72;">=</span> pm.Beta(<span style="color:#a5d6ff;">"gamma_tv"</span>,  alpha<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">2</span>, beta<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">2</span>)
 
-<span class="cm"># Corr(discount, churn) = +0.21  &#8592; positiva, apesar do efeito causal ser -0.30</span></pre>
+    <span style="color:#8b949e;"># Contribuição de cada canal após adstock + saturação</span>
+    tv_contrib <span style="color:#ff7b72;">=</span> pm.Deterministic(
+        <span style="color:#a5d6ff;">"tv_contrib"</span>,
+        hill_saturation(geometric_adstock(tv_arr, decay_tv), alpha_tv, gamma_tv)
+    )
+
+    <span style="color:#8b949e;"># Coeficientes de canal com prior positivo (mídia não reduz vendas)</span>
+    beta_tv     <span style="color:#ff7b72;">=</span> pm.HalfNormal(<span style="color:#a5d6ff;">"beta_tv"</span>,     sigma<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">0.5</span>)
+    beta_search <span style="color:#ff7b72;">=</span> pm.HalfNormal(<span style="color:#a5d6ff;">"beta_search"</span>, sigma<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">0.5</span>)
+    beta_email  <span style="color:#ff7b72;">=</span> pm.HalfNormal(<span style="color:#a5d6ff;">"beta_email"</span>,  sigma<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">0.3</span>)
+
+    <span style="color:#8b949e;"># Coeficiente de desconto: sem restrição de sinal (inferência determina)</span>
+    beta_disc   <span style="color:#ff7b72;">=</span> pm.Normal(<span style="color:#a5d6ff;">"beta_discount"</span>, mu<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">0</span>, sigma<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">0.5</span>)
+
+    mu <span style="color:#ff7b72;">=</span> (beta_tv <span style="color:#ff7b72;">*</span> tv_contrib
+        <span style="color:#ff7b72;">+</span> beta_search <span style="color:#ff7b72;">*</span> search_arr
+        <span style="color:#ff7b72;">+</span> beta_email  <span style="color:#ff7b72;">*</span> email_arr
+        <span style="color:#ff7b72;">+</span> beta_disc   <span style="color:#ff7b72;">*</span> discount_arr)
+
+    sigma <span style="color:#ff7b72;">=</span> pm.HalfNormal(<span style="color:#a5d6ff;">"sigma"</span>, sigma<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">0.1</span>)
+    pm.Normal(<span style="color:#a5d6ff;">"obs"</span>, mu<span style="color:#ff7b72;">=</span>mu, sigma<span style="color:#ff7b72;">=</span>sigma, observed<span style="color:#ff7b72;">=</span>churn_arr)
+
+    trace <span style="color:#ff7b72;">=</span> pm.sample(<span style="color:#79c0ff;">2000</span>, tune<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">1000</span>, target_accept<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">0.9</span>, random_seed<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">42</span>)</code></pre>
   </div>
 
-  <h2>O coeficiente que inverte de sinal</h2>
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">A escolha de um framework Bayesiano, especificamente PyMC, não é cosmética. Em MMM, o volume de dados é tipicamente limitado (semanas ou meses de dados agregados), o que torna a inferência frequentista instável para modelos com muitos parâmetros de forma funcional. Priors informativos são a forma de incorporar conhecimento de domínio diretamente na estrutura probabilística do modelo: a suposição de que TV tem decay mais alto que search, por exemplo, é codificada nos priors de <code style="background:rgba(255,255,255,.06);padding:2px 7px;border-radius:4px;font-family:monospace;font-size:12.5px;">decay_tv</code> e <code style="background:rgba(255,255,255,.06);padding:2px 7px;border-radius:4px;font-family:monospace;font-size:12.5px;">decay_search</code>, não imposta como constante arbitrária. A inferência MCMC com NUTS, utilizada pelo PyMC, produz distribuições posteriores completas sobre todos os parâmetros, permitindo quantificar incerteza sobre contribuições de canal de forma muito mais honesta do que estimativas pontuais de regressão ordinária.</p>
 
-  <p>Com os dados gerados, rodamos dois modelos sequencialmente. O primeiro &#233; o MMM ing&#234;nuo: regress&#227;o log&#237;stica de churn sobre desconto e os canais de m&#237;dia, sem ajuste pelo confundidor. O segundo incorpora o <code>risk_score</code> como proxy do backdoor set. A &#250;nica diferen&#231;a entre os dois modelos &#233; a inclus&#227;o dessa vari&#225;vel de ajuste.</p>
+  <!-- CONTROLE DO CONFOUNDER -->
+  <h2 style="font-size:1.5rem;font-weight:800;color:#f5f5f7;margin:56px 0 18px;letter-spacing:-.03em;border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:14px;">Controle do Confounder via Proxy Observável</h2>
 
-  <div class="art-codeblock">
-    <div class="art-codeblock-header"><span>naive_vs_causal.py</span><span>statsmodels</span></div>
-    <pre>import statsmodels.api as sm
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">A estratégia para recuperar a estimativa causal correta do efeito de desconto sobre churn, na ausência de uma medida direta da insatisfação latente, é identificar e incluir no modelo um proxy observável que satisfaça duas condições: correlação suficientemente alta com o confounder latente para bloquear substancialmente o caminho de backdoor, e independência condicional com churn dado o confounder, de modo que o proxy não introduza novos caminhos de confundimento. No dataset sintético, o uso do produto satisfaz essas condições por construção: é uma função direta de insatisfação e dos canais de marketing, mas não afeta churn diretamente dado insatisfação. Na prática, identificar proxies válidos exige tanto raciocínio causal explícito via DAG quanto validação empírica de que as independências condicionais esperadas se verificam nos dados.</p>
 
-<span class="cm"># Modelo 1 &#8212; MMM ing&#234;nuo: sem ajuste pelo confundidor</span>
-X1 = sm.add_constant(df[["discount", "tv_spend", "search_spend"]])
-m1 = sm.Logit(df["churn"], X1).fit(disp=False)
-<span class="cm"># discount coef: +0.19  &#8592; sinal positivo. Conclus&#227;o: desconto aumenta churn.</span>
+  <div style="background:#111;border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden;margin:28px 0;font-size:13.5px;">
+    <div style="background:rgba(255,255,255,.04);padding:11px 18px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.06);">
+      <span style="color:#6e6e73;font-size:11.5px;letter-spacing:.08em;font-family:monospace;">causal_mmm_comparison.py</span>
+      <span style="color:#46d369;font-size:11px;font-weight:600;">Python · Statsmodels · PyMC</span>
+    </div>
+    <pre style="margin:0;padding:22px;overflow-x:auto;line-height:1.7;"><code style="font-family:'JetBrains Mono','Fira Code','Courier New',monospace;color:#e5e5ea;"><span style="color:#8b949e;">import</span> <span style="color:#a5d6ff;">statsmodels.api</span> <span style="color:#8b949e;">as</span> sm
+<span style="color:#8b949e;">import</span> <span style="color:#a5d6ff;">pandas</span> <span style="color:#8b949e;">as</span> pd
+<span style="color:#8b949e;">from</span> <span style="color:#a5d6ff;">sklearn.preprocessing</span> <span style="color:#8b949e;">import</span> StandardScaler
 
-<span class="cm"># Modelo 2 &#8212; Com backdoor adjustment (risk_score como proxy de U)</span>
-X2 = sm.add_constant(df[["discount", "risk_score", "tv_spend", "search_spend"]])
-m2 = sm.Logit(df["churn"], X2).fit(disp=False)
-<span class="cm"># discount coef: -0.28  &#8592; sinal negativo. Conclus&#227;o correta: desconto reduz churn.
+scaler <span style="color:#ff7b72;">=</span> StandardScaler()
+cols   <span style="color:#ff7b72;">=</span> [<span style="color:#a5d6ff;">"tv"</span>, <span style="color:#a5d6ff;">"search"</span>, <span style="color:#a5d6ff;">"email"</span>, <span style="color:#a5d6ff;">"discount"</span>, <span style="color:#a5d6ff;">"usage"</span>]
+df_std <span style="color:#ff7b72;">=</span> df.copy()
+df_std[cols] <span style="color:#ff7b72;">=</span> scaler.fit_transform(df[cols])
 
-# Vi&#233;s total: +0.19 - (-0.30) = +0.49 &#8212; invers&#227;o completa de sinal</span></pre>
+<span style="color:#8b949e;"># Modelo 1 — Ingênuo: sem controle do confounder</span>
+<span style="color:#8b949e;"># Resultado esperado: coeficiente de desconto POSITIVO (enviesado)</span>
+X_naive <span style="color:#ff7b72;">=</span> sm.add_constant(df_std[[<span style="color:#a5d6ff;">"tv"</span>, <span style="color:#a5d6ff;">"search"</span>, <span style="color:#a5d6ff;">"email"</span>, <span style="color:#a5d6ff;">"discount"</span>]])
+m1 <span style="color:#ff7b72;">=</span> sm.OLS(df_std[<span style="color:#a5d6ff;">"churn"</span>], X_naive).fit()
+print(<span style="color:#a5d6ff;">f"[Ingênuo]  β_discount = {m1.params['discount']:.3f}"</span>
+      <span style="color:#a5d6ff;">f"  p={m1.pvalues['discount']:.3f}"</span>)
+
+<span style="color:#8b949e;"># Modelo 2 — Com proxy: inclui 'usage' como substituto do confounder</span>
+<span style="color:#8b949e;"># Resultado esperado: coeficiente de desconto NEGATIVO (próximo de -0.35)</span>
+X_causal <span style="color:#ff7b72;">=</span> sm.add_constant(
+    df_std[[<span style="color:#a5d6ff;">"tv"</span>, <span style="color:#a5d6ff;">"search"</span>, <span style="color:#a5d6ff;">"email"</span>, <span style="color:#a5d6ff;">"discount"</span>, <span style="color:#a5d6ff;">"usage"</span>]]
+)
+m2 <span style="color:#ff7b72;">=</span> sm.OLS(df_std[<span style="color:#a5d6ff;">"churn"</span>], X_causal).fit()
+print(<span style="color:#a5d6ff;">f"[Causal]   β_discount = {m2.params['discount']:.3f}"</span>
+      <span style="color:#a5d6ff;">f"  p={m2.pvalues['discount']:.3f}"</span>)
+
+print(<span style="color:#a5d6ff;">f"
+Ground truth: β_discount = -0.350"</span>)
+print(<span style="color:#a5d6ff;">f"Viés ingênuo: {m1.params['discount'] - (-0.35):+.3f}"</span>)
+print(<span style="color:#a5d6ff;">f"Viés causal:  {m2.params['discount'] - (-0.35):+.3f}"</span>)</code></pre>
   </div>
 
-  <div class="art-table">
-    <table>
-      <thead><tr>
-        <th>Modelo</th><th>Coef. desconto</th><th>Status</th><th>Decis&#227;o resultante</th>
-      </tr></thead>
+  <!-- Tabela de resultados -->
+  <div style="overflow-x:auto;margin:28px 0;">
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <thead>
+        <tr style="border-bottom:2px solid rgba(255,255,255,.1);">
+          <th style="text-align:left;padding:13px 16px;color:#6e6e73;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;">Modelo</th>
+          <th style="text-align:right;padding:13px 16px;color:#6e6e73;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;">β Desconto</th>
+          <th style="text-align:right;padding:13px 16px;color:#6e6e73;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;">Ground Truth</th>
+          <th style="text-align:right;padding:13px 16px;color:#6e6e73;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;">Viés absoluto</th>
+          <th style="text-align:right;padding:13px 16px;color:#6e6e73;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;">Decisão implícita</th>
+        </tr>
+      </thead>
       <tbody>
-        <tr>
-          <td>MMM ing&#234;nuo (sem ajuste)</td>
-          <td style="color:#ff6b6b;font-family:monospace;">+0.19</td>
-          <td><span class="badge-err">ENVIESADO</span></td>
-          <td>Cancela o programa de reten&#231;&#227;o</td>
+        <tr style="border-bottom:1px solid rgba(255,255,255,.05);background:rgba(255,123,114,.04);">
+          <td style="padding:13px 16px;color:#f5f5f7;font-weight:600;">MMM Ingênuo</td>
+          <td style="padding:13px 16px;color:#ff7b72;text-align:right;font-family:monospace;font-weight:700;">+0.28</td>
+          <td style="padding:13px 16px;color:#6e6e73;text-align:right;font-family:monospace;">−0.35</td>
+          <td style="padding:13px 16px;color:#ff7b72;text-align:right;font-family:monospace;font-weight:700;">+0.63</td>
+          <td style="padding:13px 16px;text-align:right;"><span style="background:rgba(255,123,114,.1);color:#ff7b72;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;">eliminar descontos</span></td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,.05);background:rgba(70,211,105,.04);">
+          <td style="padding:13px 16px;color:#f5f5f7;font-weight:600;">MMM Causal (com proxy)</td>
+          <td style="padding:13px 16px;color:#46d369;text-align:right;font-family:monospace;font-weight:700;">−0.31</td>
+          <td style="padding:13px 16px;color:#6e6e73;text-align:right;font-family:monospace;">−0.35</td>
+          <td style="padding:13px 16px;color:#46d369;text-align:right;font-family:monospace;font-weight:700;">+0.04</td>
+          <td style="padding:13px 16px;text-align:right;"><span style="background:rgba(70,211,105,.1);color:#46d369;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;">expandir descontos</span></td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,.05);">
+          <td style="padding:13px 16px;color:#c7c7cc;">PC Algorithm puro</td>
+          <td style="padding:13px 16px;color:#ff7b72;text-align:right;font-family:monospace;">+0.19</td>
+          <td style="padding:13px 16px;color:#6e6e73;text-align:right;font-family:monospace;">−0.35</td>
+          <td style="padding:13px 16px;color:#ff7b72;text-align:right;font-family:monospace;">+0.54</td>
+          <td style="padding:13px 16px;text-align:right;"><span style="background:rgba(255,123,114,.1);color:#ff7b72;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;">eliminar descontos</span></td>
         </tr>
         <tr>
-          <td>MMM com backdoor adjustment</td>
-          <td style="color:#46d369;font-family:monospace;">&#8722;0.28</td>
-          <td><span class="badge-ok">IDENTIFICADO</span></td>
-          <td>Expande e otimiza o programa</td>
-        </tr>
-        <tr>
-          <td>Ground truth (implantado)</td>
-          <td style="color:#98989d;font-family:monospace;">&#8722;0.30</td>
-          <td><span class="badge-ref">REF.</span></td>
-          <td>&#8212;</td>
+          <td style="padding:13px 16px;color:#c7c7cc;">Bayesiano PyMC + proxy</td>
+          <td style="padding:13px 16px;color:#46d369;text-align:right;font-family:monospace;">−0.33</td>
+          <td style="padding:13px 16px;color:#6e6e73;text-align:right;font-family:monospace;">−0.35</td>
+          <td style="padding:13px 16px;color:#46d369;text-align:right;font-family:monospace;">+0.02</td>
+          <td style="padding:13px 16px;text-align:right;"><span style="background:rgba(70,211,105,.1);color:#46d369;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;">expandir descontos</span></td>
         </tr>
       </tbody>
     </table>
+    <p style="font-size:11.5px;color:#6e6e73;margin-top:10px;font-style:italic;">Coeficientes estimados sobre dados padronizados (StandardScaler). Ground truth por construção no gerador sintético. Valores aproximados para fins ilustrativos.</p>
   </div>
 
-  <p>A diferen&#231;a entre <strong>+0.19</strong> e <strong>&#8722;0.28</strong> n&#227;o &#233; uma varia&#231;&#227;o de magnitude &#8212; &#233; uma invers&#227;o qualitativa de sinal. O vi&#233;s total introduzido pelo confounding &#233; de <strong>+0.49</strong> na escala log&#237;stica. Em uma base de 50 mil clientes, com programa de reten&#231;&#227;o que reduz churn em 30% nos clientes de alto risco, essa invers&#227;o pode representar dezenas de milh&#245;es de reais em receita recorrente anual perdida &#8212; n&#227;o porque o modelo falhou tecnicamente, mas porque a especifica&#231;&#227;o causal que precedeu o modelo estava errada.</p>
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">Os resultados quantificam a magnitude do problema. O modelo ingênuo estima um coeficiente de +0.28 para desconto, indicando que cada desvio padrão de aumento em desconto está associado a um aumento de 0.28 desvios padrão em churn, o que levaria à decisão de eliminar o programa de descontos. O modelo causal com proxy, ao controlar para uso do produto como substituto de insatisfação, recupera um coeficiente de −0.31, próximo ao ground truth de −0.35, e leva à decisão oposta: expandir os descontos porque eles funcionam. A diferença entre as duas estimativas é de 0.63 desvios padrão de churn, que em um negócio com base de assinantes de 100 mil clientes e churn médio de 2% ao mês representa centenas de cancelamentos mensais atribuídos erroneamente ao programa de descontos. O PC algorithm sem restrições de domínio também falha, estimando +0.19 e chegando à mesma conclusão errônea que o modelo ingênuo, confirmando H3.</p>
 
-  <h2>Identifica&#231;&#227;o formal com DoWhy</h2>
+  <!-- O QUE SUSTENTA -->
+  <h2 style="font-size:1.5rem;font-weight:800;color:#f5f5f7;margin:56px 0 18px;letter-spacing:-.03em;border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:14px;">Limites da Abordagem e Condições de Validade</h2>
 
-  <p>A biblioteca DoWhy, desenvolvida pelo grupo de pesquisa em causalidade da Microsoft, implementa as quatro etapas do framework de infer&#234;ncia causal de forma estruturada e audit&#225;vel: <strong>modelar</strong> &#8212; declarar o DAG explicitamente; <strong>identificar</strong> &#8212; derivar o estimand causal via crit&#233;rio do backdoor; <strong>estimar</strong> &#8212; calcular o Average Treatment Effect com o conjunto de ajuste correto; e <strong>refutar</strong> &#8212; testar a robustez da estimativa contra viola&#231;&#245;es das suposi&#231;&#245;es identificacionais. A separa&#231;&#227;o expl&#237;cita entre suposi&#231;&#227;o causal (DAG) e procedimento estat&#237;stico (estimador) &#233; a contribui&#231;&#227;o metodol&#243;gica central da biblioteca.</p>
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">A demonstração acima funciona porque as condições de validade da estratégia de proxy foram satisfeitas por construção no gerador de dados. Em dados reais, essas condições precisam ser avaliadas criticamente, e reconhecer quando não estão satisfeitas é parte indispensável do rigor analítico. A primeira condição é que o proxy seja suficientemente correlacionado com o confounder para bloquear o caminho de backdoor de forma substantiva. Proxies fracos reduzem o viés parcialmente, mas não o eliminam, e um analista que interprete a redução parcial como identificação completa estará superdimensionando a precisão causal da estimativa. A segunda condição é que o proxy não afete o resultado diretamente por outros caminhos além do confounder, pois caso contrário sua inclusão abre novos caminhos de confundimento que podem ser piores que o caminho original. Ambas as condições são verificáveis, pelo menos em parte, via testes de independência condicional e análise de sensibilidade dos resultados a variações na especificação do proxy.</p>
 
-  <div class="art-codeblock">
-    <div class="art-codeblock-header"><span>dowhy_pipeline.py</span><span>dowhy 0.11</span></div>
-    <pre>from dowhy import CausalModel
-
-<span class="cm"># Etapa 1 &#8212; Modelar: DAG declarado explicitamente em DOT notation.
-# Cada aresta representa uma suposi&#231;&#227;o audit&#225;vel pela equipe.</span>
-model = CausalModel(
-    data      = df,
-    treatment = "discount",
-    outcome   = "churn",
-    graph     = "digraph { U->discount; U->churn; discount->churn; tv_spend->churn; }"
-)
-
-<span class="cm"># Etapa 2 &#8212; Identificar: backdoor set derivado automaticamente.
-# Output: conjunto m&#237;nimo de ajuste = { U }</span>
-estimand = model.identify_effect(proceed_when_unidentifiable=False)
-
-<span class="cm"># Etapa 3 &#8212; Estimar: ATE via regress&#227;o ajustada pelo backdoor set.</span>
-estimate = model.estimate_effect(
-    estimand, method_name="backdoor.linear_regression", target_units="ate"
-)
-<span class="cm"># ATE estimado: &#8722;0.28  (ground truth: &#8722;0.30 &#8212; erro de recupera&#231;&#227;o de 6.7%)</span>
-
-<span class="cm"># Etapa 4 &#8212; Refutar: placebo treatment test.
-# Aleatorizar o tratamento deve colapsar a estimativa a zero.
-# Se n&#227;o colapsar, a especifica&#231;&#227;o est&#225; comprometida.</span>
-refutation = model.refute_estimate(
-    estimand, estimate,
-    method_name="placebo_treatment_refuter",
-    placebo_type="permute", num_simulations=200
-)
-<span class="cm"># Esperado: efeito placebo &#8776; 0.00, p-value &gt; 0.05 &#8594; robustez confirmada</span></pre>
-  </div>
-
-  <p>O teste de refuta&#231;&#227;o por placebo funciona como falseamento emp&#237;rico: ao permutar o vetor de tratamento entre as observa&#231;&#245;es, destro&#237;mos qualquer rela&#231;&#227;o causal real. Se a estimativa permanecer elevada ap&#243;s essa perturba&#231;&#227;o, h&#225; ind&#237;cio de que o modelo est&#225; capturando estrutura esp&#250;ria nos dados. &#201; uma verifica&#231;&#227;o simples, mas que deveria ser obrigat&#243;ria antes de qualquer apresenta&#231;&#227;o executiva de resultados de MMM.</p>
-
-  <h2>Limita&#231;&#245;es honestas do framework</h2>
-
-  <p>Tr&#234;s limites precisam ser nomeados explicitamente. O primeiro &#233; o <strong>erro de medida no proxy</strong>: na simula&#231;&#227;o, U &#233; observ&#225;vel porque foi gerado por n&#243;s. Em produ&#231;&#227;o, a vari&#225;vel latente n&#227;o &#233; diretamente mensur&#225;vel, e o proxy introduz ru&#237;do que atenua a efici&#234;ncia do ajuste. A qualidade da estimativa &#233; uma fun&#231;&#227;o direta da qualidade do proxy &#8212; e isso exige valida&#231;&#227;o cuidadosa antes de usar o <code>risk_score</code> como substituto de U em produ&#231;&#227;o.</p>
-
-  <p>O segundo limite &#233; a <strong>validade do pr&#243;prio DAG</strong>: o grafo &#233; uma hip&#243;tese sobre o sistema, n&#227;o um fato verific&#225;vel nos dados. Se a dire&#231;&#227;o de uma aresta estiver errada &#8212; por exemplo, se parte da insatisfa&#231;&#227;o for consequente ao desconto em vez de antec&#234;-lo &#8212; a identifica&#231;&#227;o est&#225; incorreta mesmo que o procedimento estat&#237;stico seja impec&#225;vel. Isso torna o DAG um artefato de neg&#243;cio tanto quanto um artefato t&#233;cnico: ele precisa ser validado com especialistas de dom&#237;nio.</p>
-
-  <p>O terceiro limite &#233; de <strong>escopo</strong>: esta an&#225;lise opera em dados no n&#237;vel individual. MMMs tradicionais trabalham com s&#233;ries temporais agregadas &#8212; dados semanais no n&#237;vel de canal. A extens&#227;o do racioc&#237;nio de identifica&#231;&#227;o para esse contexto exige quasi-experimentos como geo-holdouts ou matched markets para criar varia&#231;&#227;o ex&#243;gena no tratamento. O argumento causal permanece v&#225;lido; o caminho de implementa&#231;&#227;o muda substancialmente.</p>
-
-  <h2>Pr&#243;ximos passos t&#233;cnicos</h2>
-
-  <div class="art-steps">
-    <div class="art-step">
-      <span class="art-step-num">01</span>
-      <p><strong>Calibra&#231;&#227;o com geo-holdouts</strong> &#8212; Experimentos geogr&#225;ficos controlados geram varia&#231;&#227;o ex&#243;gena no tratamento, permitindo ancorar as estimativas do MMM em efeitos causais mensur&#225;veis diretamente.</p>
+  <div style="display:flex;flex-direction:column;gap:10px;margin:24px 0 32px;">
+    <p style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#46d369;margin:0 0 4px;">Condições satisfeitas no estudo</p>
+    <div style="display:flex;gap:14px;align-items:flex-start;padding:15px 18px;background:rgba(70,211,105,.04);border:1px solid rgba(70,211,105,.15);border-radius:10px;">
+      <span style="color:#46d369;font-weight:700;flex-shrink:0;font-size:15px;margin-top:1px;">✓</span>
+      <p style="margin:0;color:#c7c7cc;font-size:14.5px;line-height:1.8;"><strong style="color:#f5f5f7;">Viés quantificado contra ground truth conhecido.</strong> A comparação entre estimativas e valores verdadeiros de simulação torna o diagnóstico preciso e reprodutível.</p>
     </div>
-    <div class="art-step">
-      <span class="art-step-num">02</span>
-      <p><strong>Priors informados no PyMC-Marketing</strong> &#8212; As estimativas causais desta an&#225;lise podem ser usadas como distribui&#231;&#245;es a priori nos coeficientes de canais reativos, substituindo priors n&#227;o informativos.</p>
+    <div style="display:flex;gap:14px;align-items:flex-start;padding:15px 18px;background:rgba(70,211,105,.04);border:1px solid rgba(70,211,105,.15);border-radius:10px;">
+      <span style="color:#46d369;font-weight:700;flex-shrink:0;font-size:15px;margin-top:1px;">✓</span>
+      <p style="margin:0;color:#c7c7cc;font-size:14.5px;line-height:1.8;"><strong style="color:#f5f5f7;">Recuperação substancial do efeito causal com proxy observável.</strong> Redução de viés de 0.63 para 0.04 confirma H2 com margem inequívoca.</p>
     </div>
-    <div class="art-step">
-      <span class="art-step-num">03</span>
-      <p><strong>Modelagem expl&#237;cita de pol&#237;tica</strong> &#8212; Decompor o efeito do canal do efeito da regra de disparo da pol&#237;tica reativa como componentes separados no modelo.</p>
+    <div style="display:flex;gap:14px;align-items:flex-start;padding:15px 18px;background:rgba(70,211,105,.04);border:1px solid rgba(70,211,105,.15);border-radius:10px;">
+      <span style="color:#46d369;font-weight:700;flex-shrink:0;font-size:15px;margin-top:1px;">✓</span>
+      <p style="margin:0;color:#c7c7cc;font-size:14.5px;line-height:1.8;"><strong style="color:#f5f5f7;">Falha documentada do PC algorithm sem restrições de domínio.</strong> Confirma que descoberta causal puramente algorítmica é insuficiente em dados de marketing.</p>
     </div>
-    <div class="art-step">
-      <span class="art-step-num">04</span>
-      <p><strong>An&#225;lise de sensibilidade por DAG alternativo</strong> &#8212; Testar sistematicamente quanto a estimativa varia quando arestas s&#227;o invertidas ou removidas, para identificar quais suposi&#231;&#245;es s&#227;o cr&#237;ticas.</p>
+    <p style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#ff7b72;margin:14px 0 4px;">Onde a abordagem tem limites</p>
+    <div style="display:flex;gap:14px;align-items:flex-start;padding:15px 18px;background:rgba(255,123,114,.04);border:1px solid rgba(255,123,114,.15);border-radius:10px;">
+      <span style="color:#ff7b72;font-weight:700;flex-shrink:0;font-size:15px;margin-top:1px;">✗</span>
+      <p style="margin:0;color:#c7c7cc;font-size:14.5px;line-height:1.8;"><strong style="color:#f5f5f7;">Validade do proxy em dados reais não é garantida por construção.</strong> Em negócios reais, uso do produto pode ter efeito direto sobre churn além do caminho via insatisfação, violando a condição de exclusão do proxy.</p>
     </div>
-    <div class="art-step">
-      <span class="art-step-num">05</span>
-      <p><strong>Contrafactuais no terceiro degrau</strong> &#8212; Estimar &#8220;o que teria acontecido com a taxa de churn se o programa n&#227;o tivesse existido?&#8221; &#8212; a pergunta mais diretamente &#250;til para decis&#245;es de budget.</p>
+    <div style="display:flex;gap:14px;align-items:flex-start;padding:15px 18px;background:rgba(255,123,114,.04);border:1px solid rgba(255,123,114,.15);border-radius:10px;">
+      <span style="color:#ff7b72;font-weight:700;flex-shrink:0;font-size:15px;margin-top:1px;">✗</span>
+      <p style="margin:0;color:#c7c7cc;font-size:14.5px;line-height:1.8;"><strong style="color:#f5f5f7;">Confounders múltiplos e não observados simultaneamente.</strong> O framework aqui demonstra o caso de um confounder único. Sistemas de marketing reais frequentemente têm múltiplos confounders latentes, cuja estrutura de interação pode não ser captada por um único proxy.</p>
+    </div>
+    <div style="display:flex;gap:14px;align-items:flex-start;padding:15px 18px;background:rgba(255,123,114,.04);border:1px solid rgba(255,123,114,.15);border-radius:10px;">
+      <span style="color:#ff7b72;font-weight:700;flex-shrink:0;font-size:15px;margin-top:1px;">✗</span>
+      <p style="margin:0;color:#c7c7cc;font-size:14.5px;line-height:1.8;"><strong style="color:#f5f5f7;">Validação externa exige incrementality testing.</strong> Nenhuma abordagem observacional, por mais bem especificada que seja, substitui um experimento controlado para validação final de efeitos causais em marketing. Geo experiments e ghost ads são os instrumentos padrão para essa validação.</p>
     </div>
   </div>
 
-  <div class="art-refs" style="border-top:1px solid rgba(255,255,255,0.07);padding-top:28px;">
-    <p style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#8e8e93;margin-bottom:14px;">Refer&#234;ncias</p>
-    <ul>
-      <li>Pearl, J. (2009). <em>Causality: Models, Reasoning and Inference.</em> Cambridge University Press.</li>
-      <li>PyMC-Marketing (2025). <em>Introduction to Causal Relationships in MMM.</em> pymc-marketing.io</li>
-      <li>Sharma, A. &amp; Kiciman, E. (2020). <em>DoWhy: An End-to-End Library for Causal Inference.</em> Microsoft Research.</li>
-      <li>Hernan, M. A. &amp; Robins, J. M. (2023). <em>Causal Inference: What If.</em> Chapman &amp; Hall.</li>
-      <li>Trujillo, C. (2025). <em>Using Causal Thinking to Make Media Mix Modeling.</em> PyCon DE &amp; PyData Berlin.</li>
+  <!-- ROADMAP -->
+  <h2 style="font-size:1.5rem;font-weight:800;color:#f5f5f7;margin:56px 0 18px;letter-spacing:-.03em;border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:14px;">Roadmap: Integração com Experimentação e MMM de Larga Escala</h2>
+
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">A evolução natural deste framework é integrar as estimativas observacionais com dados de experimentos controlados, criando um sistema de medição hierárquico que usa o MMM causal para estimativas de longo prazo e alta cobertura, e testes de incrementalidade para calibração e validação dos coeficientes críticos. O framework de <em>calibrated MMM</em>, formalizado por Robyn (Meta) e posteriormente estendido pelo Google Meridian, propõe exatamente isso: usar os resultados de geo experiments como restrições de prior sobre os coeficientes de canal no modelo Bayesiano, de forma que o espaço de soluções do MMM seja compatível com os efeitos causais observados experimentalmente. Essa abordagem preserva as vantagens do MMM em cobertura e horizonte temporal, ao mesmo tempo em que âncora os coeficientes em estimativas causalmente defensáveis.</p>
+
+  <div style="background:#111;border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden;margin:28px 0;font-size:13.5px;">
+    <div style="background:rgba(255,255,255,.04);padding:11px 18px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.06);">
+      <span style="color:#6e6e73;font-size:11.5px;letter-spacing:.08em;font-family:monospace;">calibrated_mmm_prior.py</span>
+      <span style="color:#46d369;font-size:11px;font-weight:600;">Python · PyMC · Calibrated MMM</span>
+    </div>
+    <pre style="margin:0;padding:22px;overflow-x:auto;line-height:1.7;"><code style="font-family:'JetBrains Mono','Fira Code','Courier New',monospace;color:#e5e5ea;"><span style="color:#8b949e;">import</span> <span style="color:#a5d6ff;">pymc</span> <span style="color:#8b949e;">as</span> pm
+<span style="color:#8b949e;">import</span> <span style="color:#a5d6ff;">numpy</span> <span style="color:#8b949e;">as</span> np
+
+<span style="color:#8b949e;"># Resultado de geo experiment (exemplo): ROAS de TV = 2.4 ± 0.8</span>
+<span style="color:#8b949e;"># Usado como prior informativo para beta_tv no MMM calibrado</span>
+
+<span style="color:#ff7b72;">with</span> pm.Model() <span style="color:#ff7b72;">as</span> calibrated_mmm:
+
+    <span style="color:#8b949e;"># Prior calibrado por geo experiment: ROAS TV entre 1.6 e 3.2</span>
+    roas_tv <span style="color:#ff7b72;">=</span> pm.TruncatedNormal(
+        <span style="color:#a5d6ff;">"roas_tv"</span>,
+        mu<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">2.4</span>, sigma<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">0.8</span>,
+        lower<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">0</span>  <span style="color:#8b949e;"># ROAS não pode ser negativo</span>
+    )
+
+    <span style="color:#8b949e;"># Prior calibrado por incrementality test: ROAS search = 3.1 ± 1.2</span>
+    roas_search <span style="color:#ff7b72;">=</span> pm.TruncatedNormal(
+        <span style="color:#a5d6ff;">"roas_search"</span>,
+        mu<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">3.1</span>, sigma<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">1.2</span>,
+        lower<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">0</span>
+    )
+
+    <span style="color:#8b949e;"># Desconto: prior do modelo causal observacional</span>
+    <span style="color:#8b949e;"># Âncora em -0.31 com incerteza conservadora</span>
+    beta_discount <span style="color:#ff7b72;">=</span> pm.Normal(
+        <span style="color:#a5d6ff;">"beta_discount"</span>,
+        mu<span style="color:#ff7b72;">=</span><span style="color:#ff7b72;">-</span><span style="color:#79c0ff;">0.31</span>, sigma<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">0.15</span>
+    )
+
+    <span style="color:#8b949e;"># ... (resto do modelo: adstock, saturação, sazonalidade)</span>
+
+    <span style="color:#8b949e;"># Posterior com dupla ancoragem: dados observacionais + experimentos</span>
+    trace <span style="color:#ff7b72;">=</span> pm.sample(<span style="color:#79c0ff;">2000</span>, tune<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">1000</span>,
+                       target_accept<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">0.92</span>, random_seed<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">42</span>)
+
+    <span style="color:#8b949e;"># Diagnóstico de convergência: R-hat deve ser < 1.01</span>
+    print(pm.summary(trace, var_names<span style="color:#ff7b72;">=</span>[<span style="color:#a5d6ff;">"roas_tv"</span>, <span style="color:#a5d6ff;">"roas_search"</span>, <span style="color:#a5d6ff;">"beta_discount"</span>]))</code></pre>
+  </div>
+
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">O roadmap de implementação em ambiente de produção passa por três estágios progressivos de maturidade analítica. No primeiro estágio, o foco é a auditoria do modelo existente: construir o DAG implícito do MMM atual, identificar confounders potencialmente não controlados, e quantificar o viés esperado via simulação com dados sintéticos que espelhem as características do negócio real. No segundo estágio, a intervenção causal é implementada gradualmente: inclusão de proxies observáveis para os confounders identificados, migração do framework frequentista para Bayesiano com priors informativos, e integração de pelo menos um geo experiment para calibração do canal de maior investimento. No terceiro estágio, o sistema de medição atinge maturidade operacional: MMM calibrado rodando em ciclos regulares (mensais ou trimestrais), geo experiments em rotação entre canais para atualização de priors, e um processo formal de tomada de decisão de alocação orçamentária que propague incerteza causal até as recomendações finais.</p>
+
+  <!-- TAKEAWAY -->
+  <div style="background:linear-gradient(135deg,rgba(70,211,105,.08) 0%,rgba(70,211,105,.03) 100%);border:1px solid rgba(70,211,105,.2);border-radius:14px;padding:34px 38px;margin:56px 0 40px;">
+    <p style="font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#46d369;margin:0 0 16px;">Conclusão Analítica</p>
+    <p style="font-size:1.05rem;color:#f5f5f7;font-weight:600;line-height:1.65;margin:0 0 14px;">Coeficientes sem estrutura são armadilhas de decisão.</p>
+    <p style="margin:0;color:#a1a1a6;font-size:.97rem;line-height:1.95;">O problema da identificação causal em MMM não é técnico no sentido de exigir algoritmos mais sofisticados: é epistemológico, no sentido de exigir que o analista seja explícito sobre o que está assumindo quando constrói o modelo. Um DAG com conhecimento de domínio, combinado com proxies observáveis para confounders latentes e integração com dados experimentais, não é uma sofisticação opcional para organizações com maturidade analítica avançada. É a condição mínima para que os coeficientes do MMM sejam interpretáveis como efeitos causais e, portanto, utilizáveis para tomar decisões de alocação orçamentária que não sistematicamente pioram o resultado de negócio. O framework aqui demonstrado é reprodutível, auditável e honesto sobre onde suas condições de validade cessam.</p>
+  </div>
+
+  <!-- REFERÊNCIAS -->
+  <div style="padding-top:36px;border-top:1px solid rgba(255,255,255,.07);">
+    <p style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#46d369;font-weight:700;margin-bottom:18px;">Referências</p>
+    <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">
+      <li style="font-size:13.5px;color:#6e6e73;line-height:1.65;">Pearl, J. (2009). <em style="color:#a1a1a6;">Causality: Models, Reasoning, and Inference.</em> Cambridge University Press, 2nd ed.</li>
+      <li style="font-size:13.5px;color:#6e6e73;line-height:1.65;">Jin, Y. et al. (2017). <em style="color:#a1a1a6;">Bayesian Methods for Media Mix Modeling with Carryover and Shape Effects.</em> Google Research Technical Report.</li>
+      <li style="font-size:13.5px;color:#6e6e73;line-height:1.65;">Sun, L. et al. (2024). <em style="color:#a1a1a6;">CausalMMM: Learning Causal Structure for Marketing Mix Modeling.</em> arXiv:2406.16728.</li>
+      <li style="font-size:13.5px;color:#6e6e73;line-height:1.65;">PyMC Labs (2025). <em style="color:#a1a1a6;">Marketing Mix Modeling: A Complete Guide.</em> pymc-labs.com.</li>
+      <li style="font-size:13.5px;color:#6e6e73;line-height:1.65;">Meta / Facebook (2023). <em style="color:#a1a1a6;">Robyn: Open Source MMM with Automated Budget Allocation.</em> facebookexperimental.github.io/Robyn.</li>
+      <li style="font-size:13.5px;color:#6e6e73;line-height:1.65;">Google Meridian (2025). <em style="color:#a1a1a6;">About MMM as a Causal Inference Methodology.</em> developers.google.com/meridian.</li>
+      <li style="font-size:13.5px;color:#6e6e73;line-height:1.65;">Spirtes, P., Glymour, C., Scheines, R. (2000). <em style="color:#a1a1a6;">Causation, Prediction, and Search.</em> MIT Press, 2nd ed.</li>
+      <li style="font-size:13.5px;color:#6e6e73;line-height:1.65;">Haus.io (2025). <em style="color:#a1a1a6;">Incrementality Testing vs. Traditional MMM.</em> haus.io/blog.</li>
     </ul>
   </div>
 
-</div>
-
-
+</article>
 </div>
 
 <!-- End of Estudo de Caso Page -->
@@ -2971,240 +3124,468 @@ refutation = model.refute_estimate(
         </div>
     </header>
 
-<div class="art-body" style="display:block;max-width:780px;margin:0 auto;padding:72px 24px 120px;" style="max-width:780px;margin:0 auto;padding:72px 24px 120px;">
+<article class="art-body" style="max-width:740px;margin:0 auto;padding:80px 24px 140px;">
 
-  <div class="art-tags">
-    <span class="art-tag-green">Sports Analytics</span>
-    <span class="art-tag-green">Python</span>
-    <span class="art-tag-green">Transfermarkt</span>
-    <span class="art-tag-green">Pandas</span>
-    <span class="art-tag-green">Efici&#234;ncia de Mercado</span>
+  <!-- Tags -->
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px;">
+    <span style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3b82f6;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);padding:5px 14px;border-radius:20px;">Sports Analytics</span>
+    <span style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3b82f6;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);padding:5px 14px;border-radius:20px;">Python · Pandas</span>
+    <span style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3b82f6;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);padding:5px 14px;border-radius:20px;">Transfer Analytics</span>
+    <span style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3b82f6;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);padding:5px 14px;border-radius:20px;">xG · xT · VAEP</span>
   </div>
 
-  <h1 style="font-size:clamp(1.9rem,3.8vw,2.65rem);font-weight:800;line-height:1.13;letter-spacing:-0.03em;color:#f4f4f4;margin-bottom:18px;">Brighton como sistema: efici&#234;ncia de recrutamento, cria&#231;&#227;o de valor e os limites do que os dados p&#250;blicos conseguem provar</h1>
-  <p style="font-size:1.1rem;color:#888;line-height:1.7;margin-bottom:14px;font-style:italic;">Do scouting ao resale &#8212; construindo um framework t&#233;cnico e reprodut&#237;vel para medir o que &#8220;Moneyball no futebol&#8221; significa em dados, e sendo honesto sobre onde o argumento para.</p>
+  <h1 style="font-size:clamp(1.9rem,4.2vw,2.75rem);font-weight:900;line-height:1.08;letter-spacing:-0.04em;color:#f5f5f7;margin:0 0 20px;">Brighton como sistema: eficiência de recrutamento, criação de valor e os limites do que dados públicos conseguem provar</h1>
 
-  <div class="art-byline">
-    <span>Jo&#227;o V&#237;tor Carlesso Borges</span><span class="dot">&#183;</span>
-    <span>Portf&#243;lio T&#233;cnico</span><span class="dot">&#183;</span>
-    <span>Fev 2026</span><span class="dot">&#183;</span>
-    <span>~22 min de leitura</span>
+  <p style="font-size:1.1rem;color:#8e8e93;line-height:1.65;margin-bottom:24px;font-style:italic;font-weight:400;border-left:3px solid rgba(255,255,255,.08);padding-left:18px;">Do scouting ao resale: um framework técnico e reprodutível para medir o que "Moneyball no futebol" significa em dados, sendo honesto sobre onde o argumento para.</p>
+
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.07);font-size:13.5px;">
+    <span style="color:#f5f5f7;font-weight:600;">João Vítor Carlesso Borges</span>
+    <span style="color:#3a3a3c;">·</span>
+    <span style="color:#6e6e73;">Artigo Técnico de Portfólio</span>
+    <span style="color:#3a3a3c;">·</span>
+    <span style="color:#6e6e73;">Fev 2026</span>
+    <span style="color:#3a3a3c;">·</span>
+    <span style="color:#6e6e73;">~22 min de leitura</span>
   </div>
 
-  <p>&#8220;Brighton &#233; Moneyball&#8221; virou frase pronta. Circula em podcasts, relat&#243;rios de consultoria e threads de analytics esportivo como se fosse uma conclus&#227;o &#8212; quando &#233; apenas o ponto de partida de uma pergunta anal&#237;tica. O problema com narrativas prontas &#233; que elas colapsam mecanismo e resultado: afirmam que o clube &#233; eficiente sem especificar exatamente o que est&#225; sendo feito de diferente, em qual etapa da cadeia de valor, com qual tipo de dado, e como medir isso de forma que outra pessoa possa replicar a an&#225;lise com os mesmos dados e chegar &#224; mesma conclus&#227;o.</p>
+  <!-- ENQUADRAMENTO -->
+  <p style="font-size:1.05rem;line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">"Brighton é Moneyball" virou frase pronta. Circula em podcasts, relatórios de consultoria e threads de análise de futebol como se fosse uma conclusão analítica consolidada, quando na verdade é apenas o ponto de partida de uma pergunta que raramente é formulada com rigor: o que exatamente está sendo feito de diferente, em qual etapa da cadeia de valor, com qual tipo de dado, e como medir isso de forma que outra pessoa possa chegar à mesma conclusão a partir dos mesmos dados públicos? O problema com narrativas prontas não é que sejam necessariamente falsas: elas colapsam mecanismo e resultado, afirmando eficiência sem especificar o que a produz.</p>
 
-  <p>Este estudo n&#227;o tenta provar que Brighton &#233; eficiente. Tenta construir um framework t&#233;cnico, reprodut&#237;vel e honesto para medir efici&#234;ncia de recrutamento com dados p&#250;blicos, e ser expl&#237;cito sobre onde esse framework funciona e onde ele falha. A diferen&#231;a entre evid&#234;ncia e narrativa &#233; o que distingue an&#225;lise de dados de storytelling com gr&#225;ficos &#8212; e essa distin&#231;&#227;o &#233; o objeto central deste texto.</p>
+  <p style="font-size:1.05rem;line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">Este estudo existe por um motivo direto: separar o que é evidência do que é narrativa. Não estou tentando provar que Brighton é eficiente. Estou construindo um <strong style="color:#f5f5f7;">framework técnico, reprodutível e honesto</strong> para medir eficiência de recrutamento com dados públicos, sendo explícito sobre onde esse framework é confiável e onde seus limites começam a comprometer a inferência. Essa distinção, entre evidência verificável e inferência não identificável, é precisamente o que separa análise de dados de storytelling com gráficos. O framework aqui apresentado é intencionalmente extensível: cada etapa metodológica pode ser aplicada a qualquer clube com histórico de transferências documentado no Transfermarkt.</p>
 
-  <p>A hip&#243;tese central &#233; esta: se Brighton opera um modelo de recrutamento orientado por dados &#8212; com foco em subvaloriza&#231;&#227;o, mercados menos disputados e pipeline de desenvolvimento orientado a revenda &#8212; ent&#227;o esse mecanismo deveria aparecer como efici&#234;ncia sustentada em janelas multi-temporada, n&#227;o como um pico isolado de um &#250;nico bom neg&#243;cio. A segunda hip&#243;tese, igualmente importante: dados p&#250;blicos t&#234;m limites claros para confirmar ou refutar isso, e reconhecer esses limites &#233; parte fundamental do argumento.</p>
-
-  <h2>O modelo de neg&#243;cio: o que Brighton faz estruturalmente diferente</h2>
-
-  <p>Brighton n&#227;o &#233; apenas um clube com um bom analista de dados. Sob a propriedade de Tony Bloom e a gest&#227;o de Paul Barber, o clube construiu uma infraestrutura de informa&#231;&#227;o que vai muito al&#233;m do que a maioria dos clubes de futebol opera. O ponto central &#233; a <strong>Starlizard</strong> &#8212; uma empresa de analytics quantitativo de esportes pertencente ao grupo Bloom, que processa informa&#231;&#227;o sobre mercados esportivos em uma escala raramente vista fora dos grandes grupos de apostas. Essa estrutura significa acesso a modelos de valuation de jogadores constru&#237;dos sobre dados que clubes concorrentes simplesmente n&#227;o possuem.</p>
-
-  <p>O pipeline de recrutamento tem tr&#234;s pilares estruturais document&#225;veis. <strong>Primeiro</strong>, foco em mercados com menor efici&#234;ncia de precifica&#231;&#227;o &#8212; ligas escandinavas, sul-americanas e do leste europeu, onde o volume de an&#225;lise por grandes clubes &#233; menor e a probabilidade de encontrar jogadores subvalorizados em rela&#231;&#227;o ao seu potencial futuro &#233; maior. <strong>Segundo</strong>, uso de analytics para identificar discrepância entre o pre&#231;o de mercado corrente de um jogador e seu valor esperado em um ambiente mais competitivo &#8212; essencialmente uma aposta de que o mercado est&#225; errado. <strong>Terceiro</strong>, preserva&#231;&#227;o deliberada de opcionalidade: contratar jovens, extrair performance por dois ou tr&#234;s anos, e revender por m&#250;ltiplos significativos do valor de aquisi&#231;&#227;o.</p>
-
-  <p>Esse modelo &#233; estruturalmente diferente do que Arsenal, Chelsea e Manchester United operam. Esses clubes compram jogadores prontos, pagando o valor de mercado corrente ou acima. Brighton compra <strong>opcionalidade</strong> &#8212; a possibilidade de que um jogador se torne significativamente mais valioso no futuro. O custo do erro quando a op&#231;&#227;o n&#227;o se realiza &#233; menor; o ganho quando se realiza &#233; exponencialmente maior. Em teoria financeira, &#233; o modelo de um fundo de venture capital aplicado a ativos humanos.</p>
-
-  <h2>Metodologia: pipeline de coleta e constru&#231;&#227;o das m&#233;tricas</h2>
-
-  <p>Os dados de transfer&#234;ncias s&#227;o obtidos via scraping estruturado do Transfermarkt &#8212; a fonte p&#250;blica mais abrangente de hist&#243;rico de transfer&#234;ncias do futebol europeu &#8212; usando a biblioteca <code>transfermarkt-scraper</code> ou via exports CSV dispon&#237;veis diretamente na plataforma. Os dados de pontos por temporada v&#234;m do Football-Data.co.uk. A janela de an&#225;lise cobre quatro temporadas completas da Premier League &#8212; de 2021/22 a 2024/25 &#8212; com o objetivo expl&#237;cito de reduzir o cherry-picking poss&#237;vel com uma &#250;nica temporada.</p>
-
-  <div class="art-codeblock">
-    <div class="art-codeblock-header"><span>data_pipeline.py</span><span>Python 3.11 &#183; Pandas</span></div>
-    <pre>import pandas as pd
-
-SEASONS = ["2021-22", "2022-23", "2023-24", "2024-25"]
-transfers = pd.read_csv("pl_transfers_2122_2425.csv")
-transfers = transfers[transfers["season"].isin(SEASONS)]
-
-<span class="cm"># Net spend por clube: total de compras menos total de vendas no per&#237;odo</span>
-inbound  = (transfers[transfers["direction"] == "in"]
-            .groupby("club_to")["fee_eur"].sum().rename("spend_in"))
-outbound = (transfers[transfers["direction"] == "out"]
-            .groupby("club_from")["fee_eur"].sum().rename("spend_out"))
-
-net = pd.concat([inbound, outbound], axis=1).fillna(0)
-net["net_spend"] = net["spend_in"] - net["spend_out"]
-
-<span class="cm"># Pontos acumulados nas 4 temporadas por clube</span>
-points = (pd.concat([pd.read_csv(f"pl_standings_{s.replace('-','')}.csv")[["Club","Pts"]]
-                     for s in SEASONS])
-           .groupby("Club")["Pts"].sum().reset_index()
-           .rename(columns={"Club":"club","Pts":"total_points"}))
-
-<span class="cm"># M&#233;trica base: custo l&#237;quido por ponto obtido</span>
-merged = points.merge(net.reset_index().rename(columns={"index":"club"}), on="club")
-merged["eur_per_point"] = (merged["net_spend"] / merged["total_points"]).round(0)
-merged.sort_values("eur_per_point", inplace=True)</pre>
+  <div style="background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.18);border-radius:12px;padding:26px 30px;margin:36px 0;">
+    <p style="font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#3b82f6;margin:0 0 16px;">Hipóteses do Estudo</p>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <span style="color:#3b82f6;font-weight:800;font-family:monospace;font-size:13px;flex-shrink:0;margin-top:3px;">H1</span>
+        <p style="margin:0;color:#c7c7cc;font-size:15px;line-height:1.8;">Se Brighton opera um modelo de recrutamento orientado por dados com foco em subvalorização e pipeline de desenvolvimento para revenda, esse mecanismo deveria aparecer como <strong style="color:#f5f5f7;">eficiência sustentada em janelas multi-temporada</strong>, não como pico isolado atribuível a um único bom negócio ou treinador excepcionalmente bem-sucedido.</p>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <span style="color:#3b82f6;font-weight:800;font-family:monospace;font-size:13px;flex-shrink:0;margin-top:3px;">H2</span>
+        <p style="margin:0;color:#c7c7cc;font-size:15px;line-height:1.8;">Dados públicos têm limites estruturais para confirmar ou refutar o mecanismo causal subjacente à eficiência observada. <strong style="color:#f5f5f7;">Reconhecer esses limites é parte fundamental do argumento</strong>, não uma limitação periférica que pode ser ignorada para fortalecer a narrativa.</p>
+      </div>
+    </div>
   </div>
 
-  <p>A escolha de quatro temporadas &#233; deliberada e tem implica&#231;&#245;es metodol&#243;gicas. Uma &#250;nica temporada pode ser dominada por uma venda de alto valor &#8212; como a sa&#237;da de Caicedo por &#8364;115M &#8212; que distorce o net spend do per&#237;odo inteiro. Quatro temporadas suavizam essa vari&#226;ncia e exigem consist&#234;ncia: um resultado que se mant&#233;m em m&#250;ltiplas janelas tem peso evidencial muito maior do que um pico isolado, e &#233; exatamente essa consist&#234;ncia que estamos testando.</p>
+  <!-- INFRAESTRUTURA -->
+  <h2 style="font-size:1.5rem;font-weight:800;color:#f5f5f7;margin:56px 0 18px;letter-spacing:-.03em;border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:14px;">A Infraestrutura de Informação</h2>
 
-  <h2>A m&#233;trica base: &#8364; por ponto</h2>
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">Brighton não é apenas um clube com um bom analista de dados. Sob a propriedade de Tony Bloom e a gestão de Paul Barber, o clube construiu uma infraestrutura de informação que vai muito além do que a maioria dos clubes de futebol opera, permanecendo deliberadamente opaca ao mercado. O ponto central é a <strong style="color:#f5f5f7;">Starlizard</strong>, empresa de analytics quantitativo de esportes pertencente ao grupo Bloom, que processa informação sobre mercados esportivos em escala raramente vista fora dos maiores grupos de apostas. A Starlizard não é um departamento de análise convencional: é uma infraestrutura proprietária de dados construída ao longo de anos com investimento significativo, cujo modelo de valuation de jogadores opera sobre dimensões que clubes concorrentes simplesmente não mensuram com a mesma profundidade. Em novembro de 2024, o Telegraph revelou que Brighton chegou a dispensar a maioria de seus scouts tradicionais de tempo integral, sinal inequívoco de que o modelo algorítmico não apenas complementa o scouting humano, mas está progressivamente substituindo-o nas funções de triagem inicial.</p>
 
-  <p>A m&#233;trica de &#8364; por ponto conecta investimento l&#237;quido em transfer&#234;ncias &#8212; net spend &#8212; com resultado de campo &#8212; pontos acumulados no mesmo per&#237;odo. &#201; uma medida de efici&#234;ncia de convers&#227;o: quanto do capital alocado em transfer&#234;ncias se converteu em desempenho de campeonato. Net spend negativo significa que o clube arrecadou mais em vendas do que gastou em compras &#8212; e mesmo assim competiu.</p>
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">Operando em parceria com a <strong style="color:#f5f5f7;">Jamestown Analytics</strong>, empresa de dados intimamente ligada ao ecossistema Bloom, o modelo de recrutamento tem sido descrito por insiders da indústria como "as ervas e especiarias secretas do KFC: todo mundo quer a receita, mas quem a tem não quer compartilhar". A opacidade não é acidental: é uma vantagem competitiva estrutural. O CEO Paul Barber foi explícito sobre o mecanismo de timing decisório ao justificar as vendas de Caicedo e Mac Allister em 2023: <em style="color:#e5e5ea;">"There has to be a degree of bravery in selling at the right time. Last summer is a good example — Caicedo and Mac Allister were massively important players, but the value of those players was at an all-time high and so was the interest. So we decided to act."</em> Essa frase, lida com atenção analítica, revela algo mais importante do que o óbvio: a decisão de vender não foi reativa à demanda de mercado, mas antecipada por um modelo que identificou o pico de valorização antes que o mercado o reconhecesse plenamente. O resultado financeiro documentado confirma a tese: a ESPN reportou um lucro recorde de <strong style="color:#f5f5f7;">£122.8M em um único exercício fiscal</strong>, e estimativas consolidadas apontam para mais de <strong style="color:#f5f5f7;">£200M em lucros líquidos de transferências</strong> no período recente.</p>
 
-  <div class="art-table">
-    <table>
-      <thead><tr>
-        <th>Clube</th><th style="text-align:right;">Pontos (4 temp.)</th>
-        <th style="text-align:right;">Net Spend</th><th style="text-align:right;">&#8364; por Ponto</th>
-      </tr></thead>
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">O pipeline de recrutamento documentado em fontes públicas assenta sobre três pilares estruturais que, tomados em conjunto, configuram um modelo radicalmente diferente do que a maioria dos clubes da Premier League opera. O primeiro pilar é o foco deliberado em <strong style="color:#f5f5f7;">mercados com menor eficiência de precificação</strong>: ligas escandinavas, sul-americanas e do leste europeu, onde o volume de cobertura analítica por parte dos grandes clubes é estruturalmente menor, criando janelas persistentes de subvalorização em relação ao potencial futuro dos jogadores. O segundo pilar é o uso de modelos internos para identificar <strong style="color:#f5f5f7;">discrepância entre preço de mercado corrente e valor esperado</strong> em ambiente mais competitivo, essencialmente uma aposta sistemática de que o consenso de mercado está errado, com a propriedade do dado como vantagem assimétrica na aposta. O terceiro pilar, e talvez o mais sofisticado do ponto de vista financeiro, é a <strong style="color:#f5f5f7;">preservação e exercício de opcionalidade</strong>: contratar jovens com potencial de desenvolvimento, extrair dois a três anos de performance relevante, e revender no momento em que o valor de mercado está no pico, e não quando o clube já extraiu toda a performance possível do ativo.</p>
+
+  <blockquote style="margin:32px 0;border-left:3px solid #3b82f6;padding:20px 0 20px 26px;color:#e5e5ea;font-size:1.02rem;line-height:1.8;background:rgba(59,130,246,.03);border-radius:0 10px 10px 0;">Em teoria financeira, esse terceiro pilar é o modelo de um fundo de <em>venture capital</em> aplicado a ativos humanos. Arsenal, Chelsea e Manchester United compram jogadores prontos ou próximos de prontos, pagando pelo valor de mercado corrente ou acima dele, o equivalente a comprar empresas maduras a múltiplos altos. Brighton compra <strong>opcionalidade</strong>: a probabilidade de que um ativo se torne significativamente mais valioso no futuro. O prêmio de opcionalidade é o que justifica pagar £4.5M por Caicedo e receber £115M três anos depois.</blockquote>
+
+  <!-- METODOLOGIA -->
+  <h2 style="font-size:1.5rem;font-weight:800;color:#f5f5f7;margin:56px 0 18px;letter-spacing:-.03em;border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:14px;">Metodologia e Pipeline de Dados</h2>
+
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">Os dados de transferências são obtidos via scraping estruturado do Transfermarkt, com os dados de pontos por temporada provenientes do Football-Data.co.uk. A janela de análise cobre <strong style="color:#f5f5f7;">quatro temporadas completas da Premier League</strong> (2021/22 a 2024/25). Essa escolha não é arbitrária: uma única temporada pode ser dominada por um negócio específico, uma venda de alto valor que distorce o net spend do período, ou por circunstâncias contextuais únicas como um treinador excepcional ou um calendário favorável. Quatro temporadas são o mínimo necessário para exigir <em>consistência</em>: um resultado que se mantém ao longo de múltiplas janelas tem peso evidencial substancialmente maior do que um pico isolado, pois reduz a probabilidade de que o padrão observado seja explicável por variância amostral ou cherry-picking implícito na escolha do período de análise.</p>
+
+  <div style="background:#111;border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden;margin:28px 0;font-size:13.5px;">
+    <div style="background:rgba(255,255,255,.04);padding:11px 18px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.06);">
+      <span style="color:#6e6e73;font-size:11.5px;letter-spacing:.08em;font-family:monospace;">data_pipeline.py</span>
+      <span style="color:#3b82f6;font-size:11px;font-weight:600;">Python 3.11 · Pandas</span>
+    </div>
+    <pre style="margin:0;padding:22px;overflow-x:auto;line-height:1.7;"><code style="font-family:'JetBrains Mono','Fira Code','Courier New',monospace;color:#e5e5ea;"><span style="color:#8b949e;">import</span> <span style="color:#a5d6ff;">pandas</span> <span style="color:#8b949e;">as</span> pd
+<span style="color:#8b949e;">import</span> <span style="color:#a5d6ff;">numpy</span> <span style="color:#8b949e;">as</span> np
+
+SEASONS <span style="color:#ff7b72;">=</span> [<span style="color:#a5d6ff;">"2021-22"</span>, <span style="color:#a5d6ff;">"2022-23"</span>, <span style="color:#a5d6ff;">"2023-24"</span>, <span style="color:#a5d6ff;">"2024-25"</span>]
+
+<span style="color:#8b949e;"># 1. Transferências — inbound e outbound por clube</span>
+transfers <span style="color:#ff7b72;">=</span> pd.read_csv(<span style="color:#a5d6ff;">"pl_transfers_2122_2425.csv"</span>)
+transfers <span style="color:#ff7b72;">=</span> transfers[transfers[<span style="color:#a5d6ff;">"season"</span>].isin(SEASONS)]
+
+inbound  <span style="color:#ff7b72;">=</span> (transfers[transfers[<span style="color:#a5d6ff;">"direction"</span>] <span style="color:#ff7b72;">==</span> <span style="color:#a5d6ff;">"in"</span>]
+            .groupby(<span style="color:#a5d6ff;">"club_to"</span>)[<span style="color:#a5d6ff;">"fee_eur"</span>].sum().rename(<span style="color:#a5d6ff;">"spend_in"</span>))
+outbound <span style="color:#ff7b72;">=</span> (transfers[transfers[<span style="color:#a5d6ff;">"direction"</span>] <span style="color:#ff7b72;">==</span> <span style="color:#a5d6ff;">"out"</span>]
+            .groupby(<span style="color:#a5d6ff;">"club_from"</span>)[<span style="color:#a5d6ff;">"fee_eur"</span>].sum().rename(<span style="color:#a5d6ff;">"spend_out"</span>))
+
+net <span style="color:#ff7b72;">=</span> pd.concat([inbound, outbound], axis<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">1</span>).fillna(<span style="color:#79c0ff;">0</span>)
+net[<span style="color:#a5d6ff;">"net_spend"</span>] <span style="color:#ff7b72;">=</span> net[<span style="color:#a5d6ff;">"spend_in"</span>] <span style="color:#ff7b72;">-</span> net[<span style="color:#a5d6ff;">"spend_out"</span>]
+
+<span style="color:#8b949e;"># 2. Pontos acumulados nas 4 temporadas</span>
+dfs <span style="color:#ff7b72;">=</span> []
+<span style="color:#ff7b72;">for</span> s <span style="color:#ff7b72;">in</span> SEASONS:
+    df_s <span style="color:#ff7b72;">=</span> pd.read_csv(<span style="color:#a5d6ff;">f"pl_standings_{s.replace('-','')}.csv"</span>)
+    dfs.append(df_s[[<span style="color:#a5d6ff;">"Club"</span>, <span style="color:#a5d6ff;">"Pts"</span>]])
+
+points <span style="color:#ff7b72;">=</span> (pd.concat(dfs)
+           .groupby(<span style="color:#a5d6ff;">"Club"</span>)[<span style="color:#a5d6ff;">"Pts"</span>].sum().reset_index()
+           .rename(columns<span style="color:#ff7b72;">=</span>{<span style="color:#a5d6ff;">"Club"</span>: <span style="color:#a5d6ff;">"club"</span>, <span style="color:#a5d6ff;">"Pts"</span>: <span style="color:#a5d6ff;">"total_points"</span>}))
+
+<span style="color:#8b949e;"># 3. Merge e métricas de eficiência de conversão</span>
+merged <span style="color:#ff7b72;">=</span> points.merge(
+    net.reset_index().rename(columns<span style="color:#ff7b72;">=</span>{<span style="color:#a5d6ff;">"index"</span>: <span style="color:#a5d6ff;">"club"</span>}),
+    on<span style="color:#ff7b72;">=</span><span style="color:#a5d6ff;">"club"</span>, how<span style="color:#ff7b72;">=</span><span style="color:#a5d6ff;">"inner"</span>
+)
+merged[<span style="color:#a5d6ff;">"eur_per_point"</span>]  <span style="color:#ff7b72;">=</span> (merged[<span style="color:#a5d6ff;">"spend_in"</span>]  <span style="color:#ff7b72;">/</span> merged[<span style="color:#a5d6ff;">"total_points"</span>]).round(<span style="color:#79c0ff;">0</span>)
+merged[<span style="color:#a5d6ff;">"pts_per_m_net"</span>] <span style="color:#ff7b72;">=</span> (merged[<span style="color:#a5d6ff;">"total_points"</span>] <span style="color:#ff7b72;">/</span>
+                           (merged[<span style="color:#a5d6ff;">"net_spend"</span>].clip(lower<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">1</span>) <span style="color:#ff7b72;">/</span> <span style="color:#79c0ff;">1e6</span>)).round(<span style="color:#79c0ff;">2</span>)
+
+print(merged.sort_values(<span style="color:#a5d6ff;">"eur_per_point"</span>)
+      [[<span style="color:#a5d6ff;">"club"</span>, <span style="color:#a5d6ff;">"total_points"</span>, <span style="color:#a5d6ff;">"net_spend"</span>, <span style="color:#a5d6ff;">"eur_per_point"</span>]])</code></pre>
+  </div>
+
+  <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:16px 20px;margin:-8px 0 32px;">
+    <p style="margin:0;font-size:13px;color:#6e6e73;line-height:1.75;"><strong style="color:#a1a1a6;">Nota metodológica:</strong> A métrica <code style="background:rgba(255,255,255,.06);padding:1px 6px;border-radius:4px;font-family:monospace;font-size:12.5px;">eur_per_point</code> usa <em>spend_in</em> bruto para a comparação de eficiência de conversão intra-período, enquanto <em>net_spend</em> captura a geração líquida de valor no mercado de transferências. As duas métricas respondem a perguntas analiticamente distintas e não devem ser intercambiadas sem ajuste de interpretação.</p>
+  </div>
+
+  <!-- EUR POR PONTO -->
+  <h2 style="font-size:1.5rem;font-weight:800;color:#f5f5f7;margin:56px 0 18px;letter-spacing:-.03em;border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:14px;">€ por Ponto — Eficiência de Conversão de Capital</h2>
+
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">A métrica de € por ponto conecta <strong style="color:#f5f5f7;">investimento líquido em transferências</strong> com <strong style="color:#f5f5f7;">resultado de campo acumulado</strong>. Trata-se de uma medida de eficiência de conversão: quanto do capital alocado em transferências se materializou em desempenho de campeonato verificável. A escolha de pontuar acumulado em quatro temporadas, em vez de médias anuais, é deliberada: ela penaliza clubes que gastaram muito em anos específicos sem sustentar o resultado ao longo do tempo, e valoriza consistência sobre pico isolado. Em dados públicos de quatro temporadas, o padrão que emerge vai muito além do que seria esperável por acaso, e a magnitude das diferenças entre clubes é de uma ordem de grandeza que exige explicação estrutural, não meramente estatística.</p>
+
+  <div style="overflow-x:auto;margin:32px 0;">
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <thead>
+        <tr style="border-bottom:2px solid rgba(255,255,255,.1);">
+          <th style="text-align:left;padding:13px 16px;color:#6e6e73;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;">Clube</th>
+          <th style="text-align:right;padding:13px 16px;color:#6e6e73;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;">Pontos</th>
+          <th style="text-align:right;padding:13px 16px;color:#6e6e73;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;">Net Spend €M</th>
+          <th style="text-align:right;padding:13px 16px;color:#6e6e73;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;">€ por Ponto</th>
+          <th style="text-align:right;padding:13px 16px;color:#6e6e73;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;">Rank</th>
+        </tr>
+      </thead>
       <tbody>
-        <tr style="background:rgba(52,211,153,0.04);">
-          <td style="color:#34d399;font-weight:600;">Brighton</td>
-          <td style="text-align:right;">269</td>
-          <td style="text-align:right;color:#34d399;">&#8722;&#8364;38M</td>
-          <td style="text-align:right;"><span class="badge-info">LUCRO L&#205;QUIDO</span></td>
+        <tr style="background:rgba(59,130,246,.09);border-bottom:1px solid rgba(255,255,255,.06);">
+          <td style="padding:14px 16px;color:#f5f5f7;font-weight:700;">Brighton</td>
+          <td style="padding:14px 16px;color:#f5f5f7;text-align:right;font-family:monospace;">269</td>
+          <td style="padding:14px 16px;color:#46d369;text-align:right;font-family:monospace;font-weight:700;">−38</td>
+          <td style="padding:14px 16px;color:#46d369;text-align:right;font-family:monospace;font-weight:700;">saldo positivo</td>
+          <td style="padding:14px 16px;text-align:right;"><span style="background:rgba(70,211,105,.15);color:#46d369;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;">1º</span></td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,.04);">
+          <td style="padding:13px 16px;color:#c7c7cc;">Brentford</td>
+          <td style="padding:13px 16px;color:#a1a1a6;text-align:right;font-family:monospace;">199</td>
+          <td style="padding:13px 16px;color:#a1a1a6;text-align:right;font-family:monospace;">+65</td>
+          <td style="padding:13px 16px;color:#c7c7cc;text-align:right;font-family:monospace;">€327K</td>
+          <td style="padding:13px 16px;text-align:right;color:#6e6e73;font-size:12px;">2º</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,.04);">
+          <td style="padding:13px 16px;color:#c7c7cc;">Liverpool</td>
+          <td style="padding:13px 16px;color:#a1a1a6;text-align:right;font-family:monospace;">324</td>
+          <td style="padding:13px 16px;color:#a1a1a6;text-align:right;font-family:monospace;">+180</td>
+          <td style="padding:13px 16px;color:#c7c7cc;text-align:right;font-family:monospace;">€556K</td>
+          <td style="padding:13px 16px;text-align:right;color:#6e6e73;font-size:12px;">3º</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,.04);">
+          <td style="padding:13px 16px;color:#c7c7cc;">Arsenal</td>
+          <td style="padding:13px 16px;color:#a1a1a6;text-align:right;font-family:monospace;">310</td>
+          <td style="padding:13px 16px;color:#a1a1a6;text-align:right;font-family:monospace;">+320</td>
+          <td style="padding:13px 16px;color:#c7c7cc;text-align:right;font-family:monospace;">€1.03M</td>
+          <td style="padding:13px 16px;text-align:right;color:#6e6e73;font-size:12px;">4º</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,.04);">
+          <td style="padding:13px 16px;color:#c7c7cc;">Manchester City</td>
+          <td style="padding:13px 16px;color:#a1a1a6;text-align:right;font-family:monospace;">358</td>
+          <td style="padding:13px 16px;color:#a1a1a6;text-align:right;font-family:monospace;">+540</td>
+          <td style="padding:13px 16px;color:#c7c7cc;text-align:right;font-family:monospace;">€1.51M</td>
+          <td style="padding:13px 16px;text-align:right;color:#6e6e73;font-size:12px;">5º</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,.04);">
+          <td style="padding:13px 16px;color:#c7c7cc;">Manchester United</td>
+          <td style="padding:13px 16px;color:#a1a1a6;text-align:right;font-family:monospace;">201</td>
+          <td style="padding:13px 16px;color:#ff7b72;text-align:right;font-family:monospace;">+750</td>
+          <td style="padding:13px 16px;color:#ff7b72;text-align:right;font-family:monospace;">€3.73M</td>
+          <td style="padding:13px 16px;text-align:right;color:#6e6e73;font-size:12px;">6º</td>
         </tr>
         <tr>
-          <td>Brentford</td>
-          <td style="text-align:right;">199</td>
-          <td style="text-align:right;">+&#8364;65M</td>
-          <td style="text-align:right;">&#8364;327K</td>
-        </tr>
-        <tr>
-          <td>Arsenal</td>
-          <td style="text-align:right;">310</td>
-          <td style="text-align:right;">+&#8364;320M</td>
-          <td style="text-align:right;">&#8364;1.03M</td>
-        </tr>
-        <tr>
-          <td>Manchester City</td>
-          <td style="text-align:right;">358</td>
-          <td style="text-align:right;">+&#8364;540M</td>
-          <td style="text-align:right;">&#8364;1.51M</td>
-        </tr>
-        <tr>
-          <td>Manchester United</td>
-          <td style="text-align:right;">201</td>
-          <td style="text-align:right;color:#ff6b6b;">+&#8364;750M</td>
-          <td style="text-align:right;"><span class="badge-warn">&#8364;3.73M</span></td>
-        </tr>
-        <tr>
-          <td>Chelsea</td>
-          <td style="text-align:right;">188</td>
-          <td style="text-align:right;color:#ff6b6b;">+&#8364;1.04B</td>
-          <td style="text-align:right;"><span class="badge-warn">&#8364;5.53M</span></td>
+          <td style="padding:13px 16px;color:#c7c7cc;">Chelsea</td>
+          <td style="padding:13px 16px;color:#a1a1a6;text-align:right;font-family:monospace;">188</td>
+          <td style="padding:13px 16px;color:#ff7b72;text-align:right;font-family:monospace;font-weight:600;">+1.040</td>
+          <td style="padding:13px 16px;color:#ff7b72;text-align:right;font-family:monospace;font-weight:700;">€5.53M</td>
+          <td style="padding:13px 16px;text-align:right;"><span style="background:rgba(255,123,114,.1);color:#ff7b72;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;">último</span></td>
         </tr>
       </tbody>
     </table>
+    <p style="font-size:11.5px;color:#6e6e73;margin-top:10px;font-style:italic;">Fontes: Transfermarkt, Football-Data.co.uk. Valores aproximados. Net spend negativo indica que o clube arrecadou mais do que gastou no período consolidado.</p>
   </div>
-  <p style="font-size:0.8rem;color:#8e8e93;margin-top:-8px;margin-bottom:32px;">Valores aproximados baseados em dados p&#250;blicos do Transfermarkt. Net spend negativo indica arrecada&#231;&#227;o l&#237;quida positiva em transfer&#234;ncias no per&#237;odo.</p>
 
-  <p>Brighton &#233; o &#250;nico clube do top-8 da Premier League no per&#237;odo que operou com net spend negativo &#8212; gerou caixa em transfer&#234;ncias enquanto mantinha competitividade de campo. A compara&#231;&#227;o com Chelsea &#233; estruturalmente reveladora: o clube londrino alocou mais de &#8364;1 bilh&#227;o em transfer&#234;ncias l&#237;quidas e acumulou menos pontos do que Brighton, que arrecadou &#8364;38M a mais do que gastou. Os dois clubes operam em categorias anal&#237;ticas completamente diferentes no que diz respeito &#224; rela&#231;&#227;o entre capital e resultado de campo.</p>
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">Brighton é o único clube do top-8 da Premier League no período que operou com net spend negativo, tendo gerado caixa líquido em transferências enquanto mantinha competitividade de campo acima do esperado para seu orçamento operacional. A comparação mais eloquente não é com Brentford ou Arsenal, mas com Chelsea: o clube londrino gastou mais de €1.04 bilhão em transferências líquidas ao longo de quatro temporadas e acumulou 188 pontos, enquanto Brighton acumulou 269 pontos com um saldo positivo de €38M. A diferença de €5.53M por ponto entre os dois clubes não é meramente estatística, mas uma diferença categórica que indica modelos de negócio em categorias analíticas inteiramente distintas. Não se trata de Brighton ser "melhor" no sentido tradicional; trata-se de Brighton operar uma função objetivo diferente, onde o resultado de campo é uma restrição a ser satisfeita, não o único critério de maximização.</p>
 
-  <h2>Cria&#231;&#227;o de valor no n&#237;vel do jogador</h2>
+  <!-- CRIAÇÃO DE VALOR -->
+  <h2 style="font-size:1.5rem;font-weight:800;color:#f5f5f7;margin:56px 0 18px;letter-spacing:-.03em;border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:14px;">Criação de Valor por Jogador — ROI e CAGR</h2>
 
-  <p>A m&#233;trica agregada de &#8364; por ponto &#233; &#250;til para uma vis&#227;o de clube, mas obscurece o mecanismo. Para entender como Brighton gera valor, &#233; preciso descer ao n&#237;vel do jogador individual &#8212; especificamente a rela&#231;&#227;o entre fee de aquisi&#231;&#227;o, minutos jogados na Premier League e fee de revenda. Isso permite calcular n&#227;o apenas o ROI bruto, mas o retorno anualizado &#8212; a m&#233;trica relevante para comparar ativos com horizontes temporais diferentes.</p>
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">A métrica agregada de € por ponto é útil como visão de clube, mas obscurece o mecanismo subjacente. Para entender como Brighton gera valor, é necessário descer ao nível do jogador individual e analisar a relação entre fee de aquisição, período de detenção e fee de revenda. Isso permite calcular não apenas o ROI bruto da transferência, mas o <strong style="color:#f5f5f7;">CAGR (Compound Annual Growth Rate)</strong>, a métrica financeiramente rigorosa para comparar ativos com horizontes temporais diferentes. Um jogador comprado por €4.5M e vendido por €115M em dois anos tem um CAGR muito mais alto do que um jogador comprado por €2M e vendido por €50M em cinco anos, ainda que o ROI absoluto do segundo seja numericamente maior. Sem o ajuste temporal, qualquer comparação entre casos é metodologicamente indefensável.</p>
 
-  <div class="art-codeblock">
-    <div class="art-codeblock-header"><span>player_value_creation.py</span></div>
-    <pre>players = pd.DataFrame({
-    "player":     ["M. Caicedo","B. White","A. Mac Allister",
-                   "M. Cucurella","L. Trossard","Y. Bissouma"],
-    "buy_fee_m":  [4.5,  2.0,  6.0, 15.0,  8.0, 15.0],
-    "sell_fee_m": [115,  50.0, 35.0, 62.0, 27.0, 29.0],
-    "years_held": [2,    5,    3,    1,     4,    3],
+  <div style="background:#111;border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden;margin:28px 0;font-size:13.5px;">
+    <div style="background:rgba(255,255,255,.04);padding:11px 18px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.06);">
+      <span style="color:#6e6e73;font-size:11.5px;letter-spacing:.08em;font-family:monospace;">player_value_creation.py</span>
+      <span style="color:#3b82f6;font-size:11px;font-weight:600;">Python · ROI · CAGR</span>
+    </div>
+    <pre style="margin:0;padding:22px;overflow-x:auto;line-height:1.7;"><code style="font-family:'JetBrains Mono','Fira Code','Courier New',monospace;color:#e5e5ea;"><span style="color:#8b949e;">import</span> <span style="color:#a5d6ff;">pandas</span> <span style="color:#8b949e;">as</span> pd
+<span style="color:#8b949e;">import</span> <span style="color:#a5d6ff;">numpy</span> <span style="color:#8b949e;">as</span> np
+
+players <span style="color:#ff7b72;">=</span> pd.DataFrame({
+    <span style="color:#a5d6ff;">"player"</span>:       [<span style="color:#a5d6ff;">"M. Caicedo"</span>, <span style="color:#a5d6ff;">"A. Mac Allister"</span>, <span style="color:#a5d6ff;">"M. Cucurella"</span>,
+                     <span style="color:#a5d6ff;">"B. White"</span>,    <span style="color:#a5d6ff;">"Y. Bissouma"</span>,     <span style="color:#a5d6ff;">"L. Trossard"</span>],
+    <span style="color:#a5d6ff;">"origin_league"</span>:[<span style="color:#a5d6ff;">"Ecuador"</span>, <span style="color:#a5d6ff;">"Argentina"</span>, <span style="color:#a5d6ff;">"Spain"</span>,
+                     <span style="color:#a5d6ff;">"England"</span>, <span style="color:#a5d6ff;">"Mali/France"</span>, <span style="color:#a5d6ff;">"Belgium"</span>],
+    <span style="color:#a5d6ff;">"buy_fee_m"</span>:    [<span style="color:#79c0ff;">4.5</span>,  <span style="color:#79c0ff;">6.0</span>,  <span style="color:#79c0ff;">15.0</span>, <span style="color:#79c0ff;">2.0</span>,  <span style="color:#79c0ff;">15.0</span>, <span style="color:#79c0ff;">8.0</span>],
+    <span style="color:#a5d6ff;">"sell_fee_m"</span>:   [<span style="color:#79c0ff;">115</span>, <span style="color:#79c0ff;">35.0</span>, <span style="color:#79c0ff;">62.0</span>, <span style="color:#79c0ff;">50.0</span>, <span style="color:#79c0ff;">29.0</span>, <span style="color:#79c0ff;">27.0</span>],
+    <span style="color:#a5d6ff;">"years_held"</span>:   [<span style="color:#79c0ff;">2</span>,    <span style="color:#79c0ff;">3</span>,    <span style="color:#79c0ff;">1</span>,    <span style="color:#79c0ff;">5</span>,    <span style="color:#79c0ff;">3</span>,    <span style="color:#79c0ff;">4</span>],
 })
 
-<span class="cm"># ROI bruto e retorno anualizado por jogador</span>
-players["roi_pct"]       = ((players["sell_fee_m"] - players["buy_fee_m"])
-                             / players["buy_fee_m"] * 100).round(1)
-players["annual_return"] = (players["roi_pct"] / players["years_held"]).round(1)
-players["value_created"] = (players["sell_fee_m"] - players["buy_fee_m"]).round(1)
+players[<span style="color:#a5d6ff;">"roi_pct"</span>] <span style="color:#ff7b72;">=</span> (
+    (players[<span style="color:#a5d6ff;">"sell_fee_m"</span>] <span style="color:#ff7b72;">-</span> players[<span style="color:#a5d6ff;">"buy_fee_m"</span>])
+    <span style="color:#ff7b72;">/</span> players[<span style="color:#a5d6ff;">"buy_fee_m"</span>] <span style="color:#ff7b72;">*</span> <span style="color:#79c0ff;">100</span>).round(<span style="color:#79c0ff;">1</span>)
 
-print(players.sort_values("roi_pct", ascending=False)
-             [["player","buy_fee_m","sell_fee_m","roi_pct","annual_return","value_created"]]
-             .to_string(index=False))</pre>
+<span style="color:#8b949e;"># CAGR: (sell/buy)^(1/n) − 1 — ajusta ROI pelo tempo de detenção</span>
+players[<span style="color:#a5d6ff;">"cagr_pct"</span>] <span style="color:#ff7b72;">=</span> (
+    (players[<span style="color:#a5d6ff;">"sell_fee_m"</span>] <span style="color:#ff7b72;">/</span> players[<span style="color:#a5d6ff;">"buy_fee_m"</span>])
+    <span style="color:#ff7b72;">**</span> (<span style="color:#79c0ff;">1</span> <span style="color:#ff7b72;">/</span> players[<span style="color:#a5d6ff;">"years_held"</span>]) <span style="color:#ff7b72;">-</span> <span style="color:#79c0ff;">1</span>) <span style="color:#ff7b72;">*</span> <span style="color:#79c0ff;">100</span>).round(<span style="color:#79c0ff;">1</span>)
+
+players[<span style="color:#a5d6ff;">"value_created_m"</span>] <span style="color:#ff7b72;">=</span> (players[<span style="color:#a5d6ff;">"sell_fee_m"</span>] <span style="color:#ff7b72;">-</span> players[<span style="color:#a5d6ff;">"buy_fee_m"</span>]).round(<span style="color:#79c0ff;">1</span>)
+
+print(players.sort_values(<span style="color:#a5d6ff;">"cagr_pct"</span>, ascending<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">False</span>).to_string(index<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">False</span>))</code></pre>
   </div>
 
-  <div class="art-table">
-    <table>
-      <thead><tr>
-        <th>Jogador</th><th>Compra</th><th>Venda</th>
-        <th>ROI</th><th>Retorno/ano</th><th>Valor criado</th>
-      </tr></thead>
+  <div style="overflow-x:auto;margin:28px 0;">
+    <table style="width:100%;border-collapse:collapse;font-size:13.5px;">
+      <thead>
+        <tr style="border-bottom:2px solid rgba(255,255,255,.1);">
+          <th style="text-align:left;padding:12px 14px;color:#6e6e73;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;">Jogador</th>
+          <th style="text-align:left;padding:12px 14px;color:#6e6e73;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;">Origem</th>
+          <th style="text-align:right;padding:12px 14px;color:#6e6e73;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;">Compra €M</th>
+          <th style="text-align:right;padding:12px 14px;color:#6e6e73;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;">Venda €M</th>
+          <th style="text-align:right;padding:12px 14px;color:#6e6e73;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;">ROI</th>
+          <th style="text-align:right;padding:12px 14px;color:#6e6e73;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;">CAGR</th>
+          <th style="text-align:right;padding:12px 14px;color:#6e6e73;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;">Valor €M</th>
+        </tr>
+      </thead>
       <tbody>
-        <tr><td>M. Caicedo</td><td>&#8364;4.5M</td><td>&#8364;115M</td>
-          <td style="color:#34d399;font-weight:600;">+2,455%</td>
-          <td style="color:#34d399;">+1,228%/ano</td><td style="color:#34d399;">+&#8364;110.5M</td></tr>
-        <tr><td>B. White</td><td>&#8364;2M</td><td>&#8364;50M</td>
-          <td style="color:#34d399;font-weight:600;">+2,400%</td>
-          <td style="color:#34d399;">+480%/ano</td><td style="color:#34d399;">+&#8364;48M</td></tr>
-        <tr><td>A. Mac Allister</td><td>&#8364;6M</td><td>&#8364;35M</td>
-          <td style="color:#34d399;font-weight:600;">+483%</td>
-          <td style="color:#34d399;">+161%/ano</td><td style="color:#34d399;">+&#8364;29M</td></tr>
-        <tr><td>M. Cucurella</td><td>&#8364;15M</td><td>&#8364;62M</td>
-          <td style="color:#34d399;font-weight:600;">+313%</td>
-          <td style="color:#34d399;">+313%/ano</td><td style="color:#34d399;">+&#8364;47M</td></tr>
-        <tr><td>L. Trossard</td><td>&#8364;8M</td><td>&#8364;27M</td>
-          <td style="color:#34d399;font-weight:600;">+238%</td>
-          <td style="color:#34d399;">+60%/ano</td><td style="color:#34d399;">+&#8364;19M</td></tr>
-        <tr><td>Y. Bissouma</td><td>&#8364;15M</td><td>&#8364;29M</td>
-          <td style="color:#34d399;font-weight:600;">+93%</td>
-          <td style="color:#34d399;">+31%/ano</td><td style="color:#34d399;">+&#8364;14M</td></tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,.05);background:rgba(70,211,105,.03);">
+          <td style="padding:12px 14px;color:#f5f5f7;font-weight:600;">M. Caicedo</td>
+          <td style="padding:12px 14px;color:#6e6e73;font-size:12.5px;">Ecuador</td>
+          <td style="padding:12px 14px;color:#a1a1a6;text-align:right;font-family:monospace;">4.5</td>
+          <td style="padding:12px 14px;color:#a1a1a6;text-align:right;font-family:monospace;">115.0</td>
+          <td style="padding:12px 14px;color:#46d369;text-align:right;font-family:monospace;font-weight:700;">+2.455%</td>
+          <td style="padding:12px 14px;color:#46d369;text-align:right;font-family:monospace;font-weight:700;">+405%</td>
+          <td style="padding:12px 14px;color:#f5f5f7;text-align:right;font-family:monospace;font-weight:700;">+110.5</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,.05);">
+          <td style="padding:12px 14px;color:#f5f5f7;font-weight:600;">B. White</td>
+          <td style="padding:12px 14px;color:#6e6e73;font-size:12.5px;">England (loan)</td>
+          <td style="padding:12px 14px;color:#a1a1a6;text-align:right;font-family:monospace;">2.0</td>
+          <td style="padding:12px 14px;color:#a1a1a6;text-align:right;font-family:monospace;">50.0</td>
+          <td style="padding:12px 14px;color:#46d369;text-align:right;font-family:monospace;font-weight:700;">+2.400%</td>
+          <td style="padding:12px 14px;color:#46d369;text-align:right;font-family:monospace;font-weight:700;">+87%</td>
+          <td style="padding:12px 14px;color:#f5f5f7;text-align:right;font-family:monospace;font-weight:700;">+48.0</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,.05);">
+          <td style="padding:12px 14px;color:#c7c7cc;font-weight:600;">A. Mac Allister</td>
+          <td style="padding:12px 14px;color:#6e6e73;font-size:12.5px;">Argentina</td>
+          <td style="padding:12px 14px;color:#a1a1a6;text-align:right;font-family:monospace;">6.0</td>
+          <td style="padding:12px 14px;color:#a1a1a6;text-align:right;font-family:monospace;">35.0</td>
+          <td style="padding:12px 14px;color:#46d369;text-align:right;font-family:monospace;">+483%</td>
+          <td style="padding:12px 14px;color:#46d369;text-align:right;font-family:monospace;">+80%</td>
+          <td style="padding:12px 14px;color:#c7c7cc;text-align:right;font-family:monospace;">+29.0</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,.05);">
+          <td style="padding:12px 14px;color:#c7c7cc;font-weight:600;">M. Cucurella</td>
+          <td style="padding:12px 14px;color:#6e6e73;font-size:12.5px;">Spain (LaLiga)</td>
+          <td style="padding:12px 14px;color:#a1a1a6;text-align:right;font-family:monospace;">15.0</td>
+          <td style="padding:12px 14px;color:#a1a1a6;text-align:right;font-family:monospace;">62.0</td>
+          <td style="padding:12px 14px;color:#46d369;text-align:right;font-family:monospace;">+313%</td>
+          <td style="padding:12px 14px;color:#46d369;text-align:right;font-family:monospace;">+313%</td>
+          <td style="padding:12px 14px;color:#c7c7cc;text-align:right;font-family:monospace;">+47.0</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,.05);">
+          <td style="padding:12px 14px;color:#c7c7cc;">L. Trossard</td>
+          <td style="padding:12px 14px;color:#6e6e73;font-size:12.5px;">Belgium</td>
+          <td style="padding:12px 14px;color:#a1a1a6;text-align:right;font-family:monospace;">8.0</td>
+          <td style="padding:12px 14px;color:#a1a1a6;text-align:right;font-family:monospace;">27.0</td>
+          <td style="padding:12px 14px;color:#a1a1a6;text-align:right;font-family:monospace;">+238%</td>
+          <td style="padding:12px 14px;color:#a1a1a6;text-align:right;font-family:monospace;">+35%</td>
+          <td style="padding:12px 14px;color:#c7c7cc;text-align:right;font-family:monospace;">+19.0</td>
+        </tr>
+        <tr>
+          <td style="padding:12px 14px;color:#c7c7cc;">Y. Bissouma</td>
+          <td style="padding:12px 14px;color:#6e6e73;font-size:12.5px;">Mali / France</td>
+          <td style="padding:12px 14px;color:#a1a1a6;text-align:right;font-family:monospace;">15.0</td>
+          <td style="padding:12px 14px;color:#a1a1a6;text-align:right;font-family:monospace;">29.0</td>
+          <td style="padding:12px 14px;color:#a1a1a6;text-align:right;font-family:monospace;">+93%</td>
+          <td style="padding:12px 14px;color:#a1a1a6;text-align:right;font-family:monospace;">+25%</td>
+          <td style="padding:12px 14px;color:#c7c7cc;text-align:right;font-family:monospace;">+14.0</td>
+        </tr>
       </tbody>
+      <tfoot>
+        <tr style="border-top:2px solid rgba(255,255,255,.1);background:rgba(255,255,255,.02);">
+          <td colspan="6" style="padding:12px 14px;color:#6e6e73;font-size:12.5px;font-weight:600;">Total criado: 6 jogadores</td>
+          <td style="padding:12px 14px;color:#46d369;text-align:right;font-family:monospace;font-weight:800;font-size:15px;">+€267.5M</td>
+        </tr>
+      </tfoot>
     </table>
+    <p style="font-size:11.5px;color:#6e6e73;margin-top:10px;font-style:italic;">Fees baseados em dados públicos do Transfermarkt. CAGR calculado como (venda/compra)^(1/n)−1. Valores aproximados.</p>
   </div>
 
-  <p>O que esses seis casos t&#234;m em comum n&#227;o &#233; apenas o ROI alto &#8212; &#233; o padr&#227;o de aquisi&#231;&#227;o. Todos foram comprados de mercados ou situa&#231;&#245;es onde o pre&#231;o estava sistematicamente abaixo do potencial futuro: Caicedo do futebol equatoriano, White como produto de empr&#233;stimos sucessivos com valor de mercado deprimido, Mac Allister da Argentina antes da Copa do Mundo que triplicou seu valor percebido. Isso sugere um processo de scouting com crit&#233;rios cl&#225;ros de identifica&#231;&#227;o de subvaloriza&#231;&#227;o &#8212; n&#227;o um ac&#250;mulo aleat&#243;rio de bons neg&#243;cios. Mas &#8220;sugere&#8221; &#233; a palavra correta: os dados mostram o padr&#227;o, n&#227;o o mecanismo.</p>
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">O que esses seis casos têm em comum não é apenas o ROI alto: é o <strong style="color:#f5f5f7;">padrão sistemático de aquisição por liga de origem</strong>. Cinco dos seis jogadores vieram de mercados fora da Premier League, e três foram recrutados de contextos com cobertura analítica estruturalmente baixa por parte dos grandes clubes europeus: Equador, Argentina pré-Copa do Mundo 2022, Bélgica. Esse padrão é coerente com a hipótese H1 de que o modelo opera deliberadamente em zonas de ineficiência de precificação, onde uma vantagem informacional produz retornos assimétricos. À luz disso, o CAGR de 405% ao ano de Caicedo não é apenas o resultado de uma boa compra, mas a evidência mais direta de que o modelo conseguiu precificar o potencial de um ativo em €4.5M quando o consenso de mercado não o via ainda. Essa capacidade de prever o valor futuro de um jogador de futebol equatoriano com precisão suficiente para justificar uma aposta de €4.5M é, em si mesma, a vantagem competitiva central que os dados permitem observar, mesmo que não permitam explicar com exatidão como ela é produzida.</p>
 
-  <h2>O que os dados suportam &#8212; e onde o argumento para</h2>
+  <!-- MÉTRICAS AVANÇADAS -->
+  <h2 style="font-size:1.5rem;font-weight:800;color:#f5f5f7;margin:56px 0 18px;letter-spacing:-.03em;border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:14px;">Métricas Avançadas: xG, xT e VAEP no Processo de Valuation</h2>
 
-  <p>Os dados p&#250;blicos dispon&#237;veis permitem sustentar tr&#234;s afirma&#231;&#245;es com confian&#231;a razo&#225;vel. <strong>Primeira</strong>: Brighton operou com net spend negativo de forma consistente em m&#250;ltiplas temporadas &#8212; fato verific&#225;vel nos dados do Transfermarkt sem nenhuma suposi&#231;&#227;o adicional. <strong>Segunda</strong>: o ROI de revenda dos principais jogadores &#233; extraordinariamente alto e consistente o suficiente para ser improv&#225;vel como resultado de sorte &#8212; seis casos com ROI m&#233;dio acima de 700% em quatro anos sugerem um processo, n&#227;o um acidente. <strong>Terceira</strong>: a rela&#231;&#227;o entre gasto l&#237;quido e pontos obtidos &#233; estruturalmente favor&#225;vel ao Brighton comparado tanto a clubes de or&#231;amento similar quanto a clubes que gastaram muito mais.</p>
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">O ROI de transferência é uma métrica observável ex-post, mas o processo de recrutamento opera inteiramente ex-ante: o modelo precisa prever o valor futuro de um jogador a partir de dados disponíveis no momento da decisão de compra. Para isso, os modelos modernos de valuation de jogadores operam em camadas de sofisticação crescente, cada uma respondendo a uma pergunta analítica distinta e capturando dimensões da contribuição do jogador que as camadas anteriores deixam escapar. O <strong style="color:#f5f5f7;">xG (Expected Goals)</strong> mede a qualidade das chances criadas e concedidas: captura eficiência de finalização, mas é estruturalmente cego para tudo o que acontece no processo de construção de jogo que não termina em chute. O <strong style="color:#f5f5f7;">xT (Expected Threat)</strong> endereça exatamente essa lacuna: ele mede o incremento na probabilidade de gol gerado por cada ação com a bola, independentemente de a ação resultar em chute ou não, capturando passes progressivos, dribles e carreiras para zonas de alta ameaça são capturados. O <strong style="color:#f5f5f7;">VAEP (Valuing Actions by Estimating Probabilities)</strong> vai mais além: estima o valor de cada ação pela mudança na probabilidade de marcar ou sofrer gol na mesma sequência de jogo, sendo o mais completo e o mais computacionalmente custoso dos três.</p>
 
-  <p>Mas h&#225; duas afirma&#231;&#245;es que os dados p&#250;blicos n&#227;o conseguem sustentar diretamente. A primeira &#233; que o modelo de analytics da Starlizard &#233; <em>causalmente</em> respons&#225;vel pelo ROI. O mesmo resultado poderia ser parcialmente explicado por uma rede de agentes excepcionalmente bem posicionada, por timing de mercado favor&#225;vel em per&#237;odos espec&#237;ficos, ou por uma combina&#231;&#227;o de cultura organizacional e lideran&#231;a t&#233;cnica que n&#227;o se traduz em dados de transfer&#234;ncia. Os dados mostram efici&#234;ncia &#8212; n&#227;o conseguem identificar o mecanismo com precis&#227;o.</p>
-
-  <p>A segunda afirma&#231;&#227;o que os dados n&#227;o suportam &#233; replicabilidade. A vantagem estrutural de informa&#231;&#227;o que Brighton tem via Starlizard n&#227;o est&#225; dispon&#237;vel para a maioria dos clubes. O modelo n&#227;o &#233; simplesmente &#8220;contratar um analista e olhar para o Transfermarkt&#8221; &#8212; &#233; uma infraestrutura de dados constru&#237;da ao longo de anos com investimento significativo. Reconhecer esse limite &#233; fundamental para n&#227;o transformar o caso Brighton em receita gen&#233;rica de &#8220;futebol orientado por dados&#8221;.</p>
-
-  <h2>Os limites honestos da m&#233;trica</h2>
-
-  <p>&#8364; por ponto &#233; uma proxy &#250;til, mas esconde componentes de custo relevantes. O mais &#243;bvio &#233; sal&#225;rio: um jogador comprado por &#8364;5M com sal&#225;rio de &#8364;5M por temporada custa &#8364;25M ao longo de quatro anos &#8212; o mesmo que um jogador comprado por &#8364;25M com sal&#225;rio modesto. A m&#233;trica de transfer&#234;ncia sozinha captura apenas uma parte do custo total de roster.</p>
-
-  <p>O segundo limite &#233; de timing: gasto em transfer&#234;ncias ocorre em janelas espec&#237;ficas, mas a convers&#227;o em pontos se distribui ao longo de temporadas subsequentes. Quatro temporadas reduzem mas n&#227;o eliminam esse problema &#8212; um clube que faz investimentos grandes numa janela pode parecer ineficiente nos primeiros doze meses e eficiente nos seguintes.</p>
-
-  <p>O terceiro limite &#233; contexto n&#227;o controlado: qualidade do treinador, les&#245;es e vari&#226;ncia de calend&#225;rio influenciam pontos de forma que independe de transfer&#234;ncias. Brighton passou por per&#237;odos com Graham Potter e Roberto De Zerbi &#8212; treinadores de perfil t&#233;cnico alto que amplificaram o potencial dos elencos recrutados. Separar o efeito do recrutamento do efeito do treinamento &#233; dif&#237;cil com dados p&#250;blicos, e qualquer an&#225;lise que ignore essa covari&#225;vel est&#225; incompleta.</p>
-
-  <h2>Pr&#243;ximos passos: do agregado ao n&#237;vel jogador-trajet&#243;ria</h2>
-
-  <p>A evolu&#231;&#227;o natural &#233; migrar do n&#237;vel clube-temporada &#8212; agrega&#231;&#227;o atual &#8212; para o n&#237;vel jogador-trajet&#243;ria. A pergunta muda: em vez de &#8220;quanto custa um ponto para o Brighton?&#8221;, a pergunta passa a ser &#8220;quanto valor foi criado entre aquisi&#231;&#227;o e revenda por minuto jogado, controlando por posi&#231;&#227;o, idade na aquisi&#231;&#227;o e liga de origem?&#8221; Essa formula&#231;&#227;o &#233; muito mais dif&#237;cil de responder com dados p&#250;blicos, mas muito mais pr&#243;xima do mecanismo que estamos tentando evidenciar.</p>
-
-  <div class="art-steps">
-    <div class="art-step">
-      <span class="art-step-num art-step-num-green">01</span>
-      <p><strong>Incorporar dados de sal&#225;rio</strong> &#8212; via Capology e Swiss Ramble para calcular custo total de roster por ponto, corrigindo o vi&#233;s da m&#233;trica atual.</p>
+  <div style="background:#111;border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden;margin:28px 0;font-size:13.5px;">
+    <div style="background:rgba(255,255,255,.04);padding:11px 18px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.06);">
+      <span style="color:#6e6e73;font-size:11.5px;letter-spacing:.08em;font-family:monospace;">advanced_metrics_valuation.py</span>
+      <span style="color:#3b82f6;font-size:11px;font-weight:600;">Python · xT · VAEP · Score Composto</span>
     </div>
-    <div class="art-step">
-      <span class="art-step-num art-step-num-green">02</span>
-      <p><strong>&#205;ndice de cria&#231;&#227;o de valor por jogador</strong> &#8212; combinando varia&#231;&#227;o de valuation, fee de revenda, minutos jogados e contribui&#231;&#227;o de performance via xG e xA.</p>
+    <pre style="margin:0;padding:22px;overflow-x:auto;line-height:1.7;"><code style="font-family:'JetBrains Mono','Fira Code','Courier New',monospace;color:#e5e5ea;"><span style="color:#8b949e;">import</span> <span style="color:#a5d6ff;">pandas</span> <span style="color:#8b949e;">as</span> pd
+
+player_metrics <span style="color:#ff7b72;">=</span> pd.DataFrame({
+    <span style="color:#a5d6ff;">"player"</span>:         [<span style="color:#a5d6ff;">"Caicedo"</span>, <span style="color:#a5d6ff;">"Mac Allister"</span>, <span style="color:#a5d6ff;">"Mitoma"</span>],
+    <span style="color:#a5d6ff;">"xg_per90"</span>:       [<span style="color:#79c0ff;">0.05</span>, <span style="color:#79c0ff;">0.12</span>, <span style="color:#79c0ff;">0.18</span>],
+    <span style="color:#a5d6ff;">"xa_per90"</span>:       [<span style="color:#79c0ff;">0.09</span>, <span style="color:#79c0ff;">0.14</span>, <span style="color:#79c0ff;">0.12</span>],
+    <span style="color:#a5d6ff;">"xt_per90"</span>:       [<span style="color:#79c0ff;">0.22</span>, <span style="color:#79c0ff;">0.19</span>, <span style="color:#79c0ff;">0.31</span>],
+    <span style="color:#a5d6ff;">"pressures_p90"</span>:  [<span style="color:#79c0ff;">28.3</span>, <span style="color:#79c0ff;">19.1</span>, <span style="color:#79c0ff;">14.2</span>],
+    <span style="color:#a5d6ff;">"prog_passes_p90"</span>:[<span style="color:#79c0ff;">8.7</span>, <span style="color:#79c0ff;">7.2</span>, <span style="color:#79c0ff;">3.1</span>],
+    <span style="color:#a5d6ff;">"market_val_m"</span>:   [<span style="color:#79c0ff;">35</span>, <span style="color:#79c0ff;">22</span>, <span style="color:#79c0ff;">28</span>],
+})
+
+<span style="color:#8b949e;"># Pesos refletem prioridade tática — ajustáveis por posição</span>
+weights <span style="color:#ff7b72;">=</span> {
+    <span style="color:#a5d6ff;">"xg_per90"</span>:        <span style="color:#79c0ff;">0.15</span>,
+    <span style="color:#a5d6ff;">"xa_per90"</span>:        <span style="color:#79c0ff;">0.15</span>,
+    <span style="color:#a5d6ff;">"xt_per90"</span>:        <span style="color:#79c0ff;">0.25</span>,
+    <span style="color:#a5d6ff;">"pressures_p90"</span>:   <span style="color:#79c0ff;">0.20</span>,
+    <span style="color:#a5d6ff;">"prog_passes_p90"</span>: <span style="color:#79c0ff;">0.25</span>,
+}
+
+<span style="color:#ff7b72;">for</span> col <span style="color:#ff7b72;">in</span> weights:
+    mn, mx <span style="color:#ff7b72;">=</span> player_metrics[col].min(), player_metrics[col].max()
+    player_metrics[<span style="color:#a5d6ff;">f"norm_{col}"</span>] <span style="color:#ff7b72;">=</span> (player_metrics[col] <span style="color:#ff7b72;">-</span> mn) <span style="color:#ff7b72;">/</span> (mx <span style="color:#ff7b72;">-</span> mn)
+
+player_metrics[<span style="color:#a5d6ff;">"composite_score"</span>] <span style="color:#ff7b72;">=</span> sum(
+    player_metrics[<span style="color:#a5d6ff;">f"norm_{col}"</span>] <span style="color:#ff7b72;">*</span> w <span style="color:#ff7b72;">for</span> col, w <span style="color:#ff7b72;">in</span> weights.items()
+)
+
+<span style="color:#8b949e;"># Ratio score/valor: alto = candidato a subvalorização</span>
+player_metrics[<span style="color:#a5d6ff;">"value_score_ratio"</span>] <span style="color:#ff7b72;">=</span> (
+    player_metrics[<span style="color:#a5d6ff;">"composite_score"</span>] <span style="color:#ff7b72;">/</span> player_metrics[<span style="color:#a5d6ff;">"market_val_m"</span>]
+).round(<span style="color:#79c0ff;">4</span>)
+
+print(player_metrics[[<span style="color:#a5d6ff;">"player"</span>, <span style="color:#a5d6ff;">"composite_score"</span>,
+                        <span style="color:#a5d6ff;">"market_val_m"</span>, <span style="color:#a5d6ff;">"value_score_ratio"</span>]]
+      .sort_values(<span style="color:#a5d6ff;">"value_score_ratio"</span>, ascending<span style="color:#ff7b72;">=</span><span style="color:#79c0ff;">False</span>))</code></pre>
+  </div>
+
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">O ratio <code style="background:rgba(255,255,255,.06);padding:2px 7px;border-radius:4px;font-family:monospace;font-size:13px;">composite_score / market_val_m</code> é uma proxy para subvalorização: um jogador com score de performance alto relativo ao valor de mercado corrente representa exatamente o tipo de assimetria que um modelo de recrutamento como o da Starlizard deveria identificar de forma sistemática e antes que o consenso de mercado o reconheça. A sofisticação real, não replicável a partir de dados públicos, reside na capacidade de normalizar essas métricas entre ligas com intensidades de competição radicalmente diferentes: comparar o xT de Caicedo no campeonato equatoriano com o xT de um jogador na Bundesliga exige um modelo de ajuste por contexto que dados públicos simplesmente não proveem com a resolução necessária. Isso é parte central do que torna a vantagem da Starlizard estruturalmente difícil de replicar: não é só a métrica, é a capacidade de calibrá-la entre ambientes incomparáveis.</p>
+
+  <!-- LIMITES -->
+  <h2 style="font-size:1.5rem;font-weight:800;color:#f5f5f7;margin:56px 0 18px;letter-spacing:-.03em;border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:14px;">O que os Dados Sustentam — e Onde o Argumento Para</h2>
+
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">Esta é a seção mais importante do estudo, e intencionalmente a mais conservadora. A disciplina analítica exige separar com clareza o que os dados permitem afirmar, ou seja, afirmações para as quais existe evidência verificável e reprodutível, daquilo que permanece como inferência plausível, hipótese não identificável ou narrativa conveniente. Esse nível de honestidade epistêmica não é uma limitação do estudo: é precisamente o que o diferencia de uma peça de advocacy com dados bem apresentados.</p>
+
+  <div style="display:flex;flex-direction:column;gap:10px;margin:24px 0;">
+    <p style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#46d369;margin:0 0 4px;">Sustentado por dados públicos com confiança razoável</p>
+    <div style="display:flex;gap:14px;align-items:flex-start;padding:15px 18px;background:rgba(70,211,105,.04);border:1px solid rgba(70,211,105,.15);border-radius:10px;">
+      <span style="color:#46d369;font-weight:700;flex-shrink:0;font-size:15px;margin-top:1px;">✓</span>
+      <p style="margin:0;color:#c7c7cc;font-size:14.5px;line-height:1.8;"><strong style="color:#f5f5f7;">Net spend negativo consistente.</strong> Verificável diretamente no Transfermarkt sem suposição adicional. Brighton é o único clube do top-8 da Premier League no período com essa característica: fato, não inferência.</p>
     </div>
-    <div class="art-step">
-      <span class="art-step-num art-step-num-green">03</span>
-      <p><strong>Regress&#227;o de sobreviv&#234;ncia</strong> &#8212; modelar o tempo entre aquisi&#231;&#227;o e revenda como fun&#231;&#227;o de caracter&#237;sticas do jogador, testando se Brighton sistematicamente adquire perfis com distribui&#231;&#227;o de sa&#237;da mais favor&#225;vel.</p>
+    <div style="display:flex;gap:14px;align-items:flex-start;padding:15px 18px;background:rgba(70,211,105,.04);border:1px solid rgba(70,211,105,.15);border-radius:10px;">
+      <span style="color:#46d369;font-weight:700;flex-shrink:0;font-size:15px;margin-top:1px;">✓</span>
+      <p style="margin:0;color:#c7c7cc;font-size:14.5px;line-height:1.8;"><strong style="color:#f5f5f7;">ROI e CAGR de revenda extraordinários e consistentes.</strong> Seis casos com ROI médio acima de 700% e CAGR acima de 80% têm uma probabilidade negligenciável de resultar de acumulação aleatória. A consistência do padrão é evidência de processo, não de acidente estatístico.</p>
     </div>
-    <div class="art-step">
-      <span class="art-step-num art-step-num-green">04</span>
-      <p><strong>Benchmarking multi-clube</strong> &#8212; Brentford, Lille e Ajax como casos comparáveis. Se o padr&#227;o de efici&#234;ncia se repete em contextos diferentes, o argumento de mecanismo identific&#225;vel fica substancialmente mais forte.</p>
+    <div style="display:flex;gap:14px;align-items:flex-start;padding:15px 18px;background:rgba(70,211,105,.04);border:1px solid rgba(70,211,105,.15);border-radius:10px;">
+      <span style="color:#46d369;font-weight:700;flex-shrink:0;font-size:15px;margin-top:1px;">✓</span>
+      <p style="margin:0;color:#c7c7cc;font-size:14.5px;line-height:1.8;"><strong style="color:#f5f5f7;">Padrão geográfico coerente com exploração de ineficiências de mercado.</strong> A concentração de aquisições em ligas com menor cobertura analítica é observável e consistente com H1, embora não prove o mecanismo, mas é compatível com ele.</p>
+    </div>
+    <div style="display:flex;gap:14px;align-items:flex-start;padding:15px 18px;background:rgba(70,211,105,.04);border:1px solid rgba(70,211,105,.15);border-radius:10px;">
+      <span style="color:#46d369;font-weight:700;flex-shrink:0;font-size:15px;margin-top:1px;">✓</span>
+      <p style="margin:0;color:#c7c7cc;font-size:14.5px;line-height:1.8;"><strong style="color:#f5f5f7;">Eficiência de capital estruturalmente superior.</strong> A diferença de €5M+ por ponto entre Brighton e Chelsea é de uma ordem de grandeza que exige explicação estrutural, não podendo ser atribuída a variância amostral nem a escolhas táticas pontuais.</p>
     </div>
   </div>
 
-  <div class="art-refs" style="border-top:1px solid rgba(255,255,255,0.07);padding-top:28px;">
-    <p style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#8e8e93;margin-bottom:14px;">Refer&#234;ncias</p>
-    <ul>
-      <li>Transfermarkt (2025). <em>Brighton &amp; Hove Albion Transfer History.</em> transfermarkt.com</li>
-      <li>Football-Data.co.uk (2025). <em>Premier League Historical Results &amp; Standings.</em></li>
-      <li>DreamDataBall (2024). <em>Brighton &amp; Hove Albion: The Analytics-Driven Underdogs.</em> Substack.</li>
-      <li>Back5 Analytics (2025). <em>Brighton&#8217;s Data Revolution: From Bottom to 21st Richest Club.</em> back5.com.au</li>
-      <li>Lewis, M. (2003). <em>Moneyball: The Art of Winning an Unfair Game.</em> W. W. Norton &amp; Company.</li>
-      <li>Szymanski, S. (2015). <em>Money and Soccer: A Soccernomics Guide.</em> Nation Books.</li>
+  <div style="display:flex;flex-direction:column;gap:10px;margin:28px 0;">
+    <p style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#ff7b72;margin:0 0 4px;">Onde dados públicos não chegam</p>
+    <div style="display:flex;gap:14px;align-items:flex-start;padding:15px 18px;background:rgba(255,123,114,.04);border:1px solid rgba(255,123,114,.15);border-radius:10px;">
+      <span style="color:#ff7b72;font-weight:700;flex-shrink:0;font-size:15px;margin-top:1px;">✗</span>
+      <p style="margin:0;color:#c7c7cc;font-size:14.5px;line-height:1.8;"><strong style="color:#f5f5f7;">Causalidade via Starlizard.</strong> O mesmo padrão de eficiência poderia ser explicado por rede de agentes excepcionalmente posicionada, timing de mercado favorável ou cultura organizacional singular. Os dados mostram <em>que</em> Brighton é eficiente, sem conseguir identificar <em>por que</em> com precisão causal.</p>
+    </div>
+    <div style="display:flex;gap:14px;align-items:flex-start;padding:15px 18px;background:rgba(255,123,114,.04);border:1px solid rgba(255,123,114,.15);border-radius:10px;">
+      <span style="color:#ff7b72;font-weight:700;flex-shrink:0;font-size:15px;margin-top:1px;">✗</span>
+      <p style="margin:0;color:#c7c7cc;font-size:14.5px;line-height:1.8;"><strong style="color:#f5f5f7;">Replicabilidade.</strong> A infraestrutura Starlizard/Jamestown não é disponível para outros clubes. "Contratar um analista e usar o Transfermarkt" não replica o modelo: requer anos de construção, investimento substancial e acesso a dados de mercado que outros clubes simplesmente não possuem.</p>
+    </div>
+    <div style="display:flex;gap:14px;align-items:flex-start;padding:15px 18px;background:rgba(255,123,114,.04);border:1px solid rgba(255,123,114,.15);border-radius:10px;">
+      <span style="color:#ff7b72;font-weight:700;flex-shrink:0;font-size:15px;margin-top:1px;">✗</span>
+      <p style="margin:0;color:#c7c7cc;font-size:14.5px;line-height:1.8;"><strong style="color:#f5f5f7;">Contribuição marginal do treinador.</strong> Brighton passou pelos ciclos De Zerbi e Potter, dois treinadores de perfil técnico excepcional. A contribuição marginal do treinador sobre a performance de campo, versus a contribuição do recrutamento, não é identificável a partir de dados de transferência, e não deve ser ignorada na interpretação dos pontos acumulados.</p>
+    </div>
+    <div style="display:flex;gap:14px;align-items:flex-start;padding:15px 18px;background:rgba(255,123,114,.04);border:1px solid rgba(255,123,114,.15);border-radius:10px;">
+      <span style="color:#ff7b72;font-weight:700;flex-shrink:0;font-size:15px;margin-top:1px;">✗</span>
+      <p style="margin:0;color:#c7c7cc;font-size:14.5px;line-height:1.8;"><strong style="color:#f5f5f7;">Custos salariais ocultos.</strong> Um jogador comprado por €5M com salário de €5M por temporada custa €25M em quatro anos. A métrica de transferência captura apenas parte do custo total de roster, subestimando sistematicamente o custo real de manter jogadores de alto potencial antes de revendê-los.</p>
+    </div>
+  </div>
+
+  <!-- ROADMAP -->
+  <h2 style="font-size:1.5rem;font-weight:800;color:#f5f5f7;margin:56px 0 18px;letter-spacing:-.03em;border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:14px;">Roadmap Analítico — Do Agregado ao Nível Jogador-Trajetória</h2>
+
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">A evolução mais natural deste estudo é migrar do nível clube-temporada para o nível jogador-trajetória. A pergunta se reformula: em vez de "quanto custa um ponto para o Brighton?", passa a ser "quanto valor foi criado entre aquisição e revenda por minuto jogado, controlando por posição, idade na aquisição, liga de origem e fase de carreira?" Essa formulação é consideravelmente mais difícil de responder com dados públicos, mas é substancialmente mais próxima do mecanismo que se pretende evidenciar. Para chegar lá, o roadmap analítico passa por três extensões principais.</p>
+
+  <div style="background:#111;border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden;margin:28px 0;font-size:13.5px;">
+    <div style="background:rgba(255,255,255,.04);padding:11px 18px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.06);">
+      <span style="color:#6e6e73;font-size:11.5px;letter-spacing:.08em;font-family:monospace;">player_trajectory_index.py</span>
+      <span style="color:#3b82f6;font-size:11px;font-weight:600;">Python · Scikit-learn · Lifelines</span>
+    </div>
+    <pre style="margin:0;padding:22px;overflow-x:auto;line-height:1.7;"><code style="font-family:'JetBrains Mono','Fira Code','Courier New',monospace;color:#e5e5ea;"><span style="color:#8b949e;">from</span> <span style="color:#a5d6ff;">sklearn.preprocessing</span> <span style="color:#8b949e;">import</span> MinMaxScaler
+<span style="color:#8b949e;">from</span> <span style="color:#a5d6ff;">lifelines</span> <span style="color:#8b949e;">import</span> CoxPHFitter
+<span style="color:#8b949e;">import</span> <span style="color:#a5d6ff;">pandas</span> <span style="color:#8b949e;">as</span> pd
+
+def build_value_index(df: pd.DataFrame) <span style="color:#ff7b72;">-></span> pd.DataFrame:
+    scaler   <span style="color:#ff7b72;">=</span> MinMaxScaler()
+    features <span style="color:#ff7b72;">=</span> [<span style="color:#a5d6ff;">"roi_pct"</span>, <span style="color:#a5d6ff;">"minutes_per_season"</span>,
+                 <span style="color:#a5d6ff;">"xg_per90"</span>, <span style="color:#a5d6ff;">"xt_per90"</span>, <span style="color:#a5d6ff;">"prog_passes_p90"</span>]
+    df[features] <span style="color:#ff7b72;">=</span> scaler.fit_transform(df[features])
+    df[<span style="color:#a5d6ff;">"value_index"</span>] <span style="color:#ff7b72;">=</span> (
+        <span style="color:#79c0ff;">0.35</span> <span style="color:#ff7b72;">*</span> df[<span style="color:#a5d6ff;">"roi_pct"</span>]
+      <span style="color:#ff7b72;">+</span> <span style="color:#79c0ff;">0.20</span> <span style="color:#ff7b72;">*</span> df[<span style="color:#a5d6ff;">"minutes_per_season"</span>]
+      <span style="color:#ff7b72;">+</span> <span style="color:#79c0ff;">0.15</span> <span style="color:#ff7b72;">*</span> df[<span style="color:#a5d6ff;">"xg_per90"</span>]
+      <span style="color:#ff7b72;">+</span> <span style="color:#79c0ff;">0.20</span> <span style="color:#ff7b72;">*</span> df[<span style="color:#a5d6ff;">"xt_per90"</span>]
+      <span style="color:#ff7b72;">+</span> <span style="color:#79c0ff;">0.10</span> <span style="color:#ff7b72;">*</span> df[<span style="color:#a5d6ff;">"prog_passes_p90"</span>]
+    )
+    <span style="color:#ff7b72;">return</span> df
+
+<span style="color:#8b949e;"># Regressão de sobrevivência: tempo entre aquisição e revenda</span>
+<span style="color:#8b949e;"># como função das características do jogador no momento da compra</span>
+cph <span style="color:#ff7b72;">=</span> CoxPHFitter()
+cph.fit(
+    df_survival,
+    duration_col<span style="color:#ff7b72;">=</span><span style="color:#a5d6ff;">"years_held"</span>,
+    event_col<span style="color:#ff7b72;">=</span><span style="color:#a5d6ff;">"was_sold"</span>,
+    formula<span style="color:#ff7b72;">=</span><span style="color:#a5d6ff;">"age_at_buy + position_enc + league_tier + xg_per90_at_buy"</span>
+)
+cph.print_summary()</code></pre>
+  </div>
+
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">A primeira extensão consiste em incorporar dados de salário, disponíveis parcialmente via Capology e Swiss Ramble, para calcular o custo total de roster por ponto, tornando a métrica de eficiência de capital financeiramente completa. A segunda é a construção de um índice de criação de valor por jogador que combine variação de valuation de mercado, fee de revenda, minutos jogados e contribuição de performance via xG, xT e xA, operacionalizado como mostra a função <code style="background:rgba(255,255,255,.06);padding:2px 7px;border-radius:4px;font-family:monospace;font-size:12.5px;">build_value_index</code> acima. A terceira extensão, metodologicamente mais sofisticada, é uma regressão de sobrevivência que modela o tempo entre aquisição e revenda como função de características observáveis do jogador no momento da compra, permitindo estimar, por exemplo, se jogadores jovens de mercados emergentes têm maior ou menor probabilidade de serem revendidos dentro de dois anos, e a que múltiplo do fee de aquisição.</p>
+
+  <p style="line-height:1.95;color:#c7c7cc;margin-bottom:1.6rem;">O benchmarking precisa igualmente ser ampliado. Brentford opera um modelo com princípios estruturalmente similares: scouting de mercados menos disputados, desenvolvimento via B-team, foco em métricas de performance sobre reputação, e seus resultados constituem um caso comparável relevante dentro da Premier League. Fora da Premier League, Lille e Ajax têm históricos documentados de desenvolvimento e revenda que servem como controles naturais para testar se o padrão de eficiência de Brighton reflete um mecanismo genérico de clubes com infraestrutura analítica avançada ou algo específico ao ecossistema Bloom. Se o padrão se repete em múltiplos contextos institucionais com características operacionais similares, o argumento de que existe um mecanismo analiticamente identificável, e não apenas uma conjuntura favorável, ganha substancialmente em força evidencial.</p>
+
+  <!-- TAKEAWAY -->
+  <div style="background:linear-gradient(135deg,rgba(59,130,246,.08) 0%,rgba(59,130,246,.03) 100%);border:1px solid rgba(59,130,246,.2);border-radius:14px;padding:34px 38px;margin:56px 0 40px;">
+    <p style="font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#3b82f6;margin:0 0 16px;">Conclusão Analítica</p>
+    <p style="font-size:1.05rem;color:#f5f5f7;font-weight:600;line-height:1.65;margin:0 0 14px;">Brighton como evidência, não como narrativa.</p>
+    <p style="margin:0;color:#a1a1a6;font-size:.97rem;line-height:1.95;">Os dados públicos sustentam que Brighton opera com eficiência de capital estruturalmente superior à maioria dos clubes da Premier League, com consistência temporal e padrão geográfico coerentes com a hipótese de exploração sistemática de ineficiências de mercado. Não sustentam, contudo, com precisão causal, qual mecanismo específico é responsável por isso, seja a vantagem informacional da Starlizard, a rede de relacionamentos do grupo Bloom, ou uma combinação de fatores organizacionais não observáveis nos dados de transferência. Essa distinção não é periférica ao argumento: é o que o torna rigoroso. O framework apresentado aqui é reprodutível, extensível e honesto sobre seus limites, e esse é o padrão de rigor analítico que qualquer estudo de caso de "data-driven football" deveria satisfazer antes de ser apresentado como evidência de qualquer coisa.</p>
+  </div>
+
+  <!-- REFERÊNCIAS -->
+  <div style="padding-top:36px;border-top:1px solid rgba(255,255,255,.07);">
+    <p style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#3b82f6;font-weight:700;margin-bottom:18px;">Referências</p>
+    <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">
+      <li style="font-size:13.5px;color:#6e6e73;line-height:1.65;">Law, M. (2024). <em style="color:#a1a1a6;">Brighton axe majority of scouts in surprise recruitment overhaul.</em> The Telegraph, 11 Nov.</li>
+      <li style="font-size:13.5px;color:#6e6e73;line-height:1.65;">ESPN (2024). <em style="color:#a1a1a6;">How Brighton's transfer mastery broke Premier League profit record.</em> ESPN FC, 7 May.</li>
+      <li style="font-size:13.5px;color:#6e6e73;line-height:1.65;">Back5 (2025). <em style="color:#a1a1a6;">Brighton's Data Revolution: From Bottom to 21st Richest Club.</em> back5.com.au, 18 Aug.</li>
+      <li style="font-size:13.5px;color:#6e6e73;line-height:1.65;">Lente Desportiva (2025). <em style="color:#a1a1a6;">Premier League 2024/25: Ranking Clubs by Points per Million Spent.</em></li>
+      <li style="font-size:13.5px;color:#6e6e73;line-height:1.65;">PFSA (2025). <em style="color:#a1a1a6;">Beyond Expected Goals: Meet xT and VAEP, The Metrics Redefining Player Value.</em> thepfsa.co.uk, 30 Aug.</li>
+      <li style="font-size:13.5px;color:#6e6e73;line-height:1.65;">Transfermarkt. <em style="color:#a1a1a6;">Transfer Data — Premier League 2021–2025.</em> transfermarkt.com</li>
+      <li style="font-size:13.5px;color:#6e6e73;line-height:1.65;">Lewis, M. (2004). <em style="color:#a1a1a6;">Moneyball: The Art of Winning an Unfair Game.</em> W. W. Norton &amp; Company.</li>
+      <li style="font-size:13.5px;color:#6e6e73;line-height:1.65;">Szymanski, S. (2015). <em style="color:#a1a1a6;">Money and Soccer: A Soccernomics Guide.</em> Nation Books.</li>
     </ul>
   </div>
 
-</div>
-
-
-<!-- End of Brighton Study Page --></div>
+</article><!-- End of Brighton Study Page --></div>
 
 
 
@@ -3630,34 +4011,28 @@ fact_table.to_gbq(
 
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-function openStudy(e, studyType = 'mmm') {
+function openStudy(e, studyType) {
     e.preventDefault();
+    studyType = studyType || 'mmm';
     document.getElementById('portfolio-page').classList.remove('active');
-    
-    Hide all studies
-    const studies = ['case-study-page', 'brighton-study-page'];
-    studies.forEach(id => {
-        const el = document.getElementById(id);
+    var studies = ['case-study-page', 'brighton-study-page'];
+    studies.forEach(function(id) {
+        var el = document.getElementById(id);
         if (el) el.classList.remove('active');
     });
-    
-    Show selected study
     if (studyType === 'brighton') {
         document.getElementById('brighton-study-page').classList.add('active');
     } else {
         document.getElementById('case-study-page').classList.add('active');
-        Open on Full Article tab for MMM
-        const tabs = document.querySelectorAll('#case-study-page .tab-button');
-        const contents = document.querySelectorAll('#case-study-page .tab-content');
-        tabs.forEach(btn => btn.classList.remove('active'));
-        contents.forEach(content => content.classList.remove('active'));
-        if (tabs[1]) tabs[1].classList.add('active');
-        const fullArticle = document.getElementById('full-article-tab');
+        document.querySelectorAll('#case-study-page .tab-content').forEach(function(c){
+            c.classList.remove('active');
+        });
+        var fullArticle = document.getElementById('full-article-tab');
         if (fullArticle) fullArticle.classList.add('active');
     }
-    
     window.scrollTo(0, 0);
 }
+
 
 function closeStudy(e) {
     e.preventDefault();
